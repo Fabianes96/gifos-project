@@ -1,1 +1,110 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  top: 18px;
+}
+
+header #logo {
+  position: relative;
+  left: 168px;
+}
+
+@media screen and (max-width: 850px) {
+  header #logo {
+    display: none;
+  }
+}
+
+header #logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  header #logo-mobile {
+    display: block;
+    position: relative;
+    left: 22px;
+  }
+}
+
+header .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  right: 153px;
+}
+
+header .menu nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .menu nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .menu nav ul li {
+  margin-left: 16px;
+  list-style: none;
+}
+
+header .menu nav ul li a {
+  font-size: 13px;
+  color: #572ee5;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+header .menu nav #crear-gifo {
+  background: #ffffff;
+  border: 1px solid #572ee5;
+  border-radius: 30px;
+  position: relative;
+  left: 53px;
+  padding: 13px;
+}
+
+@media screen and (max-width: 850px) {
+  header .menu nav {
+    display: none;
+  }
+}
+
+header .menu #burger {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  header .menu #burger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  header .menu {
+    right: 14px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

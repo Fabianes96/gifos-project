@@ -1,0 +1,72 @@
+$font-principal: "Montserrat-Bold", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: $font-principal;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 18px;
+  #logo {       
+    position: relative;
+    left: 168px;
+    @media screen and (max-width: 850px) {
+      display: none;
+    }
+  }
+  #logo-mobile {
+    display: none;
+    @media screen and (max-width: 850px) {
+      display: block;
+      position: relative;
+      left: 22px;
+    }
+  }
+  .menu {
+    display: flex;  
+    position: relative;
+    right: 153px;
+    nav {
+      display: flex;
+      align-items: center;
+      ul {
+        display: flex;
+        li {
+          margin-left: 16px;
+          list-style: none;
+          a {
+            font-size: 13px;
+            color: #572ee5;
+            letter-spacing: 0;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+      }
+      #crear-gifo {
+        background: #ffffff;
+        border: 1px solid #572ee5;
+        border-radius: 30px;
+        position: relative;
+        left: 53px;
+        padding: 13px;
+      }
+      @media screen and (max-width:850px) {
+          display: none;
+      }
+    }
+    #burger{
+        display: none;
+        @media screen and (max-width:850px) {
+            display: block;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        right: 14px;
+    }
+  }
+}
