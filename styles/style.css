@@ -5,6 +5,7 @@
 
 body {
   font-family: "Montserrat-Bold", sans-serif;
+  color: #572ee5;
 }
 
 header {
@@ -14,8 +15,8 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  position: relative;
-  top: 18px;
+  border-top: 5px solid #572ee5;
+  padding-top: 18px;
 }
 
 header #logo {
@@ -106,5 +107,67 @@ header .menu #burger {
   header .menu {
     right: 14px;
   }
+}
+
+.initial {
+  position: relative;
+  top: 76px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.initial h1 span {
+  color: #50e3c2;
+}
+
+.initial img {
+  margin-top: 24px;
+}
+
+.initial #search-field {
+  border-radius: 50px;
+  border: 1px solid #572EE5;
+  width: 420px;
+  padding: 12px 50px;
+  background-image: url("/assets/icon-search.svg");
+  background-repeat: no-repeat;
+  background-position: 480px center;
+}
+
+.initial #search-field:focus {
+  border: 2px solid #572EE5;
+  outline-width: 0;
+}
+
+.initial .paragraphs {
+  position: relative;
+  top: 76px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.initial .paragraphs #subtitle {
+  font-family: "Montserrat-Medium";
+  font-size: 16px;
+  font-weight: normal;
 }
 /*# sourceMappingURL=style.css.map */

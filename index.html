@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
-    <script src="js/main.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="rr"></div>
     <header>
-        <!-- Logo -->
-        <img src="assets/logo-desktop.svg" alt="logo" id="logo"/>
-        <img src="assets/logo-mobile.svg" alt="logo" id="logo-mobile"/>
-        <!-- Menú -->
-        <div class="menu">         
-          <nav>
-            <!-- Items de navegación -->
-            <ul>
-              <li>
-                <a href="#">MODO NOCTURNO</a>
-              </li>
-              <li>
-                <a href="#">FAVORITOS</a>
-              </li>
-              <li>
-                <a href="#">MIS GIFOS</a>
-              </li>              
-            </ul>            
-            <img src="assets/button-crear-gifo.svg" alt="crear-gifo" id="crear-gifo">            
-          </nav>
-          <img src="assets/burger.svg" alt="menu" id="burger">
-        </div>
-      </header>        
-</body>
+      <!-- Logo -->
+      <img src="assets/logo-desktop.svg" alt="logo" id="logo" />
+      <img src="assets/logo-mobile.svg" alt="logo" id="logo-mobile" />
+      <!-- Menú -->
+      <div class="menu">
+        <nav>
+          <!-- Items de navegación -->
+          <ul>
+            <li>
+              <a href="#">MODO NOCTURNO</a>
+            </li>
+            <li>
+              <a href="#">FAVORITOS</a>
+            </li>
+            <li>
+              <a href="#">MIS GIFOS</a>
+            </li>
+          </ul>
+          <img
+            src="assets/button-crear-gifo.svg"
+            alt="crear-gifo"
+            id="crear-gifo"
+          />
+        </nav>
+        <img src="assets/burger.svg" alt="menu" id="burger" />
+      </div>
+    </header>
+    <section class="initial">
+      <h1>Inspírate, busca, guarda, y crea</h1>
+      <h1>los mejores <span>GIFOS</span></h1>
+      <img src="assets/ilustra_header.svg" alt="bienvenidos" />
+      <input type="text" id="search-field" placeholder="Busca GIFOS y más" />
+      <div class="paragraphs">
+        <p>Trending:</p>
+        <p id="subtitle">Reactions, Entertainment, Sports, Stickers, Artists</p>
+      </div>      
+    </section>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/73b0c866b6.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/main.js"></script>
 </html>
