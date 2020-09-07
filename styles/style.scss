@@ -130,9 +130,8 @@ header {
     border: 2px solid #572EE5;
     outline-width: 0;
   }
-  .paragraphs{
-      position: relative;
-      top: 76px;
+  .paragraphs{      
+      margin-top: 76px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -142,7 +141,62 @@ header {
       #subtitle{
           font-family: "Montserrat-Medium";
           font-size: 16px;
-          font-weight: normal;          
+          font-weight: normal;   
+          @media screen and (max-width:450px){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }       
       }
+  }
+}
+.trending{
+    position: relative;
+    top: 76px;
+    margin-top: 95px;  
+  .container{
+    width: 100%;
+    height: 640px;
+    background-color: #F3F5F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .info{
+      text-align: center;
+      h1{
+        font-size: 25px;
+      }
+      #trending-p{
+        position: relative;
+        color: #000000;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        top: 7px;
+      }
+    }
+    #slider{
+      display: flex;
+      align-items: center;
+      width: 100%;      
+      .arrow{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: .3s;
+      }
+      .arrow:hover{
+        opacity: .5;
+        width: 35px;
+        height: 30px;
+      }
+      #gifs{        
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;        
+        scroll-behavior: smooth;
+      } 
+    }
+    
   }
 }

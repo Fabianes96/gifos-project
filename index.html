@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="rr"></div>
@@ -51,7 +52,32 @@
       <input type="text" id="search-field" placeholder="Busca GIFOS y más" />
       <div class="paragraphs">
         <p>Trending:</p>
-        <p id="subtitle">Reactions, Entertainment, Sports, Stickers, Artists</p>
+        <p id="subtitle">
+          Reactions, Entertainment, <span>Sports, Stickers, Artists</span>
+        </p>
+      </div>
+    </section>
+    <section class="trending">
+      <div class="container">
+        <div class="info">
+          <h1>Trending GIFOS</h1>
+          <p id="trending-p">Mira los últimos GIFO de nuestra comunidad.</p>
+        </div>
+        <div id="slider">
+          <img
+            id="slideLeft"
+            src="assets/button-left.svg"
+            alt="Ver más"
+            class="arrow"
+          />
+          <div id="gifs"></div>
+          <img
+            id="slideRight"
+            src="assets/button-right.svg"
+            alt="Ver más"
+            class="arrow"
+          />
+        </div>
       </div>
     </section>
   </body>

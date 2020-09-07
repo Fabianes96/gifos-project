@@ -198,8 +198,7 @@ header .menu #burger {
 }
 
 .initial .paragraphs {
-  position: relative;
-  top: 76px;
+  margin-top: 76px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,5 +218,95 @@ header .menu #burger {
   font-family: "Montserrat-Medium";
   font-size: 16px;
   font-weight: normal;
+}
+
+@media screen and (max-width: 450px) {
+  .initial .paragraphs #subtitle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.trending {
+  position: relative;
+  top: 76px;
+  margin-top: 95px;
+}
+
+.trending .container {
+  width: 100%;
+  height: 640px;
+  background-color: #F3F5F8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.trending .container .info {
+  text-align: center;
+}
+
+.trending .container .info h1 {
+  font-size: 25px;
+}
+
+.trending .container .info #trending-p {
+  position: relative;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  top: 7px;
+}
+
+.trending .container #slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.trending .container #slider .arrow {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.trending .container #slider .arrow:hover {
+  opacity: .5;
+  width: 35px;
+  height: 30px;
+}
+
+.trending .container #slider #gifs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 /*# sourceMappingURL=style.css.map */
