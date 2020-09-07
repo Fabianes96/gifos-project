@@ -296,13 +296,21 @@ header .menu #burger {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
+.trending .container #slider .arrow-container img {
+  width: 15px;
+  height: 15px;
+}
+
 .trending .container #slider .arrow-container:active {
-  background-color: #572EE5;
+  background-color: #572ee5;
 }
 
 .trending .container #slider .arrow-container:active img {
@@ -315,9 +323,113 @@ header .menu #burger {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 29px;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+.trending .container #slider #gifs div img:hover {
+  opacity: 0.4;
+}
+
+.trending .container #slider #gifs .square {
+  background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 357px;
+  height: 275px;
+}
+
+.trending .container #slider #gifs .square .card-icons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
+}
+
+.trending .container #slider #gifs .square .card-icons .div-icons {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+}
+
+.trending .container #slider #gifs .square .card-icons .div-icons .icono {
+  width: 18px;
+  height: 16px;
+  background: #ffffff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.trending .container #slider #gifs .square .gifos {
+  position: relative;
+  bottom: 32px;
+  z-index: 10;
+}
+
+.trending .container #slider #gifs .square .div-description {
+  position: relative;
+  bottom: 8rem;
+  padding-left: 1rem;
+  color: #ffffff;
+}
+
+.trending .container #slider #gifs .square .div-description p {
+  margin-bottom: 5px;
+}
+
+.trending .container #slider #gifs .square:hover .gifos {
+  opacity: 0.4;
+  z-index: 0;
+}
+
+footer {
+  position: relative;
+  top: 76px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 116px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+  font-size: 13px;
+}
+
+footer .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 19px;
 }
 /*# sourceMappingURL=style.css.map */
