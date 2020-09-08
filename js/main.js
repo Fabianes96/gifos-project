@@ -65,8 +65,8 @@ function addGifs(){
         let gif = document.createElement("img");
         gif.setAttribute("src", `${gifs[i].images.original.url}`);
         gif.setAttribute("class", 'gifos');
-        gif.style.width = "357px";
-        gif.style.height = "275px"  ;      
+        gif.style.minWidth = "357px";
+        gif.style.minHeight = "275px"  ;      
         square.appendChild(gif);
         let divParagraphs = document.createElement('div');
         divParagraphs.setAttribute("class", 'div-description');

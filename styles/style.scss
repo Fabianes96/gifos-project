@@ -167,12 +167,18 @@ header {
         font-size: 25px;
       }
       #trending-p {
+        display: flex;
+        gap: 5px;
         position: relative;
         color: #000000;
         font-family: "Roboto", sans-serif;
         font-size: 18px;
         top: 7px;
+        @media screen and (max-width:500px) {
+            display: block;
+        }        
       }
+      
     }
     #slider {
       display: flex;
@@ -198,11 +204,11 @@ header {
           filter: brightness(0) invert(1);
         }
       }
-      // .arrow-container:hover{
-      //   opacity: .5;
-      //   width: 45px;
-      //   height: 45px;
-      // }
+      .arrow-container:hover{
+        opacity: .5;
+        min-width: 43px;  
+        min-height: 43px;
+      }
       #gifs {
         margin: 0 25px;
         display: flex;
@@ -280,8 +286,19 @@ footer {
   font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: 13px;
+  border-bottom: 5px solid #572ee5;
   .icons {
     display: flex;
     gap: 19px;
+    .a-icons{
+      display: inherit;
+      gap: inherit;
+    }
+  }
+  @media screen and(max-width:500px){
+    flex-direction: column;
+    .icons{
+      flex-direction: inherit;
+    }
   }
 }
