@@ -19,6 +19,31 @@ body {
   margin-bottom: 5px;
 }
 
+.div-icons {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.div-icons .icono {
+  width: 18px;
+  height: 16px;
+  background: #ffffff;
+  z-index: 1;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -390,31 +415,6 @@ header .menu #burger {
   right: 7px;
 }
 
-.trending .container #slider #gifs .square .card-icons .div-icons {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 1;
-}
-
-.trending .container #slider #gifs .square .card-icons .div-icons .icono {
-  width: 18px;
-  height: 16px;
-  background: #ffffff;
-  cursor: pointer;
-  z-index: 1;
-}
-
 .trending .container #slider #gifs .square .gifos {
   position: relative;
   bottom: 32px;
@@ -479,9 +479,9 @@ header .menu #burger {
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
@@ -518,11 +518,19 @@ header .menu #burger {
   padding-left: 0;
 }
 
+.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description:first-child {
+  font-size: 15px;
+}
+
 .trending .container #slider .modal .modal-container .modal-content #modalContent .card-icons-max {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 25px;
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent .card-icons-max .div-icons {
+  border: 1px solid #ccc;
 }
 
 .trending .container #slider .modal .modal-container .modal-content #slideLeftModal {

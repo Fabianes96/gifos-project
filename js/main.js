@@ -5,11 +5,15 @@ const LIMIT = "&limit=25";
 let gifs = [];
 let buttonRight = document.getElementById("slideRight");
 let buttonLeft = document.getElementById("slideLeft");
+let buttonLeftModal = document.getElementById("slideLeftModal");
+let buttonRightModal = document.getElementById("slideRightModal");
 let divGifs = document.getElementById("gifs");
 
 var modal = document.getElementById("myModal");
-var modalContent = document.getElementById("modalContent");
+var modalContent = document.querySelector("#modalContent")
+
 var span = document.getElementsByClassName("close")[0];
+var index;
 span.onclick = function () {
   modal.style.display = "none";
   while (modalContent.firstChild) {
@@ -94,7 +98,7 @@ function addGifs() {
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
     square.appendChild(divParagraphs);
-    square.setAttribute("onclick", `showModal(${i})`);
+    divIconMax.setAttribute("onclick", `showModal(${i})`);
     container.appendChild(square);
     //square.addEventListener('click', showModal(i))
     // let image = document.createElement("img");
@@ -106,15 +110,29 @@ function addGifs() {
   }
 }
 function showModal(i) {
+    index = i;
     let gif = document.createElement("img");
     gif.setAttribute("src", `${gifs[i].images.original.url}`);
     gif.setAttribute("class", "modal-gif");
     let div = document.createElement("div");
     div.setAttribute("class", "card-icons-max");
+
+    let divIconFav = document.createElement("div");
+    divIconFav.setAttribute("class", "div-icons");
+
+    let divIconDownload = document.createElement("div");
+    divIconDownload.setAttribute("class", "div-icons");
+
     let image1 = document.createElement("img");
-    image1.setAttribute("src", "assets/icon-fav-hover.svg");
+    image1.setAttribute("src", "assets/icon-fav-active.svg");
+    image1.setAttribute("class", "icono");
+    divIconFav.appendChild(image1);
+
     let image2 = document.createElement("img");
     image2.setAttribute("src", "assets/icon-download.svg");
+    image2.setAttribute("class", "icono");
+    divIconDownload.appendChild(image2);
+
     let divParagraphs = document.createElement("div");
     divParagraphs.setAttribute("class", "div-description");
     let divContainer = document.createElement("div");
@@ -125,14 +143,15 @@ function showModal(i) {
     p2.textContent = `${gifs[i].title}`;
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
-    div.appendChild(image1);
-    div.appendChild(image2);
+    div.appendChild(divIconFav);
+    div.appendChild(divIconDownload);
     divContainer.appendChild(divParagraphs);
     divContainer.appendChild(div);   
-    
-    modalContent.appendChild(divContainer);
     modalContent.appendChild(gif);
+    modalContent.appendChild(divContainer);    
     modal.style.display = "block";
+
+    
 
   // square.addEventListener('click', ()=>{
   //   modal.style.display = "block";
@@ -140,6 +159,34 @@ function showModal(i) {
   // })
 }
 
+buttonLeftModal.addEventListener('click',()=>{
+  let modal = modalContent.firstElementChild; 
+  let firstChild = document.querySelector("#modalContent div");
+  let divDesc = firstChild.firstElementChild;
+  let user = divDesc.firstElementChild;
+  let title = divDesc.lastElementChild; 
+  
+  if((index-1) >= 0 ){    
+    modal.setAttribute('src',`${gifs[index-1].images.original.url}`)
+    user.textContent = `${gifs[index-1].username}`;
+    title.textContent = `${gifs[index-1].title}`
+    index = index-1;  
+  }  
+});
+buttonRightModal.addEventListener('click',()=>{
+  let modal = modalContent.firstElementChild; 
+  let first = document.querySelector("#modalContent div");
+  let divDesc = first.firstElementChild;
+  let user = divDesc.firstElementChild;
+  let title = divDesc.lastElementChild; 
+  
+  if((index+1) < gifs.length ){    
+    modal.setAttribute('src',`${gifs[index+1].images.original.url}`)
+    user.textContent = `${gifs[index+1].username}`;
+    title.textContent = `${gifs[index+1].title}`
+    index = index+1;  
+  }  
+});
 callGifs().then(() => {
   addGifs();
 });

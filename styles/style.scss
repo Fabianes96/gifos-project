@@ -16,6 +16,23 @@ body {
     margin-bottom: 5px;
   }
 }
+.div-icons {
+  width: 32px;
+  height: 32px;  
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+  .icono {
+    width: 18px;
+    height: 16px;
+    background: #ffffff;    
+    z-index: 1;
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -241,23 +258,7 @@ header {
             top: 7px;
             position: relative;
             right: 7px;
-            .div-icons {
-              width: 32px;
-              height: 32px;
-              border-radius: 6px;
-              background-color: #ffffff;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              z-index: 1;
-              .icono {
-                width: 18px;
-                height: 16px;
-                background: #ffffff;
-                cursor: pointer;
-                z-index: 1;
-              }
-            }
+            
           }
           .gifos {
             position: relative;
@@ -301,7 +302,7 @@ header {
             #modalContent {
               display: flex;
               justify-content: center;
-              flex-direction: column-reverse;
+              flex-direction: column;
               .modal-gif {
                 width: 695px;
                 height: 385px;
@@ -320,12 +321,18 @@ header {
                 .div-description{
                   position: static;
                   color: #000000;
-                  padding-left: 0;
+                  padding-left: 0;                  
+                }
+                .div-description:first-child{
+                  font-size: 15px;
                 }
               }
               .card-icons-max {
                 display: flex;
                 gap: 25px;
+                .div-icons{
+                  border: 1px solid #ccc;
+                }
               }              
             }
             #slideLeftModal {
@@ -346,7 +353,6 @@ header {
           }
         }
       }
-
       /* The Close Button */
       .close {
         color: #aaa;
