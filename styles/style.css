@@ -8,6 +8,17 @@ body {
   color: #572ee5;
 }
 
+.div-description {
+  position: relative;
+  bottom: 8rem;
+  padding-left: 1rem;
+  color: #ffffff;
+}
+
+.div-description p {
+  margin-bottom: 5px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -294,6 +305,7 @@ header .menu #burger {
       -ms-flex-align: center;
           align-items: center;
   width: 90%;
+  /* The Close Button */
 }
 
 .trending .container #slider .arrow-container {
@@ -329,7 +341,7 @@ header .menu #burger {
 }
 
 .trending .container #slider .arrow-container:hover {
-  opacity: .5;
+  opacity: 0.5;
   min-width: 43px;
   min-height: 43px;
 }
@@ -409,20 +421,144 @@ header .menu #burger {
   z-index: 10;
 }
 
-.trending .container #slider #gifs .square .div-description {
-  position: relative;
-  bottom: 8rem;
-  padding-left: 1rem;
-  color: #ffffff;
-}
-
-.trending .container #slider #gifs .square .div-description p {
-  margin-bottom: 5px;
-}
-
 .trending .container #slider #gifs .square:hover .gifos {
   opacity: 0.4;
   z-index: 0;
+}
+
+.trending .container #slider .modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.trending .container #slider .modal .modal-container {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 90%;
+  margin: 5% auto;
+  height: 500px;
+  padding: 0 10px;
+}
+
+.trending .container #slider .modal .modal-container .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+  padding: 40px;
+  /* Could be more or less, depending on screen size */
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
+  width: 695px;
+  height: 385px;
+}
+
+@media screen and (max-width: 900px) {
+  .trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
+    width: 318px;
+    height: 245px;
+  }
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 22px;
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description {
+  position: static;
+  color: #000000;
+  padding-left: 0;
+}
+
+.trending .container #slider .modal .modal-container .modal-content #modalContent .card-icons-max {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+}
+
+.trending .container #slider .modal .modal-container .modal-content #slideLeftModal {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .trending .container #slider .modal .modal-container .modal-content #slideLeftModal {
+    display: none;
+  }
+}
+
+.trending .container #slider .modal .modal-container .modal-content #slideRightModal {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .trending .container #slider .modal .modal-container .modal-content #slideRightModal {
+    display: none;
+  }
+}
+
+.trending .container #slider .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.trending .container #slider .close:hover,
+.trending .container #slider .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 footer {

@@ -7,6 +7,15 @@ body {
   font-family: $font-principal;
   color: #572ee5;
 }
+.div-description {
+  position: relative;
+  bottom: 8rem;
+  padding-left: 1rem;
+  color: #ffffff;
+  p {
+    margin-bottom: 5px;
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -174,11 +183,10 @@ header {
         font-family: "Roboto", sans-serif;
         font-size: 18px;
         top: 7px;
-        @media screen and (max-width:500px) {
-            display: block;
-        }        
+        @media screen and (max-width: 500px) {
+          display: block;
+        }
       }
-      
     }
     #slider {
       display: flex;
@@ -204,9 +212,9 @@ header {
           filter: brightness(0) invert(1);
         }
       }
-      .arrow-container:hover{
-        opacity: .5;
-        min-width: 43px;  
+      .arrow-container:hover {
+        opacity: 0.5;
+        min-width: 43px;
         min-height: 43px;
       }
       #gifs {
@@ -219,60 +227,139 @@ header {
         div img:hover {
           opacity: 0.4;
         }
-        .square{                 
+        .square {
           background-color: #572ee5;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           width: 357px;
           height: 275px;
-          .card-icons{
+          .card-icons {
             align-self: flex-end;
             display: flex;
             gap: 7px;
             top: 7px;
             position: relative;
             right: 7px;
-            .div-icons{
+            .div-icons {
               width: 32px;
               height: 32px;
               border-radius: 6px;
               background-color: #ffffff;
               display: flex;
               align-items: center;
-              justify-content: center;  
-              z-index: 1;            
+              justify-content: center;
+              z-index: 1;
               .icono {
                 width: 18px;
                 height: 16px;
-                background: #ffffff;  
+                background: #ffffff;
                 cursor: pointer;
-                z-index: 1;             
+                z-index: 1;
               }
             }
           }
-          .gifos{       
-            position: relative;     
+          .gifos {
+            position: relative;
             bottom: 32px;
             z-index: 10;
           }          
-          .div-description{
-            position: relative;
-            bottom: 8rem;
-            padding-left: 1rem;
-            color: #ffffff;
-            p{
-              margin-bottom: 5px;
-            }
-          } 
         }
-        .square:hover{
-          .gifos{
+        .square:hover {
+          .gifos {
             opacity: 0.4;
             z-index: 0;
           }
         }
-      }      
+      }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        .modal-container {
+          background-color: #fefefe;
+          border: 1px solid #888;
+          width: 90%;
+          margin: 5% auto;
+          height: 500px;
+          padding: 0 10px;
+          .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 40px;
+
+            /* Could be more or less, depending on screen size */
+            #modalContent {
+              display: flex;
+              justify-content: center;
+              flex-direction: column-reverse;
+              .modal-gif {
+                width: 695px;
+                height: 385px;
+                @media screen and(max-width:900px) {
+                  width: 500px;
+                }
+                @media screen and(max-width:750px) {
+                  width: 318px;
+                  height: 245px;
+                }
+              }
+              #modalGifDescription{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 22px;
+                .div-description{
+                  position: static;
+                  color: #000000;
+                  padding-left: 0;
+                }
+              }
+              .card-icons-max {
+                display: flex;
+                gap: 25px;
+              }              
+            }
+            #slideLeftModal {
+              width: 40px;
+              height: 40px;
+              @media screen and (max-width:520px){
+                display: none;
+              }                
+            }
+            
+            #slideRightModal {
+              width: 40px;
+              height: 40px;
+              @media screen and (max-width:520px){
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -290,14 +377,14 @@ footer {
   .icons {
     display: flex;
     gap: 19px;
-    .a-icons{
+    .a-icons {
       display: inherit;
       gap: inherit;
     }
   }
-  @media screen and(max-width:500px){
+  @media screen and(max-width:500px) {
     flex-direction: column;
-    .icons{
+    .icons {
       flex-direction: inherit;
     }
   }
