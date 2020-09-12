@@ -85,9 +85,7 @@ function addGifs() {
 
     let gif = document.createElement("img");
     gif.setAttribute("src", `${gifs[i].images.original.url}`);
-    gif.setAttribute("class", "gifos");
-    gif.style.minWidth = "357px";
-    gif.style.minHeight = "275px";
+    gif.setAttribute("class", "gifos");    
     square.appendChild(gif);
     let divParagraphs = document.createElement("div");
     divParagraphs.setAttribute("class", "div-description");
@@ -97,8 +95,10 @@ function addGifs() {
     p2.textContent = `${gifs[i].title}`;
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
-    square.appendChild(divParagraphs);
-    divIconMax.setAttribute("onclick", `showModal(${i})`);
+    square.appendChild(divParagraphs);    
+    divIconMax.addEventListener('click', ()=>{
+      showModal(i);
+    })
     container.appendChild(square);
     //square.addEventListener('click', showModal(i))
     // let image = document.createElement("img");

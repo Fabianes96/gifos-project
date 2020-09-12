@@ -417,13 +417,58 @@ header .menu #burger {
 
 .trending .container #slider #gifs .square .gifos {
   position: relative;
+  min-width: 357px;
+  min-height: 275px;
   bottom: 32px;
   z-index: 10;
+}
+
+@media screen and (max-width: 1400px) {
+  .trending .container #slider #gifs .square {
+    width: 320px;
+  }
+  .trending .container #slider #gifs .square .gifos {
+    min-width: 320px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .trending .container #slider #gifs .square {
+    width: 300px;
+  }
+  .trending .container #slider #gifs .square .gifos {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .trending .container #slider #gifs .square {
+    width: 243px;
+    height: 187px;
+  }
+  .trending .container #slider #gifs .square .gifos {
+    min-width: 243px;
+    min-height: 187px;
+  }
 }
 
 .trending .container #slider #gifs .square:hover .gifos {
   opacity: 0.4;
   z-index: 0;
+}
+
+@media screen and (max-width: 550px) {
+  .trending .container #slider #gifs .square:hover .gifos {
+    z-index: 10;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .trending .container #slider #gifs {
+    gap: 19px;
+    overflow-x: scroll;
+  }
 }
 
 .trending .container #slider .modal {
@@ -567,6 +612,18 @@ header .menu #burger {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+  .trending .container #slider {
+    width: 100%;
+  }
+  .trending .container #slider #slideLeft {
+    display: none;
+  }
+  .trending .container #slider #slideRight {
+    display: none;
+  }
 }
 
 footer {
