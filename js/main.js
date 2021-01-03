@@ -8,12 +8,13 @@ let buttonLeft = document.getElementById("slideLeft");
 let buttonLeftModal = document.getElementById("slideLeftModal");
 let buttonRightModal = document.getElementById("slideRightModal");
 let divGifs = document.getElementById("gifs");
-
+let searchContainer = document.getElementById("search-div");
+let searchField = document.getElementById("search-input");
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
-
 var span = document.getElementsByClassName("close")[0];
 var index;
+
 span.onclick = function () {
   modal.style.display = "none";
   while (modalContent.firstChild) {
@@ -36,6 +37,41 @@ buttonRight.addEventListener("click", function () {
   document.getElementById("gifs").scrollLeft += 500;
 });
 
+searchField.addEventListener("click",()=>{
+  searchContainer.classList.add("search-after-div");
+  searchField.classList.remove("search-field");
+  searchField.classList.add("search-after-input");
+})
+
+searchField.addEventListener("keyup",async(e)=>{
+  try {        
+    console.log(e.code);
+    if(e.code.startsWith("Key") || e.code.startsWith("Digit") || e.code === "Backspace"){            
+      let response = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${searchField.value}&limit=4`)
+      let json = await response.json();    
+      let ul = document.createElement("ul");
+      ul.setAttribute("id", "suggestions");
+      ul.setAttribute("class", "search-after-ul");
+      let ulSuggestions = document.getElementById("suggestions");    
+    if(ulSuggestions){
+      ulSuggestions.remove()
+    }
+      json.data.forEach((suggestion)=>{
+        let li = document.createElement("li")
+        li.textContent = suggestion.name;
+        ul.appendChild(li);      
+      })    
+      searchContainer.appendChild(ul);
+    }
+    
+  } catch (error) {
+    console.log(error);
+  }   
+})
+async function addSuggestion(){
+
+}
+
 async function callGifs() {
   try {
     let call = await fetch(URL + API_KEY + LIMIT);
@@ -45,9 +81,6 @@ async function callGifs() {
     console.log(error);
   }
 
-  // let div = document.createElement("img");
-  // div.setAttribute("src", "https://media3.giphy.com/media/Y1Xxlg8verQGdFQyCz/200.gif?cid=cfc0aab7abfdd810b3e44d4fba37c2187afb2283c70f7f4b&rid=200.gif");
-  // container.appendChild(div)
 }
 function addGifs() {
   for (let i = 0; i < gifs.length; i++) {
@@ -99,14 +132,12 @@ function addGifs() {
     divIconMax.addEventListener('click', ()=>{
       showModal(i);
     })
+    square.addEventListener('click',()=>{      
+      if(square.offsetWidth < 320){
+        showModal(i);
+      }
+    })
     container.appendChild(square);
-    //square.addEventListener('click', showModal(i))
-    // let image = document.createElement("img");
-    // image.setAttribute("src", `${gifs[i].images.original.url}`);
-    // image.style.width = "357px";
-    // image.style.height = "275px";
-    // image.style.marginRight = "29px";
-    // div.appendChild(image);
   }
 }
 function showModal(i) {
