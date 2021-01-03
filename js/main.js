@@ -11,6 +11,7 @@ let divGifs = document.getElementById("gifs");
 let searchContainer = document.getElementById("search-div");
 let searchField = document.getElementById("search-input");
 let btnCloseSearch = document.getElementById("btn-close-search");
+let searchClousureFlag = false;
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
@@ -22,14 +23,35 @@ span.onclick = function () {
     modalContent.removeChild(modalContent.firstChild);
   }
 };
-window.onclick = function (event) {
+window.onclick = function (event) {    
   if (event.target == modal) {
     modal.style.display = "none";
     while (modalContent.firstChild) {
       modalContent.removeChild(modalContent.firstChild);
     }
+  }  
+  if(event.target != searchField){
+    searchClousure()
   }
 };
+function searchClousure(){
+  let ulSuggestions = document.getElementById("suggestions");    
+  while(ulSuggestions.firstElementChild!=null){
+    ulSuggestions.removeChild(ulSuggestions.firstElementChild);      
+  }
+  if(searchClousureFlag){
+    searchContainer.classList.remove("search-after-div");
+    searchField.classList.add("search-field")
+    searchField.classList.remove("search-after-input");
+    btnCloseSearch.classList.add("btn-close-search-none");
+    btnCloseSearch.classList.remove("btn-close-search");
+    searchClousureFlag = false;
+  }
+}
+btnCloseSearch.addEventListener("click",()=>{
+  searchField.value = "";
+  searchClousure()
+});
 buttonLeft.addEventListener("click", function () {
   let gif = document.getElementById("gifs");
   gif.scrollLeft -= 500;
@@ -38,12 +60,13 @@ buttonRight.addEventListener("click", function () {
   document.getElementById("gifs").scrollLeft += 500;
 });
 
-searchField.addEventListener("click",()=>{
+searchField.addEventListener("click",()=>{  
   searchContainer.classList.add("search-after-div");
   searchField.classList.remove("search-field");
   searchField.classList.add("search-after-input");
   btnCloseSearch.classList.remove("btn-close-search-none")
   btnCloseSearch.classList.add("btn-close-search")
+  searchClousureFlag = true
 })
 
 searchField.addEventListener("keyup",async(e)=>{
