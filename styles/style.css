@@ -27,11 +27,11 @@ body {
 
 .search-after-input {
   border-right: 0;
-  border-bottom: 1px solid #572ee5;
+  border-bottom: 1px solid #9CAFC3;
   border-top: 0;
   border-left: 0;
-  padding: 12px 45px;
-  background-image: url(/assets/icon-search.svg);
+  padding: 12px 38px;
+  background-image: url(/assets/icon-search-mod-noc.svg);
   background-repeat: no-repeat;
   background-position: 0% center;
 }
@@ -51,13 +51,13 @@ body {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   position: relative;
-  left: 70px;
+  left: 20px;
 }
 
 .btn-close-search {
   display: block;
   position: relative;
-  right: 30px;
+  right: 50px;
   bottom: 12px;
 }
 
@@ -277,6 +277,10 @@ header .menu #burger {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: absolute;
+  top: 269px;
+  background-color: white;
+  z-index: 1;
 }
 
 .initial #search-div #input-close {
@@ -296,7 +300,7 @@ header .menu #burger {
 }
 
 .initial #search-div #input-close #search-input {
-  width: 75%;
+  width: 80%;
   outline: none;
 }
 
@@ -321,8 +325,17 @@ header .menu #burger {
   outline-width: 0;
 }
 
+.initial #search-div ul li {
+  color: #9CAFC3;
+  background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
+  list-style: none;
+  padding: 1px 0 1px 30px;
+}
+
 .initial .paragraphs {
-  margin-top: 76px;
+  position: relative;
+  margin-top: 40px;
+  top: 76px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -362,7 +375,7 @@ header .menu #burger {
 .trending {
   position: relative;
   top: 76px;
-  margin-top: 95px;
+  margin-top: 170px;
 }
 
 .trending .container {
