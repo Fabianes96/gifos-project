@@ -54,6 +54,17 @@ body {
   left: 70px;
 }
 
+.btn-close-search {
+  display: block;
+  position: relative;
+  right: 30px;
+  bottom: 12px;
+}
+
+.btn-close-search-none {
+  display: none;
+}
+
 .div-description {
   position: relative;
   bottom: 8rem;
@@ -259,7 +270,7 @@ header .menu #burger {
 }
 
 .initial #search-div {
-  width: 60%;
+  width: 551px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,8 +279,24 @@ header .menu #burger {
           justify-content: center;
 }
 
-.initial #search-div #search-input {
-  width: inherit;
+.initial #search-div #input-close {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.initial #search-div #input-close #btn-close-search {
+  width: 14px;
+  height: 14px;
+}
+
+.initial #search-div #input-close #search-input {
+  width: 75%;
   outline: none;
 }
 

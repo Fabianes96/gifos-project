@@ -10,6 +10,7 @@ let buttonRightModal = document.getElementById("slideRightModal");
 let divGifs = document.getElementById("gifs");
 let searchContainer = document.getElementById("search-div");
 let searchField = document.getElementById("search-input");
+let btnCloseSearch = document.getElementById("btn-close-search");
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
@@ -41,6 +42,8 @@ searchField.addEventListener("click",()=>{
   searchContainer.classList.add("search-after-div");
   searchField.classList.remove("search-field");
   searchField.classList.add("search-after-input");
+  btnCloseSearch.classList.remove("btn-close-search-none")
+  btnCloseSearch.classList.add("btn-close-search")
 })
 
 searchField.addEventListener("keyup",async(e)=>{

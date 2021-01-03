@@ -35,6 +35,15 @@ body {
     position: relative;
     left: 70px;
 }
+.btn-close-search{
+  display: block;
+  position: relative;
+  right: 30px;
+  bottom: 12px;
+}
+.btn-close-search-none{
+  display: none;  
+}
 .div-description {
   position: relative;
   bottom: 8rem;
@@ -166,13 +175,22 @@ header {
     }
   }
   #search-div{
-    width: 60%;
+    width: 551px;
     display: flex;
-    justify-content: center;  
-    #search-input{
-      width: inherit;
-      outline: none;
-    }  
+    justify-content: center; 
+    #input-close{
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      #btn-close-search{
+        width: 14px;
+        height: 14px;
+      }
+      #search-input{
+        width: 75%;
+        outline: none;
+      }  
+    } 
     .search-field {
       border-radius: 50px;
       border: 1px solid #572ee5;
