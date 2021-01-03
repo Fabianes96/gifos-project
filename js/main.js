@@ -44,8 +44,7 @@ searchField.addEventListener("click",()=>{
 })
 
 searchField.addEventListener("keyup",async(e)=>{
-  try {        
-    console.log(e.code);
+  try {            
     if(e.code.startsWith("Key") || e.code.startsWith("Digit") || e.code === "Backspace"){            
       let response = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${searchField.value}&limit=4`)
       let json = await response.json();    
@@ -180,14 +179,8 @@ function showModal(i) {
     divContainer.appendChild(div);   
     modalContent.appendChild(gif);
     modalContent.appendChild(divContainer);    
-    modal.style.display = "block";
+    modal.style.display = "block";    
 
-    
-
-  // square.addEventListener('click', ()=>{
-  //   modal.style.display = "block";
-  //   modalContent.appendChild(gif);
-  // })
 }
 
 buttonLeftModal.addEventListener('click',()=>{
