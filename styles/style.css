@@ -398,7 +398,7 @@ header .menu #burger {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 827px;
+  margin-bottom: 78px;
 }
 
 .central #search-results {
@@ -411,6 +411,7 @@ header .menu #burger {
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 29px;
   justify-items: center;
+  height: auto;
 }
 
 .central #search-results .container-search-results {
@@ -451,12 +452,6 @@ header .menu #burger {
   }
 }
 
-@media screen and (max-width: 1255px) {
-  .central #search-results {
-    height: 1046px;
-  }
-}
-
 @media screen and (max-width: 950px) {
   .central #search-results {
     -webkit-column-gap: 10px;
@@ -471,7 +466,6 @@ header .menu #burger {
     gap: 21px;
     -ms-grid-columns: (minmax(160px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    height: auto;
   }
   .central #search-results .container-search-results {
     width: 160px;
@@ -489,16 +483,9 @@ header .menu #burger {
   margin-top: 112px;
 }
 
-@media screen and (max-width: 605px) {
-  .central {
-    height: 1041px;
-  }
-}
-
 .trending {
   position: relative;
-  top: 181px;
-  margin-top: 79px;
+  top: 170px;
 }
 
 .trending .container {

@@ -284,8 +284,8 @@ header {
   top: 181px;
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  height: 827px;
+  align-items: center;    
+  margin-bottom: 78px;
   #search-results{
     width: 90%;
     position: relative;
@@ -294,6 +294,7 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 29px;
     justify-items: center;
+    height: auto;
     .container-search-results{
       @include gifsSquare(260px,200px);     
       .gifos{
@@ -309,10 +310,7 @@ header {
       @media screen and (max-width: 605px){
         @include removeGifHover()
       }
-    }
-    @media screen and (max-width: 1255px){
-      height: 1046px;
-    }
+    }    
     @media screen and (max-width: 950px){
       column-gap: 10px;
       row-gap: 29px;
@@ -320,8 +318,7 @@ header {
     @media screen and (max-width: 605px){
       width: 95%;
       gap: 21px;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      height: auto;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      
       .container-search-results{        
         width: 160px;
         height: 120px;
@@ -336,15 +333,11 @@ header {
   }
   #btn-mas{
     margin-top: 112px;
-  }
-  @media screen and (max-width: 605px){
-    height: 1041px;
-  }
+  }  
 }
 .trending {
   position: relative;
-  top: 181px;
-  margin-top: 79px;
+  top: 170px;  
   .container {
     width: 100%;
     height: 640px;
