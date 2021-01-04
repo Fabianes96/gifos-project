@@ -8,6 +8,49 @@ body {
   color: #572ee5;
 }
 
+.card-icons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
+}
+
+.prueba {
+  width: 260px;
+  height: 200px;
+  background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.prueba .gifos {
+  width: 260px;
+  height: 200px;
+  position: relative;
+  min-width: 260px;
+  min-height: 200px;
+  bottom: 32px;
+  z-index: 10;
+}
+
+.prueba:hover .gifos {
+  z-index: 0;
+  opacity: 0.4;
+}
+
 .search-after-div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -330,6 +373,7 @@ header .menu #burger {
   background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
   list-style: none;
   padding: 1px 0 1px 30px;
+  cursor: pointer;
 }
 
 .initial .paragraphs {
@@ -370,6 +414,17 @@ header .menu #burger {
         -ms-flex-align: center;
             align-items: center;
   }
+}
+
+.central #search-results {
+  position: relative;
+  top: 200px;
+  height: 909px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 29px;
 }
 
 .trending {
@@ -489,6 +544,8 @@ header .menu #burger {
 }
 
 .trending .container #slider #gifs .square {
+  width: 357px;
+  height: 275px;
   background-color: #572ee5;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -500,20 +557,6 @@ header .menu #burger {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 357px;
-  height: 275px;
-}
-
-.trending .container #slider #gifs .square .card-icons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 7px;
-  top: 7px;
-  position: relative;
-  right: 7px;
 }
 
 .trending .container #slider #gifs .square .gifos {

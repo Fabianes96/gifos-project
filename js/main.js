@@ -1,8 +1,10 @@
 let container = document.getElementById("gifs");
+let containerSearchResults = document.getElementById("search-results");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
 const API_KEY = "CqzSXTpzWmjiVKu03lbXhZidGMWveE78";
 const LIMIT = "&limit=25";
 let gifs = [];
+let gifsSearch = [];
 let buttonRight = document.getElementById("slideRight");
 let buttonLeft = document.getElementById("slideLeft");
 let buttonLeftModal = document.getElementById("slideLeftModal");
@@ -16,6 +18,8 @@ var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
 var index;
+let blur = false;
+
 
 span.onclick = function () {
   modal.style.display = "none";
@@ -23,15 +27,22 @@ span.onclick = function () {
     modalContent.removeChild(modalContent.firstChild);
   }
 };
-window.onclick = function (event) {    
+window.onclick = function (event) {          
   if (event.target == modal) {
     modal.style.display = "none";
     while (modalContent.firstChild) {
       modalContent.removeChild(modalContent.firstChild);
     }
-  }  
-  if(event.target != searchField){
-    searchClousure()
+  }    
+  if(blur){     
+    if(event.target != searchField){
+      if(event.target.localName == "li"){
+        let li = event.target;
+        searchField.value = li.textContent;      
+      } else{
+        searchClousure(); 
+      }
+    }  
   }
 };
 function searchClousure(){
@@ -67,10 +78,13 @@ searchField.addEventListener("click",()=>{
   btnCloseSearch.classList.remove("btn-close-search-none")
   btnCloseSearch.classList.add("btn-close-search")
   searchClousureFlag = true
+  blur = false;
 })
-
+searchField.addEventListener('blur', ()=>{
+  blur = true;
+})
 searchField.addEventListener("keyup",async(e)=>{
-  try {            
+  try {                
     if(e.code.startsWith("Key") || e.code.startsWith("Digit") || e.code === "Backspace"){            
       let response = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&q=${searchField.value}&limit=4`)
       let json = await response.json();    
@@ -84,17 +98,22 @@ searchField.addEventListener("keyup",async(e)=>{
       json.data.forEach((suggestion)=>{
         let li = document.createElement("li")
         li.textContent = suggestion.name;
-        ul.appendChild(li);      
+        ul.appendChild(li);              
       })    
       searchContainer.appendChild(ul);
     }
-    
+    if(e.code == "Enter"){
+      let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12`);
+      response = await response.json()
+      gifsSearch = response.data;     
+      addGifsSearch();
+    }        
   } catch (error) {
     console.log(error);
   }   
 })
-async function addSuggestion(){
-
+function addSuggestion(){  
+   searchField.value = this.textContent;
 }
 
 async function callGifs() {
@@ -106,6 +125,64 @@ async function callGifs() {
     console.log(error);
   }
 
+}
+function addGifsSearch(){
+  for (let i = 0; i < gifsSearch.length; i++) {
+    let square = document.createElement("div");
+    square.setAttribute("class", "prueba");
+
+    let card = document.createElement("div");
+    card.setAttribute("class", "card-icons");
+
+    let divIconFav = document.createElement("div");
+    divIconFav.setAttribute("class", "div-icons");
+    let image1 = document.createElement("img");
+    image1.setAttribute("src", "assets/icon-fav-hover.svg");
+    image1.setAttribute("class", "icono");
+    divIconFav.appendChild(image1);
+    card.appendChild(divIconFav);
+
+    let divIconDownload = document.createElement("div");
+    divIconDownload.setAttribute("class", "div-icons");
+    let image2 = document.createElement("img");
+    image2.setAttribute("src", "assets/icon-download.svg");
+    image2.setAttribute("class", "icono");
+    divIconDownload.appendChild(image2);
+    card.appendChild(divIconDownload);
+
+    let divIconMax = document.createElement("div");
+    divIconMax.setAttribute("class", "div-icons");
+    let image3 = document.createElement("img");
+    image3.setAttribute("src", "assets/icon-max.svg");
+    image3.setAttribute("class", "icono");
+    divIconMax.appendChild(image3);
+    card.appendChild(divIconMax);
+
+    square.appendChild(card);
+
+    let gif = document.createElement("img");
+    gif.setAttribute("src", `${gifsSearch[i].images.original.url}`);
+    gif.setAttribute("class", "gifos");    
+    square.appendChild(gif);
+    let divParagraphs = document.createElement("div");
+    divParagraphs.setAttribute("class", "div-description");
+    let p1 = document.createElement("p");
+    p1.textContent = `${gifs[i].username}`;
+    let p2 = document.createElement("p");
+    p2.textContent = `${gifs[i].title}`;
+    divParagraphs.appendChild(p1);
+    divParagraphs.appendChild(p2);
+    square.appendChild(divParagraphs);    
+    divIconMax.addEventListener('click', ()=>{
+      showModal(i);
+    })
+    square.addEventListener('click',()=>{      
+      if(square.offsetWidth < 320){
+        showModal(i);
+      }
+    })
+    containerSearchResults.appendChild(square);
+  }
 }
 function addGifs() {
   for (let i = 0; i < gifs.length; i++) {
