@@ -8,49 +8,6 @@ body {
   color: #572ee5;
 }
 
-.card-icons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 7px;
-  top: 7px;
-  position: relative;
-  right: 7px;
-}
-
-.prueba {
-  width: 260px;
-  height: 200px;
-  background-color: #572ee5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.prueba .gifos {
-  width: 260px;
-  height: 200px;
-  position: relative;
-  min-width: 260px;
-  min-height: 200px;
-  bottom: 32px;
-  z-index: 10;
-}
-
-.prueba:hover .gifos {
-  z-index: 0;
-  opacity: 0.4;
-}
-
 .search-after-div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -142,6 +99,18 @@ body {
   height: 16px;
   background: #ffffff;
   z-index: 1;
+}
+
+.card-icons {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
 }
 
 header {
@@ -416,21 +385,120 @@ header .menu #burger {
   }
 }
 
-.central #search-results {
+.central {
   position: relative;
-  top: 200px;
-  height: 909px;
+  top: 181px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 827px;
+}
+
+.central #search-results {
+  width: 90%;
+  position: relative;
+  top: 44px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 29px;
+  justify-items: center;
+}
+
+.central #search-results .container-search-results {
+  width: 260px;
+  height: 200px;
+  background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.central #search-results .container-search-results .gifos {
+  width: 260px;
+  height: 200px;
+  position: relative;
+  min-width: 260px;
+  min-height: 200px;
+  bottom: 32px;
+  z-index: 10;
+}
+
+.central #search-results .container-search-results:hover .gifos {
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 605px) {
+  .central #search-results .container-search-results:hover .gifos {
+    z-index: 10;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1255px) {
+  .central #search-results {
+    height: 1046px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .central #search-results {
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    row-gap: 29px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .central #search-results {
+    width: 95%;
+    gap: 21px;
+    -ms-grid-columns: (minmax(160px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    height: auto;
+  }
+  .central #search-results .container-search-results {
+    width: 160px;
+    height: 120px;
+  }
+  .central #search-results .container-search-results .gifos {
+    width: 160px;
+    height: 120px;
+    min-width: 160px;
+    min-height: 120px;
+  }
+}
+
+.central #btn-mas {
+  margin-top: 112px;
+}
+
+@media screen and (max-width: 605px) {
+  .central {
+    height: 1041px;
+  }
 }
 
 .trending {
   position: relative;
-  top: 76px;
-  margin-top: 170px;
+  top: 181px;
+  margin-top: 79px;
 }
 
 .trending .container {
@@ -597,8 +665,8 @@ header .menu #burger {
 }
 
 .trending .container #slider #gifs .square:hover .gifos {
-  opacity: 0.4;
   z-index: 0;
+  opacity: 0.4;
 }
 
 @media screen and (max-width: 550px) {

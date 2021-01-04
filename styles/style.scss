@@ -7,49 +7,6 @@ body {
   font-family: $font-principal;
   color: #572ee5;
 }
-// .square {
-//   width: 357px;
-//   height: 275px;
-//   .gifos {
-//     position: relative;
-//     min-width: 357px;
-//     min-height: 275px;
-//     bottom: 32px;
-//     z-index: 10;            
-//   } 
-//   @media screen and (max-width: 1400px) {
-//     width: 320px; 
-//     .gifos{
-//       min-width: 320px;
-//     }
-//   }
-//   @media screen and (max-width: 500px) {
-//     width: 300px;             
-//     .gifos{
-//       min-width: 300px;              
-//     }
-//   }         
-//   @media screen and (max-width: 400px) {
-//     width: 243px;             
-//     height: 187px;
-//     .gifos{
-//       min-width: 243px;              
-//       min-height: 187px;
-//     }
-//   }         
-// }
-// .square:hover {
-//   .gifos {
-//     opacity: 0.4;
-//     z-index: 0;
-//   }
-//   @media screen and (max-width: 550px) {            
-//     .gifos{
-//       z-index: 10;
-//       opacity: 1;
-//     }
-//   }
-// }
 @mixin gifsSquare ($width,$height){
   width: $width;
   height: $height;
@@ -65,32 +22,18 @@ body {
   bottom: $bottom;
   z-index: 10;  
 }
-  .card-icons {
-    align-self: flex-end;
-    display: flex;
-    gap: 7px;
-    top: 7px;
-    position: relative;
-    right: 7px;            
-  }
-
-  
-.prueba{
-  @include gifsSquare(260px,200px );  
-  
-  
+@mixin removeGifHover(){
   .gifos{
-    width: 260px;
-    height: 200px;
-    @include gifsGifos(260px,200px ,32px )
+    z-index: 10;
+    opacity: 1;
   }
 }
-    .prueba:hover{
-      .gifos{
-        z-index: 0;
-        opacity: 0.4;
-      }
-    }
+  
+@mixin gifHover($z,$opacity) {
+  z-index: $z;
+  opacity: $opacity;
+} 
+
 .search-after-div{    
     justify-content: start;
     align-items: center;    
@@ -153,6 +96,14 @@ body {
     background: #ffffff;    
     z-index: 1;
   }
+}
+.card-icons {
+  align-self: flex-end;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;            
 }
 header {
   display: flex;
@@ -329,19 +280,71 @@ header {
   }
 }
 .central{
+  position: relative;
+  top: 181px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  height: 827px;
   #search-results{
+    width: 90%;
     position: relative;
-    top: 200px;
-    height: 909px;
+    top: 44px;     
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 29px;
+    justify-items: center;
+    .container-search-results{
+      @include gifsSquare(260px,200px);     
+      .gifos{
+        width: 260px;
+        height: 200px;
+        @include gifsGifos(260px,200px ,32px )
+      }
+    }
+    .container-search-results:hover{
+      .gifos{
+        @include gifHover(0,0.4)
+      }
+      @media screen and (max-width: 605px){
+        @include removeGifHover()
+      }
+    }
+    @media screen and (max-width: 1255px){
+      height: 1046px;
+    }
+    @media screen and (max-width: 950px){
+      column-gap: 10px;
+      row-gap: 29px;
+    }
+    @media screen and (max-width: 605px){
+      width: 95%;
+      gap: 21px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      height: auto;
+      .container-search-results{        
+        width: 160px;
+        height: 120px;
+        .gifos{
+          width: 160px;
+          height: 120px;
+          min-width: 160px;
+          min-height: 120px;                           
+        }
+      }
+    }
+  }
+  #btn-mas{
+    margin-top: 112px;
+  }
+  @media screen and (max-width: 605px){
+    height: 1041px;
   }
 }
 .trending {
   position: relative;
-  top: 76px;
-  margin-top: 170px;  
+  top: 181px;
+  margin-top: 79px;
   .container {
     width: 100%;
     height: 640px;
@@ -435,14 +438,10 @@ header {
         }
         .square:hover {
           .gifos {
-            opacity: 0.4;
-            z-index: 0;
+            @include gifHover(0,0.4)
           }
           @media screen and (max-width: 550px) {            
-            .gifos{
-              z-index: 10;
-              opacity: 1;
-            }
+            @include removeGifHover()
           }
         }
         @media screen and (max-width: 550px) {

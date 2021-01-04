@@ -129,7 +129,7 @@ async function callGifs() {
 function addGifsSearch(){
   for (let i = 0; i < gifsSearch.length; i++) {
     let square = document.createElement("div");
-    square.setAttribute("class", "prueba");
+    square.setAttribute("class", "container-search-results");
 
     let card = document.createElement("div");
     card.setAttribute("class", "card-icons");
