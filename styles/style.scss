@@ -1,16 +1,17 @@
 $font-principal: "Montserrat-Bold", sans-serif;
+$color-principal: #572ee5;
 * {
   margin: 0;
   padding: 0;
 }
 body {
   font-family: $font-principal;
-  color: #572ee5;
+  color: $color-principal;
 }
 @mixin gifsSquare ($width,$height){
   width: $width;
   height: $height;
-  background-color: #572ee5;
+  background-color: $color-principal;
   display: flex;
   flex-direction: column;
   justify-content: space-between;  
@@ -62,6 +63,15 @@ body {
     position: relative;
     left: 20px;
 }
+.central{
+  display: none;
+}
+.show-div-results{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .btn-close-search{
   display: block;
   position: relative;
@@ -108,7 +118,7 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  border-top: 5px solid #572ee5;
+  border-top: 5px solid $color-principal;
   padding-top: 18px;
   #logo {
     position: relative;
@@ -139,7 +149,7 @@ header {
           list-style: none;
           a {
             font-size: 13px;
-            color: #572ee5;
+            color: $color-principal;
             letter-spacing: 0;
             text-align: center;
             text-decoration: none;
@@ -148,7 +158,7 @@ header {
       }
       #crear-gifo {
         background: #ffffff;
-        border: 1px solid #572ee5;
+        border: 1px solid $color-principal;
         border-radius: 30px;
         position: relative;
         left: 53px;
@@ -231,7 +241,7 @@ header {
     } 
     .search-field {
       border-radius: 50px;
-      border: 1px solid #572ee5;
+      border: 1px solid $color-principal;
       width: 30%;
       padding: 12px 50px;
       background-image: url("/assets/icon-search.svg");
@@ -244,7 +254,7 @@ header {
       }
     }
     .search-field:focus {
-      border: 2px solid #572ee5;
+      border: 2px solid $color-principal;
       outline-width: 0;
     }
     ul{
@@ -279,14 +289,18 @@ header {
     }
   }
 }
-.central{
+#central{
   position: relative;
-  top: 181px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;    
-  margin-bottom: 78px;
-  #search-results{
+  top: 181px;   
+  margin-bottom: 78px;  
+  #separator{    
+    width: 338px;
+    height: 0.1px;
+    border: 1px solid #9CAFC3;
+    margin: 55px 0 82px 0;
+    opacity: 0.5;    
+  }
+  #search-results{    
     width: 90%;
     position: relative;
     top: 44px;     
@@ -331,13 +345,30 @@ header {
       }
     }
   }
-  #btn-mas{
+  #div-mas{    
     margin-top: 112px;
+    .btn-mas{
+      width: 127px;
+      height: 50px;
+      border: 1px solid $color-principal;
+      border-radius: 25px;      
+      font-family: $font-principal;
+      font-size: 13px;      
+      color: $color-principal;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+    }
+    .btn-mas:hover{
+      background-color: $color-principal;
+      color: #ffffff;
+    }
   }  
 }
 .trending {
   position: relative;
   top: 170px;  
+  margin-top: 95px;
   .container {
     width: 100%;
     height: 640px;
@@ -383,7 +414,7 @@ header {
         }
       }
       .arrow-container:active {
-        background-color: #572ee5;
+        background-color: $color-principal;
         img {
           filter: brightness(0) invert(1);
         }
@@ -557,7 +588,7 @@ footer {
   font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: 13px;
-  border-bottom: 5px solid #572ee5;
+  border-bottom: 5px solid $color-principal;
   .icons {
     display: flex;
     gap: 19px;

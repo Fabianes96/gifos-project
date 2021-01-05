@@ -14,12 +14,14 @@ let searchContainer = document.getElementById("search-div");
 let searchField = document.getElementById("search-input");
 let btnCloseSearch = document.getElementById("btn-close-search");
 let searchClousureFlag = false;
+let central = document.getElementById("central");
+let btnMas = document.getElementById("btn-mas");
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
 var index;
 let blur = false;
-
+let auxMasGifs = 0;
 
 span.onclick = function () {
   modal.style.display = "none";
@@ -59,8 +61,23 @@ function searchClousure(){
     searchClousureFlag = false;
   }
 }
+btnMas.addEventListener("click",async()=>{
+  try {
+    let masGifs = [];
+    auxMasGifs++;
+    let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12&offset=${auxMasGifs*12}`);
+    response = await response.json();    
+    masGifs = response.data;     
+    addGifsSearch(masGifs);
+  } catch (error) {
+      console.log(error);
+  }
+})
 btnCloseSearch.addEventListener("click",()=>{
+  auxMasGifs = 0;
   searchField.value = "";
+  central.classList.remove("show-div-results");
+  central.classList.add("central");
   searchClousure()
 });
 buttonLeft.addEventListener("click", function () {
@@ -103,19 +120,27 @@ searchField.addEventListener("keyup",async(e)=>{
       searchContainer.appendChild(ul);
     }
     if(e.code == "Enter"){
+      let search = searchField.value;
+      let title = document.getElementById("title-result");
+      title.textContent = "Cargando resultados..."      
+      central.classList.remove("central");
+      central.classList.add("show-div-results");
+      gifsSearch = [];
+      if(containerSearchResults.firstElementChild){
+        while(containerSearchResults.firstElementChild){
+            containerSearchResults.removeChild(containerSearchResults.firstElementChild);
+        }  
+      }
       let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12`);
-      response = await response.json()
+      response = await response.json();
+      title.textContent = search;
       gifsSearch = response.data;     
-      addGifsSearch();
+      addGifsSearch(gifsSearch);
     }        
   } catch (error) {
-    console.log(error);
+    console.log("No se cargaron los resultados", error);
   }   
 })
-function addSuggestion(){  
-   searchField.value = this.textContent;
-}
-
 async function callGifs() {
   try {
     let call = await fetch(URL + API_KEY + LIMIT);
@@ -124,10 +149,9 @@ async function callGifs() {
   } catch (error) {
     console.log(error);
   }
-
 }
-function addGifsSearch(){
-  for (let i = 0; i < gifsSearch.length; i++) {
+function addGifsSearch(arreglo){
+  for (let i = 0; i < arreglo.length; i++) {
     let square = document.createElement("div");
     square.setAttribute("class", "container-search-results");
 
@@ -161,7 +185,7 @@ function addGifsSearch(){
     square.appendChild(card);
 
     let gif = document.createElement("img");
-    gif.setAttribute("src", `${gifsSearch[i].images.original.url}`);
+    gif.setAttribute("src", `${arreglo[i].images.original.url}`);
     gif.setAttribute("class", "gifos");    
     square.appendChild(gif);
     let divParagraphs = document.createElement("div");
