@@ -22,6 +22,7 @@ var span = document.getElementsByClassName("close")[0];
 var index;
 let blur = false;
 let activeModalArray = [];
+let gifsSearchAux = [];
 let auxMasGifs = 0;
 
 span.onclick = function () {
@@ -73,7 +74,8 @@ btnMas.addEventListener("click",async()=>{
     auxMasGifs++;
     let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12&offset=${auxMasGifs*12}`);
     response = await response.json();    
-    masGifs = response.data;     
+    masGifs = response.data;
+    gifsSearchAux = gifsSearchAux.concat(masGifs);    
     addGifs(masGifs,"container-search-results",containerSearchResults,false);
   } catch (error) {
       console.log(error);
@@ -139,6 +141,7 @@ async function showGifsSearch(){
   central.classList.remove("central");
   central.classList.add("show-div-results");
   gifsSearch = [];
+  gifsSearchAux = [];
   if(containerSearchResults.firstElementChild){
     while(containerSearchResults.firstElementChild){
         containerSearchResults.removeChild(containerSearchResults.firstElementChild);
@@ -148,6 +151,7 @@ async function showGifsSearch(){
   response = await response.json();
   title.textContent = search;
   gifsSearch = response.data;     
+  gifsSearchAux = gifsSearch;
   addGifs(gifsSearch,"container-search-results",containerSearchResults,false);
 }
 async function callGifs() {
@@ -298,14 +302,14 @@ buttonLeftModal.addEventListener('click',()=>{
   if(activeModalArray === gifs){
     loadGifModal(gifs,false);
   }else{
-    loadGifModal(gifsSearch,false);
+    loadGifModal(gifsSearchAux,false);
   }
 });
 buttonRightModal.addEventListener('click',()=>{
   if(activeModalArray === gifs){
     loadGifModal(gifs,true);
   }else{
-    loadGifModal(gifsSearch,true);
+    loadGifModal(gifsSearchAux,true);
   }
 })
 callGifs().then(() => {
