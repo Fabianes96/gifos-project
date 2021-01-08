@@ -1,3 +1,5 @@
+let initial = document.getElementById("initial");
+let favoritos = document.getElementById("favoritos");
 let container = document.getElementById("gifs");
 let containerSearchResults = document.getElementById("search-results");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
@@ -20,12 +22,18 @@ let noResults = document.getElementById("no-results");
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
+let linkFavoritos = document.getElementsByClassName("links")[1];
 var index;
 let blur = false;
 let activeModalArray = [];
 let gifsSearchAux = [];
 let auxMasGifs = 0;
 
+linkFavoritos.addEventListener("click",()=>{  
+  initial.classList.remove("initial");
+  initial.classList.add("none");
+  favoritos.classList.remove("none");
+})
 span.onclick = function () {
   modal.style.display = "none";
   while (modalContent.firstChild) {
@@ -33,7 +41,7 @@ span.onclick = function () {
   }
 };
 window.onclick = async function (event) {          
-  try {    
+  try {        
     if (event.target == modal) {
       modal.style.display = "none";
       while (modalContent.firstChild) {

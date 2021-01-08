@@ -8,6 +8,21 @@ body {
   color: #572ee5;
 }
 
+.initial {
+  position: relative;
+  top: 76px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .search-after-div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -425,33 +440,18 @@ header .menu #burger {
   cursor: pointer;
 }
 
-.initial {
-  position: relative;
-  top: 76px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.initial #title-1 #los-1 {
+#initial #title-1 #los-1 {
   display: none;
 }
 
 @media screen and (max-width: 450px) {
-  .initial #title-1 #los-1 {
+  #initial #title-1 #los-1 {
     display: initial;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .initial #title-1 {
+  #initial #title-1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -466,33 +466,33 @@ header .menu #burger {
   }
 }
 
-.initial #title-2 #los-2 {
+#initial #title-2 #los-2 {
   padding-right: 0.4rem;
   font-size: 25px;
 }
 
 @media screen and (max-width: 450px) {
-  .initial #title-2 #los-2 {
+  #initial #title-2 #los-2 {
     display: none;
   }
 }
 
-.initial #title-2 #gifos-title {
+#initial #title-2 #gifos-title {
   padding-left: 0.4rem;
   color: #50e3c2;
 }
 
-.initial img {
+#initial img {
   margin-top: 24px;
 }
 
 @media screen and (max-width: 450px) {
-  .initial img {
+  #initial img {
     width: 70%;
   }
 }
 
-.initial #search-div {
+#initial #search-div {
   width: 551px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -510,7 +510,7 @@ header .menu #burger {
   z-index: 1;
 }
 
-.initial #search-div #input-close {
+#initial #search-div #input-close {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -521,17 +521,17 @@ header .menu #burger {
           flex-direction: row-reverse;
 }
 
-.initial #search-div #input-close #btn-close-search {
+#initial #search-div #input-close #btn-close-search {
   width: 14px;
   height: 14px;
 }
 
-.initial #search-div #input-close #search-input {
+#initial #search-div #input-close #search-input {
   width: 80%;
   outline: none;
 }
 
-.initial #search-div .search-field {
+#initial #search-div .search-field {
   border-radius: 50px;
   border: 1px solid #572ee5;
   width: 30%;
@@ -542,17 +542,17 @@ header .menu #burger {
 }
 
 @media screen and (max-width: 850px) {
-  .initial #search-div .search-field {
+  #initial #search-div .search-field {
     width: 50%;
   }
 }
 
-.initial #search-div .search-field:focus {
+#initial #search-div .search-field:focus {
   border: 2px solid #572ee5;
   outline-width: 0;
 }
 
-.initial #search-div ul li {
+#initial #search-div ul li {
   color: #9CAFC3;
   background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
   list-style: none;
@@ -560,7 +560,7 @@ header .menu #burger {
   cursor: pointer;
 }
 
-.initial .paragraphs {
+#initial .paragraphs {
   position: relative;
   margin-top: 40px;
   top: 76px;
@@ -579,14 +579,14 @@ header .menu #burger {
   font-weight: bold;
 }
 
-.initial .paragraphs #subtitle {
+#initial .paragraphs #subtitle {
   font-family: "Montserrat-Medium";
   font-size: 16px;
   font-weight: normal;
 }
 
 @media screen and (max-width: 450px) {
-  .initial .paragraphs #subtitle {
+  #initial .paragraphs #subtitle {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -598,6 +598,34 @@ header .menu #burger {
         -ms-flex-align: center;
             align-items: center;
   }
+}
+
+#favoritos .favs-header {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  margin-top: 25px;
+}
+
+#favoritos #no-favorites {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  position: relative;
+  justify-items: center;
+  top: 90px;
+}
+
+#favoritos #no-favorites img {
+  width: 150px;
+  height: 150px;
+}
+
+#favoritos #no-favorites h2 {
+  width: 50%;
+  text-align: center;
+  font-size: 22px;
+  color: #50E3C2;
 }
 
 #central {
@@ -889,6 +917,7 @@ header .menu #burger {
 
 footer {
   position: relative;
+  margin-top: 96px;
   top: 76px;
   display: -webkit-box;
   display: -ms-flexbox;

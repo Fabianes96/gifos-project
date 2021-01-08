@@ -22,13 +22,13 @@
         <!-- Items de navegación -->
         <ul>
           <li>
-            <a href="#">MODO NOCTURNO</a>
+            <a class="links" href="#">MODO NOCTURNO</a>
           </li>
           <li>
-            <a href="#">FAVORITOS</a>
+            <a class="links" href="#favoritos">FAVORITOS</a>
           </li>
           <li>
-            <a href="#">MIS GIFOS</a>
+            <a class="links" href="#">MIS GIFOS</a>
           </li>
         </ul>
         <img src="assets/button-crear-gifo.svg" alt="crear-gifo" id="crear-gifo" />
@@ -52,7 +52,7 @@
         </div>
     </div>          
   </section>
-  <section class="initial">
+  <section id="initial" class="initial">
     <h1 id="title-1">
       Inspírate, busca, <span>guarda y crea <span id="los-1">los</span></span>
     </h1>
@@ -74,6 +74,18 @@
         Reactions, Entertainment, <span>Sports, Stickers, Artists</span>
       </p>
     </div>    
+  </section>
+  <section id="favoritos" class="favs none">
+    <div class="favs-header">
+      <img src="assets/icon-favoritos.svg" alt="Favoritos">
+      <h1>Favoritos</h1>
+    </div>
+    <div id="no-favorites">
+      <img src="assets/icon-fav-sin-contenido.svg" alt="Sin favoritos">
+      <h2>"¡Guarda tu primer GIFO en Favoritos 
+        para que se muestre aquí!"</h2>
+    </div>
+    <div class="favorites"></div>    
   </section>
   <section id="central" class="central">
     <div id="separator"></div>
