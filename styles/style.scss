@@ -78,7 +78,7 @@ body {
   right: 50px;
   bottom: 12px;
 }
-.btn-close-search-none{
+.none{
   display: none;  
 }
 .div-description {
@@ -139,6 +139,13 @@ body {
   opacity: 0.5;
   min-width: 43px;
   min-height: 43px;
+}
+.no-results{
+  display: grid;
+  justify-items: center;
+  position: relative;
+  top: 70px;
+  gap: 29px;
 }
 header {
   display: flex;
@@ -341,6 +348,7 @@ header {
   #search-div{
     width: 551px;
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     position: absolute;
     top: 269px;
@@ -419,6 +427,18 @@ header {
     border: 1px solid #9CAFC3;
     margin: 55px 0 82px 0;
     opacity: 0.5;    
+  }
+  #no-results{
+    img{
+      width: 150px;
+      height: 150px;
+    }
+    h2{
+      font-size: 22px;
+      font-family: $font-principal;
+      color: #50E3C2;
+      text-align: center;
+    }
   }
   #search-results{    
     width: 90%;

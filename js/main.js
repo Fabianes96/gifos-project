@@ -16,6 +16,7 @@ let btnCloseSearch = document.getElementById("btn-close-search");
 let searchClousureFlag = false;
 let central = document.getElementById("central");
 let btnMas = document.getElementById("btn-mas");
+let noResults = document.getElementById("no-results");
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
@@ -46,7 +47,7 @@ window.onclick = async function (event) {
           searchField.value = li.textContent;  
           await showGifsSearch();    
         } else{
-          searchClousure(); 
+          searchClousure();           
         }
       }  
     }
@@ -56,6 +57,7 @@ window.onclick = async function (event) {
 };
 function searchClousure(){
   let ulSuggestions = document.getElementById("suggestions");    
+  ulSuggestions.classList.add("none");
   while(ulSuggestions.firstElementChild!=null){
     ulSuggestions.removeChild(ulSuggestions.firstElementChild);      
   }
@@ -63,7 +65,7 @@ function searchClousure(){
     searchContainer.classList.remove("search-after-div");
     searchField.classList.add("search-field")
     searchField.classList.remove("search-after-input");
-    btnCloseSearch.classList.add("btn-close-search-none");
+    btnCloseSearch.classList.add("none");
     btnCloseSearch.classList.remove("btn-close-search");
     searchClousureFlag = false;
   }
@@ -100,8 +102,10 @@ searchField.addEventListener("click",()=>{
   searchContainer.classList.add("search-after-div");
   searchField.classList.remove("search-field");
   searchField.classList.add("search-after-input");
-  btnCloseSearch.classList.remove("btn-close-search-none")
-  btnCloseSearch.classList.add("btn-close-search")
+  btnCloseSearch.classList.remove("none")
+  btnCloseSearch.classList.add("btn-close-search");
+  let ulSuggestions = document.getElementById("suggestions");    
+  ulSuggestions.classList.remove("none");
   searchClousureFlag = true
   blur = false;
 })
@@ -135,6 +139,11 @@ searchField.addEventListener("keyup",async(e)=>{
   }   
 })
 async function showGifsSearch(){
+  btnMas.classList.add("none");
+  if(noResults.className.includes("no-results")){
+    noResults.classList.remove("no-results");
+    noResults.classList.add("none");    
+  }
   let search = searchField.value;
   let title = document.getElementById("title-result");
   title.textContent = "Cargando resultados..."      
@@ -150,9 +159,16 @@ async function showGifsSearch(){
   let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12`);
   response = await response.json();
   title.textContent = search;
-  gifsSearch = response.data;     
+  gifsSearch = response.data;       
   gifsSearchAux = gifsSearch;
-  addGifs(gifsSearch,"container-search-results",containerSearchResults,false);
+  if(gifsSearch.length != 0){
+    btnMas.classList.remove("none");
+    addGifs(gifsSearch,"container-search-results",containerSearchResults,false);
+  }else{    
+    btnMas.classList.add("none");
+    noResults.classList.remove("none");
+    noResults.classList.add("no-results");    
+  }
 }
 async function callGifs() {
   try {
