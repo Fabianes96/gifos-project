@@ -21,6 +21,7 @@ var modalContent = document.querySelector("#modalContent")
 var span = document.getElementsByClassName("close")[0];
 var index;
 let blur = false;
+let activeModalArray = [];
 let auxMasGifs = 0;
 
 span.onclick = function () {
@@ -29,22 +30,27 @@ span.onclick = function () {
     modalContent.removeChild(modalContent.firstChild);
   }
 };
-window.onclick = function (event) {          
-  if (event.target == modal) {
-    modal.style.display = "none";
-    while (modalContent.firstChild) {
-      modalContent.removeChild(modalContent.firstChild);
-    }
-  }    
-  if(blur){     
-    if(event.target != searchField){
-      if(event.target.localName == "li"){
-        let li = event.target;
-        searchField.value = li.textContent;      
-      } else{
-        searchClousure(); 
+window.onclick = async function (event) {          
+  try {    
+    if (event.target == modal) {
+      modal.style.display = "none";
+      while (modalContent.firstChild) {
+        modalContent.removeChild(modalContent.firstChild);
       }
-    }  
+    }    
+    if(blur){     
+      if(event.target != searchField){
+        if(event.target.localName == "li"){
+          let li = event.target;
+          searchField.value = li.textContent;  
+          await showGifsSearch();    
+        } else{
+          searchClousure(); 
+        }
+      }  
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 function searchClousure(){
@@ -68,7 +74,7 @@ btnMas.addEventListener("click",async()=>{
     let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12&offset=${auxMasGifs*12}`);
     response = await response.json();    
     masGifs = response.data;     
-    addGifsSearch(masGifs);
+    addGifs(masGifs,"container-search-results",containerSearchResults,false);
   } catch (error) {
       console.log(error);
   }
@@ -119,28 +125,31 @@ searchField.addEventListener("keyup",async(e)=>{
       })    
       searchContainer.appendChild(ul);
     }
-    if(e.code == "Enter"){
-      let search = searchField.value;
-      let title = document.getElementById("title-result");
-      title.textContent = "Cargando resultados..."      
-      central.classList.remove("central");
-      central.classList.add("show-div-results");
-      gifsSearch = [];
-      if(containerSearchResults.firstElementChild){
-        while(containerSearchResults.firstElementChild){
-            containerSearchResults.removeChild(containerSearchResults.firstElementChild);
-        }  
-      }
-      let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12`);
-      response = await response.json();
-      title.textContent = search;
-      gifsSearch = response.data;     
-      addGifsSearch(gifsSearch);
+    if(e.code == "Enter"){      
+      await showGifsSearch();
     }        
   } catch (error) {
     console.log("No se cargaron los resultados", error);
   }   
 })
+async function showGifsSearch(){
+  let search = searchField.value;
+  let title = document.getElementById("title-result");
+  title.textContent = "Cargando resultados..."      
+  central.classList.remove("central");
+  central.classList.add("show-div-results");
+  gifsSearch = [];
+  if(containerSearchResults.firstElementChild){
+    while(containerSearchResults.firstElementChild){
+        containerSearchResults.removeChild(containerSearchResults.firstElementChild);
+    }  
+  }
+  let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchField.value}&limit=12`);
+  response = await response.json();
+  title.textContent = search;
+  gifsSearch = response.data;     
+  addGifs(gifsSearch,"container-search-results",containerSearchResults,false);
+}
 async function callGifs() {
   try {
     let call = await fetch(URL + API_KEY + LIMIT);
@@ -150,11 +159,12 @@ async function callGifs() {
     console.log(error);
   }
 }
-function addGifsSearch(arreglo){
-  for (let i = 0; i < arreglo.length; i++) {
-    let square = document.createElement("div");
-    square.setAttribute("class", "container-search-results");
 
+function addGifs(array, attribute, container, modal){      
+  for (let i = 0; i < array.length; i++) {    
+    let square = document.createElement("div");
+    square.setAttribute("class", attribute)
+    
     let card = document.createElement("div");
     card.setAttribute("class", "card-icons");
 
@@ -185,91 +195,43 @@ function addGifsSearch(arreglo){
     square.appendChild(card);
 
     let gif = document.createElement("img");
-    gif.setAttribute("src", `${arreglo[i].images.original.url}`);
+    gif.setAttribute("src", `${array[i].images.original.url}`);
     gif.setAttribute("class", "gifos");    
     square.appendChild(gif);
     let divParagraphs = document.createElement("div");
     divParagraphs.setAttribute("class", "div-description");
     let p1 = document.createElement("p");
-    p1.textContent = `${gifs[i].username}`;
+    p1.textContent = `${array[i].username}`;
     let p2 = document.createElement("p");
-    p2.textContent = `${gifs[i].title}`;
+    p2.textContent = `${array[i].title}`;
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
-    square.appendChild(divParagraphs);    
+    square.appendChild(divParagraphs);       
     divIconMax.addEventListener('click', ()=>{
-      showModal(i);
+      showModal(array,i);      
     })
-    square.addEventListener('click',()=>{      
-      if(square.offsetWidth < 320){
-        showModal(i);
-      }
-    })
-    containerSearchResults.appendChild(square);
-  }
-}
-function addGifs() {
-  for (let i = 0; i < gifs.length; i++) {
-    let square = document.createElement("div");
-    square.setAttribute("class", "square");
-
-    let card = document.createElement("div");
-    card.setAttribute("class", "card-icons");
-
-    let divIconFav = document.createElement("div");
-    divIconFav.setAttribute("class", "div-icons");
-    let image1 = document.createElement("img");
-    image1.setAttribute("src", "assets/icon-fav-hover.svg");
-    image1.setAttribute("class", "icono");
-    divIconFav.appendChild(image1);
-    card.appendChild(divIconFav);
-
-    let divIconDownload = document.createElement("div");
-    divIconDownload.setAttribute("class", "div-icons");
-    let image2 = document.createElement("img");
-    image2.setAttribute("src", "assets/icon-download.svg");
-    image2.setAttribute("class", "icono");
-    divIconDownload.appendChild(image2);
-    card.appendChild(divIconDownload);
-
-    let divIconMax = document.createElement("div");
-    divIconMax.setAttribute("class", "div-icons");
-    let image3 = document.createElement("img");
-    image3.setAttribute("src", "assets/icon-max.svg");
-    image3.setAttribute("class", "icono");
-    divIconMax.appendChild(image3);
-    card.appendChild(divIconMax);
-
-    square.appendChild(card);
-
-    let gif = document.createElement("img");
-    gif.setAttribute("src", `${gifs[i].images.original.url}`);
-    gif.setAttribute("class", "gifos");    
-    square.appendChild(gif);
-    let divParagraphs = document.createElement("div");
-    divParagraphs.setAttribute("class", "div-description");
-    let p1 = document.createElement("p");
-    p1.textContent = `${gifs[i].username}`;
-    let p2 = document.createElement("p");
-    p2.textContent = `${gifs[i].title}`;
-    divParagraphs.appendChild(p1);
-    divParagraphs.appendChild(p2);
-    square.appendChild(divParagraphs);    
-    divIconMax.addEventListener('click', ()=>{
-      showModal(i);
-    })
-    square.addEventListener('click',()=>{      
-      if(square.offsetWidth < 320){
-        showModal(i);
-      }
-    })
+    if(modal){
+      square.addEventListener('click',()=>{      
+        if(square.offsetWidth < 320){
+          showModal(array,i);
+        }
+      })
+    }else{
+      square.addEventListener('click',()=>{      
+        if(square.offsetWidth < 200){
+          showModal(array,i);
+        }
+      })
+    }
     container.appendChild(square);
   }
 }
-function showModal(i) {
+
+function showModal(array,i) {  
+    activeModalArray = array; 
     index = i;
     let gif = document.createElement("img");
-    gif.setAttribute("src", `${gifs[i].images.original.url}`);
+    gif.setAttribute("src", `${array[i].images.original.url}`);
     gif.setAttribute("class", "modal-gif");
     let div = document.createElement("div");
     div.setAttribute("class", "card-icons-max");
@@ -295,9 +257,9 @@ function showModal(i) {
     let divContainer = document.createElement("div");
     divContainer.setAttribute('id', 'modalGifDescription');
     let p1 = document.createElement("p");
-    p1.textContent = `${gifs[i].username}`;
+    p1.textContent = `${array[i].username}`;
     let p2 = document.createElement("p");
-    p2.textContent = `${gifs[i].title}`;
+    p2.textContent = `${array[i].title}`;
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
     div.appendChild(divIconFav);
@@ -306,38 +268,46 @@ function showModal(i) {
     divContainer.appendChild(div);   
     modalContent.appendChild(gif);
     modalContent.appendChild(divContainer);    
-    modal.style.display = "block";    
-
+    modal.style.display = "block";   
 }
 
-buttonLeftModal.addEventListener('click',()=>{
+function loadGifModal(array,derecha){
   let modal = modalContent.firstElementChild; 
   let firstChild = document.querySelector("#modalContent div");
   let divDesc = firstChild.firstElementChild;
   let user = divDesc.firstElementChild;
-  let title = divDesc.lastElementChild; 
-  
-  if((index-1) >= 0 ){    
-    modal.setAttribute('src',`${gifs[index-1].images.original.url}`)
-    user.textContent = `${gifs[index-1].username}`;
-    title.textContent = `${gifs[index-1].title}`
-    index = index-1;  
+  let title = divDesc.lastElementChild;   
+  if(derecha){
+    if((index+1) < array.length ){    
+      modal.setAttribute('src',`${array[index+1].images.original.url}`)
+      user.textContent = `${array[index+1].username}`;
+      title.textContent = `${array[index+1].title}`
+      index = index+1;  
+    }  
+  }else{
+    if((index-1) >= 0 ){    
+      modal.setAttribute('src',`${array[index-1].images.original.url}`)
+      user.textContent = `${array[index-1].username}`;
+      title.textContent = `${array[index-1].title}`
+      index = index-1;  
+    }  
   }  
+}
+
+buttonLeftModal.addEventListener('click',()=>{
+  if(activeModalArray === gifs){
+    loadGifModal(gifs,false);
+  }else{
+    loadGifModal(gifsSearch,false);
+  }
 });
 buttonRightModal.addEventListener('click',()=>{
-  let modal = modalContent.firstElementChild; 
-  let first = document.querySelector("#modalContent div");
-  let divDesc = first.firstElementChild;
-  let user = divDesc.firstElementChild;
-  let title = divDesc.lastElementChild; 
-  
-  if((index+1) < gifs.length ){    
-    modal.setAttribute('src',`${gifs[index+1].images.original.url}`)
-    user.textContent = `${gifs[index+1].username}`;
-    title.textContent = `${gifs[index+1].title}`
-    index = index+1;  
-  }  
-});
+  if(activeModalArray === gifs){
+    loadGifModal(gifs,true);
+  }else{
+    loadGifModal(gifsSearch,true);
+  }
+})
 callGifs().then(() => {
-  addGifs();
+  addGifs(gifs,"square",container,true);
 });

@@ -130,6 +130,44 @@ body {
   right: 7px;
 }
 
+.arrow-container {
+  min-width: 40px;
+  min-height: 40px;
+  border: 1px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.arrow-container img {
+  width: 15px;
+  height: 15px;
+}
+
+.arrow-container:active {
+  background-color: #572ee5;
+}
+
+.arrow-container:active img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
+.arrow-container:hover {
+  opacity: 0.5;
+  min-width: 43px;
+  min-height: 43px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,6 +267,153 @@ header .menu #burger {
   header .menu {
     right: 14px;
   }
+}
+
+.modal-section {
+  /* The Close Button */
+}
+
+.modal-section .modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.modal-section .modal .modal-container {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 90%;
+  margin: 5% auto;
+  height: 500px;
+  padding: 0 10px;
+}
+
+.modal-section .modal .modal-container .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+  padding: 40px;
+  /* Could be more or less, depending on screen size */
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
+  width: 695px;
+  height: 385px;
+}
+
+@media screen and (max-width: 900px) {
+  .modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
+    width: 318px;
+    height: 245px;
+  }
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 22px;
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description {
+  position: static;
+  color: #000000;
+  padding-left: 0;
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description:first-child {
+  font-size: 15px;
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent .card-icons-max {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent .card-icons-max .div-icons {
+  border: 1px solid #ccc;
+}
+
+.modal-section .modal .modal-container .modal-content #slideLeftModal {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .modal-section .modal .modal-container .modal-content #slideLeftModal {
+    display: none;
+  }
+}
+
+.modal-section .modal .modal-container .modal-content #slideRightModal {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .modal-section .modal .modal-container .modal-content #slideRightModal {
+    display: none;
+  }
+}
+
+.modal-section .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-section .close:hover,
+.modal-section .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .initial {
@@ -575,45 +760,6 @@ header .menu #burger {
       -ms-flex-align: center;
           align-items: center;
   width: 90%;
-  /* The Close Button */
-}
-
-.trending .container #slider .arrow-container {
-  min-width: 40px;
-  min-height: 40px;
-  border: 1px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.trending .container #slider .arrow-container img {
-  width: 15px;
-  height: 15px;
-}
-
-.trending .container #slider .arrow-container:active {
-  background-color: #572ee5;
-}
-
-.trending .container #slider .arrow-container:active img {
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
-}
-
-.trending .container #slider .arrow-container:hover {
-  opacity: 0.5;
-  min-width: 43px;
-  min-height: 43px;
 }
 
 .trending .container #slider #gifs {
@@ -702,149 +848,6 @@ header .menu #burger {
     gap: 19px;
     overflow-x: scroll;
   }
-}
-
-.trending .container #slider .modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1000;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-}
-
-.trending .container #slider .modal .modal-container {
-  background-color: #fefefe;
-  border: 1px solid #888;
-  width: 90%;
-  margin: 5% auto;
-  height: 500px;
-  padding: 0 10px;
-}
-
-.trending .container #slider .modal .modal-container .modal-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 25px;
-  padding: 40px;
-  /* Could be more or less, depending on screen size */
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
-  width: 695px;
-  height: 385px;
-}
-
-@media screen and (max-width: 900px) {
-  .trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
-    width: 500px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .trending .container #slider .modal .modal-container .modal-content #modalContent .modal-gif {
-    width: 318px;
-    height: 245px;
-  }
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 22px;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description {
-  position: static;
-  color: #000000;
-  padding-left: 0;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description:first-child {
-  font-size: 15px;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent .card-icons-max {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 25px;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #modalContent .card-icons-max .div-icons {
-  border: 1px solid #ccc;
-}
-
-.trending .container #slider .modal .modal-container .modal-content #slideLeftModal {
-  width: 40px;
-  height: 40px;
-}
-
-@media screen and (max-width: 520px) {
-  .trending .container #slider .modal .modal-container .modal-content #slideLeftModal {
-    display: none;
-  }
-}
-
-.trending .container #slider .modal .modal-container .modal-content #slideRightModal {
-  width: 40px;
-  height: 40px;
-}
-
-@media screen and (max-width: 520px) {
-  .trending .container #slider .modal .modal-container .modal-content #slideRightModal {
-    display: none;
-  }
-}
-
-.trending .container #slider .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.trending .container #slider .close:hover,
-.trending .container #slider .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 550px) {
