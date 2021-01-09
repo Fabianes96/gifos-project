@@ -192,6 +192,77 @@ body {
   gap: 29px;
 }
 
+.no-favorites {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  position: relative;
+  justify-items: center;
+  top: 90px;
+}
+
+.favorites {
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-items: center;
+  gap: 29px;
+}
+
+.favs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35px;
+}
+
+.container-search-and-favs {
+  width: 260px;
+  height: 200px;
+  background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container-search-and-favs .gifos {
+  width: 260px;
+  height: 200px;
+  position: relative;
+  min-width: 260px;
+  min-height: 200px;
+  bottom: 32px;
+  z-index: 10;
+}
+
+.container-search-and-favs:hover .gifos {
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 605px) {
+  .container-search-and-favs:hover .gifos {
+    z-index: 10;
+    opacity: 1;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -607,15 +678,6 @@ header .menu #burger {
   margin-top: 25px;
 }
 
-#favoritos #no-favorites {
-  display: -ms-grid;
-  display: grid;
-  gap: 20px;
-  position: relative;
-  justify-items: center;
-  top: 90px;
-}
-
 #favoritos #no-favorites img {
   width: 150px;
   height: 150px;
@@ -667,44 +729,6 @@ header .menu #burger {
   height: auto;
 }
 
-#central #search-results .container-search-results {
-  width: 260px;
-  height: 200px;
-  background-color: #572ee5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-#central #search-results .container-search-results .gifos {
-  width: 260px;
-  height: 200px;
-  position: relative;
-  min-width: 260px;
-  min-height: 200px;
-  bottom: 32px;
-  z-index: 10;
-}
-
-#central #search-results .container-search-results:hover .gifos {
-  z-index: 0;
-  opacity: 0.4;
-}
-
-@media screen and (max-width: 605px) {
-  #central #search-results .container-search-results:hover .gifos {
-    z-index: 10;
-    opacity: 1;
-  }
-}
-
 @media screen and (max-width: 950px) {
   #central #search-results {
     -webkit-column-gap: 10px;
@@ -720,11 +744,11 @@ header .menu #burger {
     -ms-grid-columns: (minmax(160px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-  #central #search-results .container-search-results {
+  #central #search-results .container-search-and-favs {
     width: 160px;
     height: 120px;
   }
-  #central #search-results .container-search-results .gifos {
+  #central #search-results .container-search-and-favs .gifos {
     width: 160px;
     height: 120px;
     min-width: 160px;

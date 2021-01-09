@@ -1,5 +1,6 @@
 $font-principal: "Montserrat-Bold", sans-serif;
 $color-principal: #572ee5;
+$color-secundario: #50E3C2;
 * {
   margin: 0;
   padding: 0;
@@ -154,6 +155,42 @@ body {
   top: 70px;
   gap: 29px;
 }
+.no-favorites{
+  display: grid;
+  gap: 20px;
+  position: relative;    
+  justify-items: center;
+  top: 90px;
+}
+.favorites{
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  justify-items: center;
+  gap: 29px
+}
+.favs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+.container-search-and-favs{
+  @include gifsSquare(260px,200px);     
+  .gifos{
+    width: 260px;
+    height: 200px;
+    @include gifsGifos(260px,200px ,32px )
+  }
+}
+.container-search-and-favs:hover{
+  .gifos{
+    @include gifHover(0,0.4)
+  }
+  @media screen and (max-width: 605px){
+    @include removeGifHover()
+  }
+}    
 header {
   display: flex;
   justify-content: space-between;
@@ -425,12 +462,7 @@ header {
     justify-items: center;
     margin-top: 25px;
   }
-  #no-favorites{
-    display: grid;
-    gap: 20px;
-    position: relative;    
-    justify-items: center;
-    top: 90px;
+  #no-favorites{    
     img{
       width: 150px;
       height: 150px;
@@ -439,7 +471,7 @@ header {
       width: 50%;
       text-align: center;
       font-size: 22px;
-      color: #50E3C2;
+      color: $color-secundario;
     }
   }
 }
@@ -462,7 +494,7 @@ header {
     h2{
       font-size: 22px;
       font-family: $font-principal;
-      color: #50E3C2;
+      color: $color-secundario;
       text-align: center;
     }
   }
@@ -474,23 +506,7 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 29px;
     justify-items: center;
-    height: auto;
-    .container-search-results{
-      @include gifsSquare(260px,200px);     
-      .gifos{
-        width: 260px;
-        height: 200px;
-        @include gifsGifos(260px,200px ,32px )
-      }
-    }
-    .container-search-results:hover{
-      .gifos{
-        @include gifHover(0,0.4)
-      }
-      @media screen and (max-width: 605px){
-        @include removeGifHover()
-      }
-    }    
+    height: auto;    
     @media screen and (max-width: 950px){
       column-gap: 10px;
       row-gap: 29px;
@@ -499,7 +515,7 @@ header {
       width: 95%;
       gap: 21px;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      
-      .container-search-results{        
+      .container-search-and-favs{        
         width: 160px;
         height: 120px;
         .gifos{
