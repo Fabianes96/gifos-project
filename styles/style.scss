@@ -43,6 +43,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.btn-mas{
+  width: 127px;
+  height: 50px;
+  border: 1px solid $color-principal;
+  border-radius: 25px;      
+  font-family: $font-principal;
+  font-size: 13px;      
+  color: $color-principal;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.btn-mas:hover{
+  background-color: $color-principal;
+  color: #ffffff;
+}
 .search-after-div{    
     justify-content: start;
     align-items: center;    
@@ -457,6 +473,8 @@ header {
   }
 }
 #favoritos{
+  position: relative;
+  top: 50px;
   .favs-header{
     display: grid;
     justify-items: center;
@@ -473,6 +491,10 @@ header {
       font-size: 22px;
       color: $color-secundario;
     }
+  }
+  #div-mas-favs{
+    position: relative;
+    top: 78px;
   }
 }
 #central{
@@ -528,23 +550,7 @@ header {
     }
   }
   #div-mas{    
-    margin-top: 112px;
-    .btn-mas{
-      width: 127px;
-      height: 50px;
-      border: 1px solid $color-principal;
-      border-radius: 25px;      
-      font-family: $font-principal;
-      font-size: 13px;      
-      color: $color-principal;
-      background-color: transparent;
-      cursor: pointer;
-      outline: none;
-    }
-    .btn-mas:hover{
-      background-color: $color-principal;
-      color: #ffffff;
-    }
+    margin-top: 112px;    
   }  
 }
 .trending {

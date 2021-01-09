@@ -23,6 +23,24 @@ body {
           align-items: center;
 }
 
+.btn-mas {
+  width: 127px;
+  height: 50px;
+  border: 1px solid #572ee5;
+  border-radius: 25px;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 13px;
+  color: #572ee5;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-mas:hover {
+  background-color: #572ee5;
+  color: #ffffff;
+}
+
 .search-after-div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -671,6 +689,11 @@ header .menu #burger {
   }
 }
 
+#favoritos {
+  position: relative;
+  top: 50px;
+}
+
 #favoritos .favs-header {
   display: -ms-grid;
   display: grid;
@@ -688,6 +711,11 @@ header .menu #burger {
   text-align: center;
   font-size: 22px;
   color: #50E3C2;
+}
+
+#favoritos #div-mas-favs {
+  position: relative;
+  top: 78px;
 }
 
 #central {
@@ -758,24 +786,6 @@ header .menu #burger {
 
 #central #div-mas {
   margin-top: 112px;
-}
-
-#central #div-mas .btn-mas {
-  width: 127px;
-  height: 50px;
-  border: 1px solid #572ee5;
-  border-radius: 25px;
-  font-family: "Montserrat-Bold", sans-serif;
-  font-size: 13px;
-  color: #572ee5;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-#central #div-mas .btn-mas:hover {
-  background-color: #572ee5;
-  color: #ffffff;
 }
 
 .trending {
