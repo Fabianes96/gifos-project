@@ -243,6 +243,10 @@ body {
   gap: 35px;
 }
 
+.active {
+  color: #9CAFC3;
+}
+
 .container-search-and-favs {
   width: 260px;
   height: 200px;
@@ -343,9 +347,12 @@ header .menu nav ul li {
   list-style: none;
 }
 
+header .menu nav ul li .no-selected {
+  color: #572ee5;
+}
+
 header .menu nav ul li a {
   font-size: 13px;
-  color: #572ee5;
   letter-spacing: 0;
   text-align: center;
   text-decoration: none;

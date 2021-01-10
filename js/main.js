@@ -60,7 +60,7 @@ global.btnMasFavs.addEventListener("click", () => {
   }
 });
 
-global.linkFavoritos.addEventListener("click", () => {
+global.linkFavoritos.addEventListener("click", () => {  
   addFavorite();
 });
 global.span.onclick = function () {
@@ -209,6 +209,21 @@ function addFavorite() {
     }
   } else {
     favs = [];
+  }
+}
+function activeLink(){
+  let menu = document.getElementById("menu");
+  let a = menu.getElementsByClassName("links");  
+  for (let i = 0; i < a.length; i++) {
+    a[i].addEventListener("click",()=>{
+      let current = document.getElementsByClassName("active");      
+      if(current.length > 0){
+        current[0].classList.add("no-selected");
+        current[0].classList.remove("active");    
+      }      
+      a[i].classList.remove("no-selected")
+      a[i].classList.add("active")
+    })
   }
 }
 function searchClousure() {
@@ -444,3 +459,4 @@ function loadGifModal(array, derecha) {
 callGifs().then(() => {
   addGifs(gifs, "square", global.container, true);
 });
+activeLink()

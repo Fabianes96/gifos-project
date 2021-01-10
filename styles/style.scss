@@ -191,6 +191,9 @@ body {
   align-items: center;
   gap: 35px;
 }
+.active{
+  color: #9CAFC3;
+}
 .container-search-and-favs{
   @include gifsSquare(260px,200px);     
   .gifos{
@@ -239,13 +242,15 @@ header {
         li {
           margin-left: 16px;
           list-style: none;
-          a {
-            font-size: 13px;
+          .no-selected{
             color: $color-principal;
+          }
+          a {
+            font-size: 13px;            
             letter-spacing: 0;
             text-align: center;
             text-decoration: none;
-          }
+          }          
         }
       }
       #crear-gifo {

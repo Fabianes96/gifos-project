@@ -24,5 +24,6 @@ let span = document.getElementsByClassName("close")[0];
 let linkFavoritos = document.getElementsByClassName("links")[1];
 let btnMasFavs = document.getElementById("btn-mas-favs");
 let ulSuggestions = document.getElementById("suggestions");   
+let links = document.getElementsByClassName("links");
 
-export {initial,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerSearchResults,divGifs,favoritos,linkFavoritos,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions}
+export {initial,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerSearchResults,divGifs,favoritos,linkFavoritos,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links}
