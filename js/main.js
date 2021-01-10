@@ -340,7 +340,7 @@ function addGifs(array, attribute, container, modal) {
     let divIconMax = document.createElement("div");
     divIconMax.setAttribute("class", "div-icons");
     let image3 = document.createElement("img");
-    image3.setAttribute("src", "assets/icon-max.svg");
+    image3.setAttribute("src", "assets/icon-max-normal.svg");
     image3.setAttribute("class", "icono");
     divIconMax.appendChild(image3);
     card.appendChild(divIconMax);

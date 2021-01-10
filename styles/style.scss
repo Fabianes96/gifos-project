@@ -125,8 +125,7 @@ body {
   z-index: 1;
   cursor: pointer;
   .icono {
-    width: 18px;
-    height: 16px;
+    width: 85%;
     background: #ffffff;    
     z-index: 1;
   }
@@ -140,24 +139,15 @@ body {
   right: 7px;            
 }
 .arrow-container {
-  min-width: 40px;
-  min-height: 40px;
-  border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-  img {
-    width: 15px;
-    height: 15px;
-  }
+  cursor: pointer;    
 }
 .arrow-container:active {
-  background-color: $color-principal;
-  img {
-    filter: brightness(0) invert(1);
-  }
+  // img:first-child{
+  //   display: none;
+  // }
+  // img:last-child{
+  //   display: block;
+  // }
 }
 .arrow-container:hover {
   opacity: 0.5;
@@ -260,13 +250,12 @@ header {
           }          
         }
       }
-      #crear-gifo {
-        background: #ffffff;
-        border: 1px solid $color-principal;
-        border-radius: 30px;
+      #crear-gifo {        
         position: relative;
         left: 53px;
-        padding: 13px;
+        width: 54px;
+        height: 54px;
+        cursor: pointer;
       }
       @media screen and (max-width: 850px) {
         display: none;

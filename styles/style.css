@@ -145,8 +145,7 @@ body {
 }
 
 .div-icons .icono {
-  width: 18px;
-  height: 16px;
+  width: 85%;
   background: #ffffff;
   z-index: 1;
 }
@@ -164,35 +163,7 @@ body {
 }
 
 .arrow-container {
-  min-width: 40px;
-  min-height: 40px;
-  border: 1px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.arrow-container img {
-  width: 15px;
-  height: 15px;
-}
-
-.arrow-container:active {
-  background-color: #572ee5;
-}
-
-.arrow-container:active img {
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
 }
 
 .arrow-container:hover {
@@ -368,12 +339,11 @@ header .menu nav ul li a {
 }
 
 header .menu nav #crear-gifo {
-  background: #ffffff;
-  border: 1px solid #572ee5;
-  border-radius: 30px;
   position: relative;
   left: 53px;
-  padding: 13px;
+  width: 54px;
+  height: 54px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 850px) {
