@@ -191,6 +191,13 @@ body {
   align-items: center;
   gap: 35px;
 }
+.no-gifos{
+  display: grid;
+  gap: 20px;
+  position: relative;    
+  justify-items: center;
+  top: 90px;
+}
 .active{
   color: #9CAFC3;
 }
@@ -502,6 +509,29 @@ header {
     top: 78px;
   }
 }
+#section-mis-gifos{
+  position: relative;
+  top: 50px;
+  .mis-gifos-header{
+    display: grid;
+    justify-items: center;
+    row-gap: 8px;
+  }
+  #no-gifos{
+    img{
+      width: 150px;
+      height: 150px;
+    }
+    h1{
+      width: 50%;
+      text-align: center;
+      font-size: 22px;
+      color: $color-secundario;
+    }
+  }
+}
+
+
 #central{
   position: relative;
   top: 181px;   

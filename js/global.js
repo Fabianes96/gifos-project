@@ -1,9 +1,11 @@
 let initial = document.getElementById("initial");
 let favoritos = document.getElementById("favoritos");
+let misGIFOS = document.getElementById("section-mis-gifos")
 let container = document.getElementById("gifs");
 let containerSearchResults = document.getElementById("search-results");
 let noFavorites = document.getElementById("no-favorites");
 let containerFavorites = document.getElementById("favorites");
+let containerGIFOS = document.getElementById("mis-gifos");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
 const API_KEY = "CqzSXTpzWmjiVKu03lbXhZidGMWveE78";
 const LIMIT = "&limit=25";
@@ -22,8 +24,9 @@ let modal = document.getElementById("myModal");
 let modalContent = document.querySelector("#modalContent")
 let span = document.getElementsByClassName("close")[0];
 let linkFavoritos = document.getElementsByClassName("links")[1];
+let linkGIFOS = document.getElementsByClassName("links")[2];
 let btnMasFavs = document.getElementById("btn-mas-favs");
 let ulSuggestions = document.getElementById("suggestions");   
 let links = document.getElementsByClassName("links");
 
-export {initial,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerSearchResults,divGifs,favoritos,linkFavoritos,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links}
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links}

@@ -63,6 +63,9 @@ global.btnMasFavs.addEventListener("click", () => {
 global.linkFavoritos.addEventListener("click", () => {  
   addFavorite();
 });
+global.linkGIFOS.addEventListener("click",()=>{
+  addGIFOS();
+})
 global.span.onclick = function () {
   global.modal.style.display = "none";
   //
@@ -173,6 +176,21 @@ global.buttonRightModal.addEventListener("click", () => {
       loadGifModal(favs, true);
   }
 });
+function addGIFOS(){
+  if(global.containerGIFOS.firstElementChild){
+    while(global.containerGIFOS.firstElementChild){
+      global.containerGIFOS.removeChild(
+        global.containerGIFOS.firstElementChild
+      );
+    }
+  }
+  global.central.classList.remove("show-div-results");
+  global.central.classList.add("central");
+  global.initial.classList.remove("initial");
+  global.initial.classList.add("none");    
+  global.misGIFOS.classList.remove("none");
+
+}
 function addFavorite() {
   if (global.containerFavorites.firstElementChild) {
     while (global.containerFavorites.firstElementChild) {
