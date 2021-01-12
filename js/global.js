@@ -28,5 +28,8 @@ let linkGIFOS = document.getElementsByClassName("links")[2];
 let btnMasFavs = document.getElementById("btn-mas-favs");
 let ulSuggestions = document.getElementById("suggestions");   
 let links = document.getElementsByClassName("links");
+let btnComenzar =document.getElementById("btn-comenzar")
+let cameraWindow = document.getElementById("camera-window");
+let video = document.querySelector('video');
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links}
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar, cameraWindow, video}

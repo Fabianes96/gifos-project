@@ -570,7 +570,28 @@ header .menu #burger {
           align-items: center;
 }
 
+.crear-gifs #principal-gifs #camera-central {
+  width: 688px;
+  height: 390px;
+  border: 1px solid #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear-gifs #principal-gifs #camera-central video {
+  height: 75%;
+}
+
 .crear-gifs #principal-gifs #camera-central #camera-window {
+  width: inherit;
+  height: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -585,9 +606,6 @@ header .menu #burger {
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
-  width: 688px;
-  height: 390px;
-  border: 1px solid #572ee5;
 }
 
 .crear-gifs #principal-gifs #camera-central #camera-window h1 {
@@ -626,13 +644,13 @@ header .menu #burger {
 }
 
 @media screen and (max-width: 1100px) {
-  .crear-gifs #principal-gifs #camera-central #camera-window {
+  .crear-gifs #principal-gifs #camera-central {
     width: 530px;
   }
 }
 
 @media screen and (max-width: 850px) {
-  .crear-gifs #principal-gifs #camera-central #camera-window {
+  .crear-gifs #principal-gifs #camera-central {
     width: 450px;
   }
 }
