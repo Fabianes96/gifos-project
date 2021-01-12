@@ -367,6 +367,108 @@ header {
       cursor: pointer;
     }
 }
+.crear-gifs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50px;
+  right: 70px;
+  #camera-div{
+    display: flex;
+    position: relative;
+    bottom: 80px;
+    @media screen and (max-width: 1200px) {
+      position: relative;
+      left: 70px;
+      img:first-child{
+        width: 50%;
+      }
+      img:last-child{
+        width: 30%;
+      } 
+    }
+    @media screen and (max-width:850px){
+      display: none;      
+    }
+  }
+  #principal-gifs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #camera-central{
+      #camera-window{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 688px;
+        height: 390px;
+        border: 1px solid $color-principal;
+        h1{
+          display: flex;
+          flex-direction: column;          
+          align-items: center;
+          font-size: 25px;
+          line-height: 35px;
+          span > :last-child{
+            color: $color-secundario;
+          }
+        }
+        p{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: #000000;
+          font-size: 16px;
+          line-height: 29px;
+        }
+        @media screen and (max-width:1100px){
+          width: 530px;
+        }
+        @media screen and (max-width:850px){
+            width: 450px;
+        }
+      }
+    }
+    #camera-elements{
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+      row-gap: 15px;
+      position: relative;
+      top: 30px;
+      #pasos{
+        display: flex;
+        column-gap: 25px;
+      }
+      #separator-misgifos{
+        width: 795px;
+        height: 7px;
+        background-color: $color-principal;
+        border-radius: 10px;
+        @media screen and (max-width:1100px){
+          width: 600px;
+        }
+      }      
+    }
+    #camera-elements > :last-child{      
+      position: absolute;
+      left: 100%;
+      bottom: 70px;
+      @media screen and (max-width:1200px){
+        width: 100px;
+      }
+      @media screen and (max-width:850px){
+        display: none;
+      }
+    }
+  }
+  @media screen and(max-width:850px){
+    right: 0;
+  }
+}
 #initial {  
   #title-1 {
     #los-1 {
@@ -519,8 +621,6 @@ header {
     }
   }
 }
-
-
 #central{
   position: relative;
   top: 181px;   
