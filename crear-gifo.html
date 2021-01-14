@@ -39,9 +39,14 @@
         <div id="principal-gifs">
             <div id="camera-central">
                 <video autoplay class="none"></video>                
-                <div id="camera-window">
+                <div id="camera-window" class="camera-window-content">
                     <h1>Aquí podrás <span>crear tus propios <span>GIFOS</span></span></h1>
                     <p>¡Crea tu GIFO en sólo 3 pasos!<span>(sólo necesitas una cámara para grabar un video)</span>
+                    </p>
+                </div>
+                <div id="camera-window-2" class="none">
+                    <h1>¿Nos das acceso <span>a tu cámara?</span></h1>
+                    <p>El acceso a tu camara será válido sólo<span>por el tiempo en el que estés creando el GIFO</span>
                     </p>
                 </div>
             </div>
@@ -53,6 +58,7 @@
                 </div>
                 <div id="separator-misgifos"></div>
                 <button id="btn-comenzar" class="btn-mas">COMENZAR</button>
+                <button id="btn-grabar" class="none">GRABAR</button>
                 <img src="assets/pelicula.svg" alt="Pelicula">
             </div>
         </div>
@@ -70,7 +76,8 @@
           <p>&#169; GIFOS 2020 All Rights Reserved.</p>
         </div>
       </footer>
-    <script src="js/crear-gif.js" type="module"></script>
-    <script src="js/global.js" type="module"></script>
+      <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+      <script src="js/crear-gif.js" type="module"></script>
+      <script src="js/global.js" type="module"></script>
 </body>
 </html>

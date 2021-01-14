@@ -265,6 +265,25 @@ body {
   }
 }
 
+.camera-window-content {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -586,29 +605,11 @@ header .menu #burger {
 }
 
 .crear-gifs #principal-gifs #camera-central video {
-  height: 75%;
+  height: 65%;
+  position: absolute;
 }
 
-.crear-gifs #principal-gifs #camera-central #camera-window {
-  width: inherit;
-  height: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 5px;
-}
-
-.crear-gifs #principal-gifs #camera-central #camera-window h1 {
+.crear-gifs #principal-gifs #camera-central div h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -623,11 +624,11 @@ header .menu #burger {
   line-height: 35px;
 }
 
-.crear-gifs #principal-gifs #camera-central #camera-window h1 span > :last-child {
+.crear-gifs #principal-gifs #camera-central div h1 span > :last-child {
   color: #50E3C2;
 }
 
-.crear-gifs #principal-gifs #camera-central #camera-window p {
+.crear-gifs #principal-gifs #camera-central div p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

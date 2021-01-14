@@ -206,6 +206,16 @@ body {
   @media screen and (max-width: 605px){
     @include removeGifHover()
   }
+}
+.camera-window-content{
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;          
+
 }    
 header {
   display: flex;
@@ -404,16 +414,10 @@ header {
       justify-content: center;
       align-items: center;
       video{        
-        height: 75%;
-      }
-      #camera-window{
-        width: inherit;
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
+        height: 65%;
+        position: absolute;
+      }     
+      div{
         h1{
           display: flex;
           flex-direction: column;          
