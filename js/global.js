@@ -30,8 +30,9 @@ let ulSuggestions = document.getElementById("suggestions");
 let links = document.getElementsByClassName("links");
 let btnComenzar =document.getElementById("btn-comenzar")
 let btnGrabar =document.getElementById("btn-grabar")
+let btnFinalizar =document.getElementById("btn-finalizar")
 let cameraWindow = document.getElementById("camera-window");
 let cameraWindow2 = document.getElementById("camera-window-2");
 let video = document.querySelector('video');
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, cameraWindow, cameraWindow2, video}
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, cameraWindow, cameraWindow2, video}
