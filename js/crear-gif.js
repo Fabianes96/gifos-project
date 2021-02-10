@@ -53,37 +53,43 @@ global.btnSubirGifo.addEventListener("click",()=>{
     image1.setAttribute("src", "assets/icon-download.svg");
     image1.setAttribute("class", "icono");
     divIconDownload.appendChild(image1);
-    card.appendChild(divIconDownload);
     let divIconMax = document.createElement("div");
     divIconMax.setAttribute("class", "div-icons");
     let image3 = document.createElement("img");
     image3.setAttribute("src", "assets/icon-max-normal.svg");
     image3.setAttribute("class", "icono");
     divIconMax.appendChild(image3);
-    card.appendChild(divIconMax);
+    
     
     global.cardSubiendoGifo.appendChild(card);    
     
     global.cardSubiendoGifo.classList.remove('none');        
     global.cardSubiendoGifo.style.display = "flex";
-
-    recorder.stopRecording(async (recording)=>{
-        console.log("grabacion ", recording);
-        // const form = new FormData();
-        // form.append("file", recorder.getBlob(), "myGif.gif");
-        // console.log(form.get('file'));
-        // try {
-        //     let response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${global.API_KEY}`,{
-        //         method: "POST",
-        //         body: form                
-        //     })            
-        //     let res = await response.json()
-        //     let resData = res.data
-        //     console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}
-        // } catch (error) {
-        //     console.log("Algo salió mal ", error);
-        // }
-    });
+    global.video.classList.add('camera-hover');
+    recorder.stopRecording(async (recording)=>{                
+        const form = new FormData();
+        form.append("file", recorder.getBlob(), "myGif.gif");
+        console.log(form.get('file'));
+        try {
+            let response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${global.API_KEY}`,{
+                method: "POST",
+                body: form                
+            })            
+            let res = await response.json()
+            let resData = res.data
+            card.appendChild(divIconDownload);
+            card.appendChild(divIconMax);
+            global.cardSubiendoGifo.appendChild(card);   
+            let check = global.cardSubiendoGifo.firstElementChild
+            check.setAttribute("src", "assets/check.svg");
+            global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";
+            console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}
+            setTimeout(vidOff(),3000);
+        } catch (error) {
+            global.cardSubiendoGifo.children[1].textContent = "Algo salió mal";
+            console.log("Algo salió mal ", error);
+        }
+    });    
 })
 async function activeCamera(){
     try {                
@@ -109,6 +115,12 @@ async function activeCamera(){
     } catch (error) {
         console.log(error);
     }
+}
+function vidOff(){
+    global.video.pause();
+    global.video.src = "";
+    global.video.srcObject.getTracks()[0].stop();
+    console.log("vid off");
 }
 function startTime(){        
     setChronometer();

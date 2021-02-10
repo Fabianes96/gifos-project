@@ -225,6 +225,9 @@ body {
   align-items: center;
   gap: 5px;      
 }    
+.camera-hover{
+  @include gifHover(1,0.4)
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -424,20 +427,21 @@ header {
       video{        
         width: 480px;
         height: 320px;        
-        position: absolute;
+        position: absolute;           
       }     
       #subiendo-gifo{
-        width: 429px;
-        height: 320px;
+        @include gifsSquare(429px,320px);                     
+        display: none;
         position: absolute;
-        background-color: $color-principal;                
-        flex-direction: column;
         justify-content: center;
-        opacity: 0.6;
+        :first-child{
+          z-index: 1;
+        }
         p{          
           font-weight: bold;
           font-size: 15px;
           color: #FFFFFF;
+          z-index: 1;
         }
         > div{
           position: absolute;

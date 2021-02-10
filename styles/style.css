@@ -295,6 +295,11 @@ body {
   gap: 5px;
 }
 
+.camera-hover {
+  z-index: 1;
+  opacity: 0.4;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -624,22 +629,33 @@ header .menu #burger {
 .crear-gifs #principal-gifs #camera-central #subiendo-gifo {
   width: 429px;
   height: 320px;
-  position: absolute;
   background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: none;
+  position: absolute;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  opacity: 0.6;
+}
+
+.crear-gifs #principal-gifs #camera-central #subiendo-gifo :first-child {
+  z-index: 1;
 }
 
 .crear-gifs #principal-gifs #camera-central #subiendo-gifo p {
   font-weight: bold;
   font-size: 15px;
   color: #FFFFFF;
+  z-index: 1;
 }
 
 .crear-gifs #principal-gifs #camera-central #subiendo-gifo > div {
