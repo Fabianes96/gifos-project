@@ -9,6 +9,7 @@ let form = new FormData();
 let misGifs = localStorage.getItem("mis-gifos")
   ? JSON.parse(localStorage.getItem("mis-gifos"))
   : [];
+let offsetGifs = 12;
 global.btnComenzar.addEventListener("click",async()=>{    
     try {        
         global.btnComenzar.classList.remove('btn-mas')

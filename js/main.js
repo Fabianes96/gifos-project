@@ -12,7 +12,7 @@ let favs = localStorage.getItem("favoritos")
   ? JSON.parse(localStorage.getItem("favoritos"))
   : [];
 let offsetFavs = 12;
-
+let offsetMisGifs = 12;
 window.onclick = async function (event) {
   try {
     if (event.target == global.modal) {
@@ -59,6 +59,28 @@ global.btnMasFavs.addEventListener("click", () => {
     global.btnMasFavs.classList.add("none");
   }
 });
+global.btnMasMisGifs.addEventListener("click",()=>{
+  let inicio = offsetMisGifs;
+  offsetMisGifs = offsetMisGifs + 4;
+  let misGifs = JSON.parse(localStorage.getItem("mis-gifos"));
+  let cant = misGifs.length;
+  if(cant > offsetMisGifs){
+    addGifs(
+      misGifs.slice(inicio, offsetMisGifs),
+      "container-search-and-favs",
+      global.containerGIFOS,
+      false
+    );
+  }else{
+    addGifs(
+      misGifs.slice(inicio, misGifs.length),
+      "container-search-and-favs",
+      global.containerGIFOS,
+      false
+    );
+    global.btnMasMisGifs.classList.add("none");
+  }
+})
 
 global.linkFavoritos.addEventListener("click", () => {  
   addFavorite();
@@ -195,7 +217,17 @@ async function addGIFOS(){
   if(misGifs){    
     global.misGIFOS.classList.add("section-misgifos");
     global.noMisGIFOS.remove();
-    addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
+    if(misGifs.length > 12){
+      addGifs(
+        misGifs.slice(0, 12),
+        "container-search-and-favs",
+        global.containerGIFOS,
+        false
+        );
+      global.btnMasMisGifs.classList.remove("none");
+    }else{
+      addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
+    }
   } 
 }
 function addFavorite() {
