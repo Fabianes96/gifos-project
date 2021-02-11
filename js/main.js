@@ -191,12 +191,12 @@ async function addGIFOS(){
   global.favoritos.classList.remove("favs");
   global.favoritos.classList.add("none");  
   let misGifs = JSON.parse(localStorage.getItem("mis-gifos"));
-  if(misGifs){
-    addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
+  global.misGIFOS.classList.remove("none");  
+  if(misGifs){    
+    global.misGIFOS.classList.add("section-misgifos");
     global.noMisGIFOS.remove();
+    addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
   } 
-  global.misGIFOS.classList.remove("none");
-  
 }
 function addFavorite() {
   if (global.containerFavorites.firstElementChild) {
@@ -211,6 +211,7 @@ function addFavorite() {
   }   
   global.initial.remove();  
   global.favoritos.classList.remove("none");
+  global.misGIFOS.classList.remove("section-misgifos");
   global.misGIFOS.classList.add("none");
   favs = JSON.parse(localStorage.getItem("favoritos"));
   if (favs) {

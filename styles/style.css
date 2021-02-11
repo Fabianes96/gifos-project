@@ -214,6 +214,20 @@ body {
   gap: 35px;
 }
 
+.section-misgifos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35px;
+}
+
 .no-gifos {
   display: -ms-grid;
   display: grid;
@@ -982,17 +996,6 @@ header .menu #burger {
 }
 
 #section-mis-gifos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 35px;
   position: relative;
   top: 50px;
 }

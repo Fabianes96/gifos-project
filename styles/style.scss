@@ -185,6 +185,9 @@ body {
 .favs{
   @include sections-favs-gifos()
 }
+.section-misgifos{
+  @include sections-favs-gifos()
+}
 .no-gifos{
   display: grid;
   gap: 20px;
@@ -660,8 +663,7 @@ header {
     top: 78px;
   }
 }
-#section-mis-gifos{
-  @include sections-favs-gifos();
+#section-mis-gifos{  
   position: relative;
   top: 50px;
   .mis-gifos-header{
