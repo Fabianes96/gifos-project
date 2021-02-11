@@ -5,6 +5,7 @@ let time  = document.getElementById("time");
 let m = 0;
 let s = 0;
 let mls= 0;
+let form = new FormData();
 let misGifs = localStorage.getItem("mis-gifos")
   ? JSON.parse(localStorage.getItem("mis-gifos"))
   : [];
@@ -40,8 +41,13 @@ global.btnFinalizar.addEventListener("click",()=>{
     global.btnFinalizar.classList.add('none');
     global.btnSubirGifo.classList.remove('none');
     global.btnSubirGifo.classList.add('btn-mas');    
+    recorder.stopRecording((recording)=>{                
+        form = new FormData();
+        form.append("file", recorder.getBlob(), "myGif.gif");
+        console.log(form.get('file'));        
+    });    
 });
-global.btnSubirGifo.addEventListener("click",()=>{
+global.btnSubirGifo.addEventListener("click",async()=>{
     global.btnSubirGifo.classList.add('none');
     global.pasos.children[1].classList.remove("step-active");
     global.pasos.lastElementChild.classList.add("step-active");
@@ -61,42 +67,33 @@ global.btnSubirGifo.addEventListener("click",()=>{
     let image3 = document.createElement("img");
     image3.setAttribute("src", "assets/icon-max-normal.svg");
     image3.setAttribute("class", "icono");
-    divIconMax.appendChild(image3);
-    
-    
-    global.cardSubiendoGifo.appendChild(card);    
-    
+    divIconMax.appendChild(image3);    
+    global.cardSubiendoGifo.appendChild(card);        
     global.cardSubiendoGifo.classList.remove('none');        
     global.cardSubiendoGifo.style.display = "flex";
     global.video.classList.add('camera-hover');
-    recorder.stopRecording(async (recording)=>{                
-        const form = new FormData();
-        form.append("file", recorder.getBlob(), "myGif.gif");
-        console.log(form.get('file'));
-        try {
-            let response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${global.API_KEY}`,{
-                method: "POST",
-                body: form                
-            })            
-            let res = await response.json()
-            let resData = res.data
-            card.appendChild(divIconDownload);
-            card.appendChild(divIconMax);
-            global.cardSubiendoGifo.appendChild(card);   
-            let check = global.cardSubiendoGifo.firstElementChild
-            check.setAttribute("src", "assets/check.svg");
-            global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";
-            console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}                        
-            let resGif = await fetch(`https://api.giphy.com/v1/gifs/${resData.id}?api_key=${global.API_KEY}`);
-            let myGifData = await resGif.json();          
-            misGifs.push(myGifData.data);
-            console.log((misGifs));
-            localStorage.setItem("mis-gifos", JSON.stringify(misGifs));
-        } catch (error) {
-            global.cardSubiendoGifo.children[1].textContent = "Algo salió mal";
-            console.log("Algo salió mal ", error);
-        }
-    });    
+    try {
+        let response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${global.API_KEY}`,{
+            method: "POST",
+            body: form                
+        })            
+        let res = await response.json()
+        let resData = res.data
+        card.appendChild(divIconDownload);
+        card.appendChild(divIconMax);
+        global.cardSubiendoGifo.appendChild(card);   
+        let check = global.cardSubiendoGifo.firstElementChild
+        check.setAttribute("src", "assets/check.svg");
+        global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";
+        console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}                        
+        let resGif = await fetch(`https://api.giphy.com/v1/gifs/${resData.id}?api_key=${global.API_KEY}`);
+        let myGifData = await resGif.json();          
+        misGifs.push(myGifData.data);            
+        localStorage.setItem("mis-gifos", JSON.stringify(misGifs));
+    } catch (error) {
+        global.cardSubiendoGifo.children[1].textContent = "Algo salió mal";
+        console.log("Algo salió mal ", error);
+    }
 })
 async function activeCamera(){
     try {                
