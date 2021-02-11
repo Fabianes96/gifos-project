@@ -29,13 +29,24 @@ body {
     z-index: 10;
     opacity: 1;
   }
-}
-  
+}  
 @mixin gifHover($z,$opacity) {
   z-index: $z;
   opacity: $opacity;
+}
+@mixin medium-gifs-container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  justify-items: center;
+  gap: 29px  
 } 
-
+@mixin sections-favs-gifos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;  
+}
 .initial{
   position: relative;
   top: 76px;
@@ -168,18 +179,11 @@ body {
   justify-items: center;
   top: 90px;
 }
-.favorites{
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  justify-items: center;
-  gap: 29px
+.favorites{  
+  @include medium-gifs-container()
 }
 .favs{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;
+  @include sections-favs-gifos()
 }
 .no-gifos{
   display: grid;
@@ -657,6 +661,7 @@ header {
   }
 }
 #section-mis-gifos{
+  @include sections-favs-gifos();
   position: relative;
   top: 50px;
   .mis-gifos-header{
@@ -675,6 +680,9 @@ header {
       font-size: 22px;
       color: $color-secundario;
     }
+  }
+  #mis-gifos{
+    @include medium-gifs-container()
   }
 }
 #central{

@@ -190,15 +190,13 @@ async function addGIFOS(){
   global.initial.remove();      
   global.favoritos.classList.remove("favs");
   global.favoritos.classList.add("none");  
+  let misGifs = JSON.parse(localStorage.getItem("mis-gifos"));
+  if(misGifs){
+    addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
+    global.noMisGIFOS.remove();
+  } 
   global.misGIFOS.classList.remove("none");
-  // try {
-  //   let response = await fetch(`https://api.giphy.com/v1/gifs/5a1IB5HZ0Sjk5APdgm?api_key=${global.API_KEY}`);
-  //   response = await response.json();
-  //   console.log(response.data);
-    
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  
 }
 function addFavorite() {
   if (global.containerFavorites.firstElementChild) {
@@ -389,7 +387,6 @@ function addGifs(array, attribute, container, modal) {
     container.appendChild(square);
   }
 }
-
 function addFavToLocalstorage(array, i) {
   offsetFavs = 12;
   if (localStorage.getItem("favoritos")) {

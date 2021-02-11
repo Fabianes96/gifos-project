@@ -6,6 +6,7 @@ let containerSearchResults = document.getElementById("search-results");
 let noFavorites = document.getElementById("no-favorites");
 let containerFavorites = document.getElementById("favorites");
 let containerGIFOS = document.getElementById("mis-gifos");
+let noMisGIFOS = document.getElementById("no-gifos");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
 const API_KEY = "CqzSXTpzWmjiVKu03lbXhZidGMWveE78";
 const LIMIT = "&limit=25";
@@ -39,4 +40,4 @@ let pasos = document.getElementById("pasos");
 let cardSubiendoGifo = document.getElementById("subiendo-gifo");
 let cronometro = document.getElementById("cronometro");
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro}
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro}
