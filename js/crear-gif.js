@@ -5,6 +5,9 @@ let time  = document.getElementById("time");
 let m = 0;
 let s = 0;
 let mls= 0;
+let misGifs = localStorage.getItem("mis-gifos")
+  ? JSON.parse(localStorage.getItem("mis-gifos"))
+  : [];
 global.btnComenzar.addEventListener("click",async()=>{    
     try {        
         global.btnComenzar.classList.remove('btn-mas')
@@ -83,8 +86,12 @@ global.btnSubirGifo.addEventListener("click",()=>{
             let check = global.cardSubiendoGifo.firstElementChild
             check.setAttribute("src", "assets/check.svg");
             global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";
-            console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}
-            setTimeout(vidOff(),3000);
+            console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}                        
+            let resGif = await fetch(`https://api.giphy.com/v1/gifs/${resData.id}?api_key=${global.API_KEY}`);
+            let myGifData = await resGif.json();          
+            misGifs.push(myGifData.data);
+            console.log((misGifs));
+            localStorage.setItem("mis-gifos", JSON.stringify(misGifs));
         } catch (error) {
             global.cardSubiendoGifo.children[1].textContent = "Algo salió mal";
             console.log("Algo salió mal ", error);
@@ -109,7 +116,7 @@ async function activeCamera(){
              console.log('started')
            },
         });
-        global.video.play()
+        global.video.play();
         global.btnGrabar.classList.remove('none');
         global.btnGrabar.classList.add('btn-mas');
     } catch (error) {
@@ -145,3 +152,4 @@ function setChronometer(){
 function stopTime(){
     clearInterval(timeStarted);    
 }
+

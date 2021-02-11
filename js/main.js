@@ -176,7 +176,7 @@ global.buttonRightModal.addEventListener("click", () => {
       loadGifModal(favs, true);
   }
 });
-function addGIFOS(){
+async function addGIFOS(){
   if(global.containerGIFOS.firstElementChild){
     while(global.containerGIFOS.firstElementChild){
       global.containerGIFOS.removeChild(
@@ -184,12 +184,21 @@ function addGIFOS(){
       );
     }
   }
-  global.central.classList.remove("show-div-results");
-  global.central.classList.add("central");
-  global.initial.classList.remove("initial");
-  global.initial.classList.add("none");    
+  if(global.central.classList.contains("show-div-results")){
+    global.central.remove();
+  }   
+  global.initial.remove();      
+  global.favoritos.classList.remove("favs");
+  global.favoritos.classList.add("none");  
   global.misGIFOS.classList.remove("none");
-
+  // try {
+  //   let response = await fetch(`https://api.giphy.com/v1/gifs/5a1IB5HZ0Sjk5APdgm?api_key=${global.API_KEY}`);
+  //   response = await response.json();
+  //   console.log(response.data);
+    
+  // } catch (error) {
+  //   console.log(error);
+  // }
 }
 function addFavorite() {
   if (global.containerFavorites.firstElementChild) {
@@ -198,12 +207,13 @@ function addFavorite() {
         global.containerFavorites.firstElementChild
       );
     }
-  }
-  global.central.classList.remove("show-div-results");
-  global.central.classList.add("central");
-  global.initial.classList.remove("initial");
-  global.initial.classList.add("none");
+  }  
+  if(global.central.classList.contains("show-div-results")){
+    global.central.remove();
+  }   
+  global.initial.remove();  
   global.favoritos.classList.remove("none");
+  global.misGIFOS.classList.add("none");
   favs = JSON.parse(localStorage.getItem("favoritos"));
   if (favs) {
     global.noFavorites.classList.remove("no-favorites");
