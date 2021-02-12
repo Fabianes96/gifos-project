@@ -83,6 +83,10 @@ header .menu nav ul li:first-child .active {
   color: #572ee5;
 }
 
+header .menu nav #crear-gifo:hover {
+  content: url("/assets/CTA-crear-gifo-hover.svg");
+}
+
 header .menu nav .crear-gifo {
   position: relative;
   left: 53px;
@@ -672,6 +676,14 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
   width: 90%;
 }
 
+.trending .container #slider .arrow-container {
+  cursor: pointer;
+}
+
+.trending .container #slider #slide-left img:hover {
+  content: url("/assets/button-slider-left-hover.svg");
+}
+
 .trending .container #slider #gifs {
   margin: 0 25px;
   display: -webkit-box;
@@ -760,14 +772,18 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
   }
 }
 
+.trending .container #slider #slide-right img:hover {
+  content: url("/assets/Button-Slider-right-hover.svg");
+}
+
 @media screen and (max-width: 550px) {
   .trending .container #slider {
     width: 100%;
   }
-  .trending .container #slider #slideLeft {
+  .trending .container #slider #slide-left {
     display: none;
   }
-  .trending .container #slider #slideRight {
+  .trending .container #slider #slide-right {
     display: none;
   }
 }
@@ -778,6 +794,26 @@ body.dark .trending .container {
 
 body.dark .trending .container .info #trending-p {
   color: #ffffff;
+}
+
+body.dark .trending .container #slider #slide-left img {
+  content: url("/assets/button-slider-left-md-noct.svg");
+}
+
+body.dark .trending .container #slider #slide-left img:hover {
+  content: url("/assets/button-slider-left-hover.svg");
+  -webkit-filter: grayscale(1) invert(1) brightness(2);
+          filter: grayscale(1) invert(1) brightness(2);
+}
+
+body.dark .trending .container #slider #slide-right img {
+  content: url("/assets/button-slider-right-md-noct.svg");
+}
+
+body.dark .trending .container #slider #slide-right img:hover {
+  content: url("/assets/Button-Slider-right-hover.svg");
+  -webkit-filter: grayscale(1) invert(1) brightness(2);
+          filter: grayscale(1) invert(1) brightness(2);
 }
 
 footer {
@@ -1272,16 +1308,6 @@ body.dark .btn-mas:hover {
   top: 7px;
   position: relative;
   right: 7px;
-}
-
-.arrow-container {
-  cursor: pointer;
-}
-
-.arrow-container:hover {
-  opacity: 0.5;
-  min-width: 43px;
-  min-height: 43px;
 }
 
 .no-results {

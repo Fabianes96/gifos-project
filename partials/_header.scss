@@ -52,6 +52,9 @@ header {
             color: $color-principal;
           }
         }
+      }
+      #crear-gifo:hover{
+        content: url("/assets/CTA-crear-gifo-hover.svg");
       }      
       .crear-gifo {
         position: relative;
@@ -59,7 +62,7 @@ header {
         width: 54px;
         height: 54px;
         cursor: pointer;
-      }
+      }      
       @media screen and (max-width: 850px) {
         display: none;
       }

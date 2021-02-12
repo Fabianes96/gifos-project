@@ -31,14 +31,22 @@
     #slider {
       display: flex;
       align-items: center;
-      width: 90%;
+      width: 90%;      
+      .arrow-container {
+        cursor: pointer;
+      }      
+      #slide-left{
+        img:hover{
+          content: url("/assets/button-slider-left-hover.svg");
+        }
+      }      
       #gifs {
         margin: 0 25px;
         display: flex;
         gap: 29px;
         flex-wrap: nowrap;
         overflow-x: hidden;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth;        
         div img:hover {
           opacity: 0.4;
         }
@@ -81,12 +89,17 @@
           overflow-x: scroll;
         }
       }
+      #slide-right{
+        img:hover{
+          content: url("/assets/Button-Slider-right-hover.svg");
+        }
+      }
       @media screen and (max-width: 550px) {
         width: 100%;
-        #slideLeft {
+        #slide-left {
           display: none;
         }
-        #slideRight {
+        #slide-right {
           display: none;
         }
       }
@@ -98,6 +111,26 @@
       .info {
         #trending-p {
           color: #ffffff;
+        }
+      }
+      #slider{
+        #slide-left{
+          img{
+            content: url("/assets/button-slider-left-md-noct.svg");
+          }
+          img:hover{
+            content: url("/assets/button-slider-left-hover.svg");
+            filter: grayscale(1) invert(1) brightness(2);
+          }
+        }        
+        #slide-right{
+          img{
+            content: url("/assets/button-slider-right-md-noct.svg");
+          }
+          img:hover{
+            content: url("/assets/Button-Slider-right-hover.svg");
+            filter: grayscale(1) invert(1) brightness(2);
+          }
         }
       }
     }
