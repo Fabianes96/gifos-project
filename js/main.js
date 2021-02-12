@@ -41,10 +41,10 @@ window.onclick = async function (event) {
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
   if(document.body.classList.contains("dark")){
-    global.logo.setAttribute("src", "assets/Logo-modo-noc.svg");
-    global.crearGifo.setAttribute("src","assets/CTA-crar-gifo-modo-noc.svg");    
-    global.btnCloseSearch.setAttribute("src","assets/close-modo-noct.svg");    
-    global.nocturno.textContent = "MODO DIURNO"
+    //global.logo.setAttribute("src", "assets/Logo-modo-noc.svg");
+    //global.crearGifo.setAttribute("src","assets/CTA-crar-gifo-modo-noc.svg");    
+    //global.btnCloseSearch.setAttribute("src","assets/close-modo-noct.svg");    
+    global.nocturno.textContent = "MODO DIURNO";    
     localStorage.setItem("modo-nocturno", "on");
   }else{
     global.logo.setAttribute("src", "assets/logo-desktop.svg");
@@ -555,4 +555,4 @@ callGifs().then(() => {
   addGifs(gifs, "square", global.container, true);  
 });
 activeLink();
-global.checkDarkMode();
+global.checkDarkMode(global.nocturno);

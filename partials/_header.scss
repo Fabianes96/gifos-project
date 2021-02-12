@@ -3,14 +3,14 @@ header {
   justify-content: space-between;
   border-top: 5px solid $color-principal;
   padding-top: 18px;
-  #logo {
+  .logo {
     position: relative;
     left: 168px;
     @media screen and (max-width: 850px) {
       display: none;
     }
   }
-  #logo-mobile {
+  .logo-mobile {
     display: none;
     @media screen and (max-width: 850px) {
       display: block;
@@ -29,19 +29,31 @@ header {
         display: flex;
         li {
           margin-left: 16px;
-          list-style: none;
+          list-style: none;          
           .no-selected {
             color: $color-principal;
           }
+          .active{
+            color: $color-secundario-dark;           
+          }                          
           a {
             font-size: 13px;
             letter-spacing: 0;
             text-align: center;
             text-decoration: none;
+            
+          }
+          a:hover{
+            border-bottom: 2px solid $color-secundario;
           }
         }
-      }
-      #crear-gifo {
+        li:first-child{
+          .active{
+            color: $color-principal;
+          }
+        }
+      }      
+      .crear-gifo {
         position: relative;
         left: 53px;
         width: 54px;
@@ -64,13 +76,33 @@ header {
   }
   body.dark & {
     border-top: 5px solid #000000;
-    nav ul li {
-      .no-selected {
-        color: #ffffff;
-      }
-      .active {
-        color: #ffffff;
-      }
+    #logo{
+      content: url("/assets/Logo-modo-noc.svg");
     }
-  }
+    #logo-CG{
+      content: url("/assets/Logo-modo-noc.svg");
+    }    
+    nav {
+      #crear-gifo{
+        content: url("/assets/CTA-crear-gifo-modo-noc.svg");        
+      }
+      #crear-gifo:hover{
+        content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
+      }
+      #crear-gifo-cg{
+        cursor: default;
+      }
+      ul li {
+        .no-selected {
+          color: $blanco;
+        }        
+      }
+      li:first-child{
+        .active{
+          color: $blanco;
+        }
+      }
+      
+    }
+  }  
 }

@@ -10,6 +10,17 @@ let misGifs = localStorage.getItem("mis-gifos")
   ? JSON.parse(localStorage.getItem("mis-gifos"))
   : [];
 let offsetGifs = 12;
+
+global.nocturnoCG.addEventListener("click",()=>{
+    document.body.classList.toggle("dark");
+    if(document.body.classList.contains("dark")){        
+        global.nocturnoCG.textContent = "MODO DIURNO";            
+        localStorage.setItem("modo-nocturno", "on");
+      }else{        
+        global.nocturnoCG.textContent = "MODO NOCTURNO";        
+        localStorage.setItem("modo-nocturno", "off");
+      }
+})
 global.btnComenzar.addEventListener("click",async()=>{    
     try {        
         global.btnComenzar.classList.remove('btn-mas')
@@ -151,4 +162,4 @@ function stopTime(){
     clearInterval(timeStarted);    
 }
 
-global.checkDarkMode();
+global.checkDarkMode(global.nocturnoCG);

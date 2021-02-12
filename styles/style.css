@@ -9,23 +9,23 @@ header {
   padding-top: 18px;
 }
 
-header #logo {
+header .logo {
   position: relative;
   left: 168px;
 }
 
 @media screen and (max-width: 850px) {
-  header #logo {
+  header .logo {
     display: none;
   }
 }
 
-header #logo-mobile {
+header .logo-mobile {
   display: none;
 }
 
 @media screen and (max-width: 850px) {
-  header #logo-mobile {
+  header .logo-mobile {
     display: block;
     position: relative;
     left: 22px;
@@ -64,6 +64,10 @@ header .menu nav ul li .no-selected {
   color: #572ee5;
 }
 
+header .menu nav ul li .active {
+  color: #9CAFC3;
+}
+
 header .menu nav ul li a {
   font-size: 13px;
   letter-spacing: 0;
@@ -71,7 +75,15 @@ header .menu nav ul li a {
   text-decoration: none;
 }
 
-header .menu nav #crear-gifo {
+header .menu nav ul li a:hover {
+  border-bottom: 2px solid #50E3C2;
+}
+
+header .menu nav ul li:first-child .active {
+  color: #572ee5;
+}
+
+header .menu nav .crear-gifo {
   position: relative;
   left: 53px;
   width: 54px;
@@ -105,12 +117,32 @@ body.dark header {
   border-top: 5px solid #000000;
 }
 
-body.dark header nav ul li .no-selected {
-  color: #ffffff;
+body.dark header #logo {
+  content: url("/assets/Logo-modo-noc.svg");
 }
 
-body.dark header nav ul li .active {
-  color: #ffffff;
+body.dark header #logo-CG {
+  content: url("/assets/Logo-modo-noc.svg");
+}
+
+body.dark header nav #crear-gifo {
+  content: url("/assets/CTA-crear-gifo-modo-noc.svg");
+}
+
+body.dark header nav #crear-gifo:hover {
+  content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
+}
+
+body.dark header nav #crear-gifo-cg {
+  cursor: default;
+}
+
+body.dark header nav ul li .no-selected {
+  color: #FFFFFF;
+}
+
+body.dark header nav li:first-child .active {
+  color: #FFFFFF;
 }
 
 .modal-section {
@@ -799,6 +831,268 @@ body.dark footer {
   border-bottom-color: #000000;
 }
 
+.crear-gifs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  top: 50px;
+  right: 70px;
+}
+
+.crear-gifs #camera-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  bottom: 80px;
+}
+
+@media screen and (max-width: 1200px) {
+  .crear-gifs #camera-div {
+    position: relative;
+    left: 70px;
+  }
+  .crear-gifs #camera-div img:first-child {
+    width: 50%;
+  }
+  .crear-gifs #camera-div img:last-child {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .crear-gifs #camera-div {
+    display: none;
+  }
+}
+
+.crear-gifs #principal-gifs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear-gifs #principal-gifs #camera-central {
+  width: 688px;
+  height: 390px;
+  border: 1px solid #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear-gifs #principal-gifs #camera-central video {
+  width: 480px;
+  height: 320px;
+  position: absolute;
+}
+
+.crear-gifs #principal-gifs #camera-central #subiendo-gifo {
+  width: 429px;
+  height: 320px;
+  background-color: #572ee5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: none;
+  position: absolute;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.crear-gifs #principal-gifs #camera-central #subiendo-gifo :first-child {
+  z-index: 1;
+}
+
+.crear-gifs #principal-gifs #camera-central #subiendo-gifo p {
+  font-weight: bold;
+  font-size: 15px;
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.crear-gifs #principal-gifs #camera-central #subiendo-gifo > div {
+  position: absolute;
+}
+
+.crear-gifs #principal-gifs #camera-central div h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+  line-height: 35px;
+}
+
+.crear-gifs #principal-gifs #camera-central div h1 span > :last-child {
+  color: #50E3C2;
+}
+
+.crear-gifs #principal-gifs #camera-central div p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+  font-size: 16px;
+  line-height: 29px;
+}
+
+@media screen and (max-width: 1100px) {
+  .crear-gifs #principal-gifs #camera-central {
+    width: 530px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .crear-gifs #principal-gifs #camera-central {
+    width: 450px;
+  }
+}
+
+.crear-gifs #principal-gifs #camera-elements {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 15px;
+  position: relative;
+  top: 30px;
+}
+
+.crear-gifs #principal-gifs #camera-elements #pasos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+}
+
+.crear-gifs #principal-gifs #camera-elements #pasos .steps {
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #572ee5;
+  border-radius: 30px;
+}
+
+.crear-gifs #principal-gifs #camera-elements #cronometro {
+  position: absolute;
+  right: 50px;
+  top: 5px;
+}
+
+.crear-gifs #principal-gifs #camera-elements #separator-misgifos {
+  width: 795px;
+  height: 7px;
+  background-color: #572ee5;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
+    width: 600px;
+  }
+}
+
+.crear-gifs #principal-gifs #camera-elements > :last-child {
+  position: absolute;
+  left: 100%;
+  bottom: 70px;
+}
+
+@media screen and (max-width: 1200px) {
+  .crear-gifs #principal-gifs #camera-elements > :last-child {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .crear-gifs #principal-gifs #camera-elements > :last-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .crear-gifs {
+    right: 0;
+  }
+}
+
+body.dark .crear-gifs #camera-div :first-child {
+  content: url("/assets/camara-modo-noc.svg");
+}
+
+body.dark .crear-gifs #principal-gifs #camera-central {
+  border: 1px solid #FFFFFF;
+}
+
+body.dark .crear-gifs #principal-gifs #camera-central div p {
+  color: #FFFFFF;
+}
+
+body.dark .crear-gifs #principal-gifs #camera-elements #pasos .steps {
+  border: 1px solid #FFFFFF;
+}
+
+body.dark .crear-gifs #principal-gifs #camera-elements > :last-child {
+  content: url("/assets/pelicula-modo-noc.svg");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -844,9 +1138,19 @@ body.dark {
   outline: none;
 }
 
+body.dark .btn-mas {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
 .btn-mas:hover {
   background-color: #572ee5;
   color: #ffffff;
+}
+
+body.dark .btn-mas:hover {
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 .search-after-div {
@@ -1045,13 +1349,14 @@ body.dark {
   top: 90px;
 }
 
-.active {
-  color: #9CAFC3;
-}
-
 .step-active {
   background-color: #572ee5;
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+body.dark .step-active {
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 .repeat-capture {
@@ -1120,247 +1425,5 @@ body.dark {
 .camera-hover {
   z-index: 1;
   opacity: 0.4;
-}
-
-.crear-gifs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  top: 50px;
-  right: 70px;
-}
-
-.crear-gifs #camera-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  bottom: 80px;
-}
-
-@media screen and (max-width: 1200px) {
-  .crear-gifs #camera-div {
-    position: relative;
-    left: 70px;
-  }
-  .crear-gifs #camera-div img:first-child {
-    width: 50%;
-  }
-  .crear-gifs #camera-div img:last-child {
-    width: 30%;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .crear-gifs #camera-div {
-    display: none;
-  }
-}
-
-.crear-gifs #principal-gifs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.crear-gifs #principal-gifs #camera-central {
-  width: 688px;
-  height: 390px;
-  border: 1px solid #572ee5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.crear-gifs #principal-gifs #camera-central video {
-  width: 480px;
-  height: 320px;
-  position: absolute;
-}
-
-.crear-gifs #principal-gifs #camera-central #subiendo-gifo {
-  width: 429px;
-  height: 320px;
-  background-color: #572ee5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  display: none;
-  position: absolute;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.crear-gifs #principal-gifs #camera-central #subiendo-gifo :first-child {
-  z-index: 1;
-}
-
-.crear-gifs #principal-gifs #camera-central #subiendo-gifo p {
-  font-weight: bold;
-  font-size: 15px;
-  color: #ffffff;
-  z-index: 1;
-}
-
-.crear-gifs #principal-gifs #camera-central #subiendo-gifo > div {
-  position: absolute;
-}
-
-.crear-gifs #principal-gifs #camera-central div h1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 25px;
-  line-height: 35px;
-}
-
-.crear-gifs #principal-gifs #camera-central div h1 span > :last-child {
-  color: #50E3C2;
-}
-
-.crear-gifs #principal-gifs #camera-central div p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #000000;
-  font-size: 16px;
-  line-height: 29px;
-}
-
-@media screen and (max-width: 1100px) {
-  .crear-gifs #principal-gifs #camera-central {
-    width: 530px;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .crear-gifs #principal-gifs #camera-central {
-    width: 450px;
-  }
-}
-
-.crear-gifs #principal-gifs #camera-elements {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  row-gap: 15px;
-  position: relative;
-  top: 30px;
-}
-
-.crear-gifs #principal-gifs #camera-elements #pasos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-column-gap: 25px;
-          column-gap: 25px;
-}
-
-.crear-gifs #principal-gifs #camera-elements #pasos .steps {
-  width: 30px;
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 1px solid #572ee5;
-  border-radius: 30px;
-}
-
-.crear-gifs #principal-gifs #camera-elements #cronometro {
-  position: absolute;
-  right: 50px;
-  top: 5px;
-}
-
-.crear-gifs #principal-gifs #camera-elements #separator-misgifos {
-  width: 795px;
-  height: 7px;
-  background-color: #572ee5;
-  border-radius: 10px;
-}
-
-@media screen and (max-width: 1100px) {
-  .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
-    width: 600px;
-  }
-}
-
-.crear-gifs #principal-gifs #camera-elements > :last-child {
-  position: absolute;
-  left: 100%;
-  bottom: 70px;
-}
-
-@media screen and (max-width: 1200px) {
-  .crear-gifs #principal-gifs #camera-elements > :last-child {
-    width: 100px;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .crear-gifs #principal-gifs #camera-elements > :last-child {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .crear-gifs {
-    right: 0;
-  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,6 +4,8 @@ $color-secundario: #50E3C2;
 $color-principal-dark: #37383C;
 $color-secundario-dark: #9CAFC3;
 $color-terciario-dark: #222326;
+$blanco: #FFFFFF;
+$negro: #000000;
 
 @mixin gifsSquare ($width,$height){
     width: $width;

@@ -34,6 +34,7 @@ let btnGrabar =document.getElementById("btn-grabar")
 let btnFinalizar =document.getElementById("btn-finalizar")
 let btnSubirGifo = document.getElementById("btn-subir-gifo");
 let btnMasMisGifs = document.getElementById("btn-mas-mis-gifos");
+let cameraImg = document.getElementById("camera-img");
 let cameraWindow = document.getElementById("camera-window");
 let cameraWindow2 = document.getElementById("camera-window-2");
 let video = document.querySelector('video');
@@ -41,18 +42,23 @@ let pasos = document.getElementById("pasos");
 let cardSubiendoGifo = document.getElementById("subiendo-gifo");
 let cronometro = document.getElementById("cronometro");
 let nocturno = document.getElementById("nocturno");
+let nocturnoCG = document.getElementById("nocturno-crear-gifo");
 let logo = document.getElementById("logo");
 let crearGifo = document.getElementById("crear-gifo");
 
-function checkDarkMode(){
+function checkDarkMode(link){
     if(localStorage.getItem("modo-nocturno")){
         let modoNocturno = localStorage.getItem("modo-nocturno");
         if(modoNocturno === "on"){
             if(!document.body.classList.contains("dark")){
                 document.body.classList.add("dark");
+                link.textContent = "MODO DIURNO";               
             }
+        }else{
+            document.body.classList.remove("dark");
+            link.textContent = "MODO NOCTURNO";            
         }
     }
 }
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,logo, crearGifo, checkDarkMode}
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode}
