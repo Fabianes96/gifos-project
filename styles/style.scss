@@ -1,4 +1,13 @@
-@import '../partials/variables';
+@import "../partials/variables";
+@import "../partials/header";
+@import "../partials/modal";
+@import "../partials/initial";
+@import "../partials/favoritos";
+@import "../partials/mis-gifos";
+@import "../partials/central";
+@import "../partials/trending";
+@import "../partials/footer";
+
 * {
   margin: 0;
   padding: 0;
@@ -6,80 +15,80 @@
 body {
   font-family: $font-principal;
   color: $color-principal;
-  transition: .3s ease all;
-  &.dark{
+  transition: 0.3s ease all;
+  &.dark {
     background-color: $color-principal-dark;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
-.initial{
+.initial {
   position: relative;
   top: 76px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.btn-mas{
+.btn-mas {
   width: 127px;
   height: 50px;
   border: 1px solid $color-principal;
-  border-radius: 25px;      
+  border-radius: 25px;
   font-family: $font-principal;
-  font-size: 13px;      
+  font-size: 13px;
   color: $color-principal;
   background-color: transparent;
   cursor: pointer;
   outline: none;
 }
-.btn-mas:hover{
+.btn-mas:hover {
   background-color: $color-principal;
   color: #ffffff;
 }
-.search-after-div{    
-    justify-content: start;
-    align-items: center;    
-    flex-direction: column;
-    border: 1px solid;
-    border-radius: 31px;
-    height: 185px;
-    padding-top: 5px;
+.search-after-div {
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 31px;
+  height: 185px;
+  padding-top: 5px;
 }
-.search-after-input{
-    border-right: 0;
-    border-bottom: 1px solid $color-secundario-dark;
-    border-top: 0;
-    border-left: 0;        
-    padding: 12px 38px;
-    background-image: url(/assets/icon-search-mod-noc.svg);
-    background-repeat: no-repeat;
-    background-position: 0% center;    
+.search-after-input {
+  border-right: 0;
+  border-bottom: 1px solid $color-secundario-dark;
+  border-top: 0;
+  border-left: 0;
+  padding: 12px 38px;
+  background-image: url(/assets/icon-search-mod-noc.svg);
+  background-repeat: no-repeat;
+  background-position: 0% center;
 }
-.search-after-ul{
-    align-self: flex-start;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    position: relative;
-    left: 20px;
+.search-after-ul {
+  align-self: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  left: 20px;
 }
-.central{
+.central {
   display: none;
 }
-.show-div-results{
+.show-div-results {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.btn-close-search{
+.btn-close-search {
   display: block;
   position: relative;
   right: 50px;
   bottom: 12px;
 }
-.none{
-  display: none;  
+.none {
+  display: none;
 }
 .div-description {
   position: relative;
@@ -92,7 +101,7 @@ body {
 }
 .div-icons {
   width: 32px;
-  height: 32px;  
+  height: 32px;
   border-radius: 6px;
   background-color: #ffffff;
   display: flex;
@@ -102,7 +111,7 @@ body {
   cursor: pointer;
   .icono {
     width: 85%;
-    background: #ffffff;    
+    background: #ffffff;
     z-index: 1;
   }
 }
@@ -112,10 +121,10 @@ body {
   gap: 7px;
   top: 7px;
   position: relative;
-  right: 7px;            
+  right: 7px;
 }
 .arrow-container {
-  cursor: pointer;    
+  cursor: pointer;
 }
 .arrow-container:active {
   // img:first-child{
@@ -130,344 +139,173 @@ body {
   min-width: 43px;
   min-height: 43px;
 }
-.no-results{
+.no-results {
   display: grid;
   justify-items: center;
   position: relative;
   top: 70px;
   gap: 29px;
 }
-.no-favorites{
+.no-favorites {
   display: grid;
   gap: 20px;
-  position: relative;    
+  position: relative;
   justify-items: center;
   top: 90px;
 }
-.favorites{  
-  @include medium-gifs-container()
+.favorites {
+  @include medium-gifs-container();
 }
-.favs{
-  @include sections-favs-gifos()
+.favs {
+  @include sections-favs-gifos();
 }
-.section-misgifos{
-  @include sections-favs-gifos()
+.section-misgifos {
+  @include sections-favs-gifos();
 }
-.no-gifos{
+.no-gifos {
   display: grid;
   gap: 20px;
-  position: relative;    
+  position: relative;
   justify-items: center;
   top: 90px;
 }
-.active{
+.active {
   color: $color-secundario-dark;
 }
-.step-active{
+.step-active {
   background-color: $color-principal;
-  color: #FFFFFF
+  color: #ffffff;
 }
-.repeat-capture{
+.repeat-capture {
   font-family: $font-principal;
   font-size: 13px;
   border-bottom: 1px solid $color-secundario;
 }
-.container-search-and-favs{
-  @include gifsSquare(260px,200px);     
-  .gifos{
+.container-search-and-favs {
+  @include gifsSquare(260px, 200px);
+  .gifos {
     width: 260px;
     height: 200px;
-    @include gifsGifos(260px,200px ,32px )
+    @include gifsGifos(260px, 200px, 32px);
   }
 }
-.container-search-and-favs:hover{
-  .gifos{
-    @include gifHover(0,0.4)
+.container-search-and-favs:hover {
+  .gifos {
+    @include gifHover(0, 0.4);
   }
-  @media screen and (max-width: 605px){
-    @include removeGifHover()
+  @media screen and (max-width: 605px) {
+    @include removeGifHover();
   }
 }
-.camera-window-content{
+.camera-window-content {
   width: inherit;
   height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;      
-}    
-.camera-hover{
-  @include gifHover(1,0.4)
+  gap: 5px;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  border-top: 5px solid $color-principal;
-  padding-top: 18px;
-  #logo {
-    position: relative;
-    left: 168px;
-    @media screen and (max-width: 850px) {
-      display: none;
-    }
-  }
-  #logo-mobile {
-    display: none;
-    @media screen and (max-width: 850px) {
-      display: block;
-      position: relative;
-      left: 22px;
-    }
-  }
-  .menu {
-    display: flex;
-    position: relative;
-    right: 153px;
-    nav {
-      display: flex;
-      align-items: center;
-      ul {
-        display: flex;
-        li {
-          margin-left: 16px;
-          list-style: none;
-          .no-selected{
-            color: $color-principal;
-          }
-          a {
-            font-size: 13px;            
-            letter-spacing: 0;
-            text-align: center;
-            text-decoration: none;
-          }          
-        }
-      }
-      #crear-gifo {        
-        position: relative;
-        left: 53px;
-        width: 54px;
-        height: 54px;
-        cursor: pointer;
-      }
-      @media screen and (max-width: 850px) {
-        display: none;
-      }
-    }
-    #burger {
-      display: none;
-      @media screen and (max-width: 850px) {
-        display: block;
-      }
-    }
-    @media screen and (max-width: 850px) {
-      right: 14px;
-    }
-  }
-  body.dark &{
-    border-top: 5px solid #000000;
-    nav ul li{
-      .no-selected{
-        color: #FFFFFF;
-      }
-      .active{
-        color: #FFFFFF;
-      }
-    }
-  }
+.camera-hover {
+  @include gifHover(1, 0.4);
 }
-.modal-section{
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-    .modal-container {
-      background-color: #fefefe;
-      border: 1px solid #888;
-      width: 90%;
-      margin: 5% auto;
-      height: 500px;
-      padding: 0 10px;
-      .modal-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        padding: 40px;
-
-        /* Could be more or less, depending on screen size */
-        #modalContent {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          .modal-gif {
-            width: 695px;
-            height: 385px;
-            @media screen and(max-width:900px) {
-              width: 500px;
-            }
-            @media screen and(max-width:750px) {
-              width: 318px;
-              height: 245px;
-            }
-          }
-          #modalGifDescription{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 22px;
-            .div-description{
-              position: static;
-              color: #000000;
-              padding-left: 0;                  
-            }
-            .div-description:first-child{
-              font-size: 15px;
-            }
-          }
-          .card-icons-max {
-            display: flex;
-            gap: 25px;
-            .div-icons{
-              border: 1px solid #ccc;
-            }
-          }              
-        }
-        #slideLeftModal {
-          width: 40px;
-          height: 40px;
-          @media screen and (max-width:520px){
-            display: none;
-          }                
-        }
-        
-        #slideRightModal {
-          width: 40px;
-          height: 40px;
-          @media screen and (max-width:520px){
-            display: none;
-          }
-        }
-      }
-    }
-  }
-     /* The Close Button */
-     .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-}
-.crear-gifs{
+.crear-gifs {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   top: 50px;
   right: 70px;
-  #camera-div{
+  #camera-div {
     display: flex;
     position: relative;
     bottom: 80px;
     @media screen and (max-width: 1200px) {
       position: relative;
       left: 70px;
-      img:first-child{
+      img:first-child {
         width: 50%;
       }
-      img:last-child{
+      img:last-child {
         width: 30%;
-      } 
+      }
     }
-    @media screen and (max-width:850px){
-      display: none;      
+    @media screen and (max-width: 850px) {
+      display: none;
     }
   }
-  #principal-gifs{
+  #principal-gifs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    #camera-central{
+    #camera-central {
       width: 688px;
       height: 390px;
       border: 1px solid $color-principal;
       display: flex;
       justify-content: center;
       align-items: center;
-      video{        
+      video {
         width: 480px;
-        height: 320px;        
-        position: absolute;           
-      }     
-      #subiendo-gifo{
-        @include gifsSquare(429px,320px);                     
+        height: 320px;
+        position: absolute;
+      }
+      #subiendo-gifo {
+        @include gifsSquare(429px, 320px);
         display: none;
         position: absolute;
         justify-content: center;
-        :first-child{
+        :first-child {
           z-index: 1;
         }
-        p{          
+        p {
           font-weight: bold;
           font-size: 15px;
-          color: #FFFFFF;
+          color: #ffffff;
           z-index: 1;
         }
-        > div{
+        > div {
           position: absolute;
-        }        
+        }
       }
-      div{
-        h1{
+      div {
+        h1 {
           display: flex;
-          flex-direction: column;          
+          flex-direction: column;
           align-items: center;
           font-size: 25px;
           line-height: 35px;
-          span > :last-child{
+          span > :last-child {
             color: $color-secundario;
           }
         }
-        p{
+        p {
           display: flex;
           flex-direction: column;
           align-items: center;
           color: #000000;
           font-size: 16px;
           line-height: 29px;
-        }       
+        }
       }
-      @media screen and (max-width:1100px){
+      @media screen and (max-width: 1100px) {
         width: 530px;
       }
-      @media screen and (max-width:850px){
-          width: 450px;
+      @media screen and (max-width: 850px) {
+        width: 450px;
       }
     }
-    #camera-elements{
+    #camera-elements {
       display: flex;
       flex-direction: column;
-      align-items: center;  
+      align-items: center;
       row-gap: 15px;
       position: relative;
       top: 30px;
-      #pasos{
+      #pasos {
         display: flex;
         column-gap: 25px;
-        .steps{
+        .steps {
           width: 30px;
           height: 30px;
           display: flex;
@@ -477,404 +315,34 @@ header {
           border-radius: 30px;
         }
       }
-      #cronometro{
+      #cronometro {
         position: absolute;
         right: 50px;
         top: 5px;
       }
-      #separator-misgifos{
+      #separator-misgifos {
         width: 795px;
         height: 7px;
         background-color: $color-principal;
         border-radius: 10px;
-        @media screen and (max-width:1100px){
+        @media screen and (max-width: 1100px) {
           width: 600px;
         }
-      }      
+      }
     }
-    #camera-elements > :last-child{      
+    #camera-elements > :last-child {
       position: absolute;
       left: 100%;
       bottom: 70px;
-      @media screen and (max-width:1200px){
+      @media screen and (max-width: 1200px) {
         width: 100px;
       }
-      @media screen and (max-width:850px){
+      @media screen and (max-width: 850px) {
         display: none;
       }
     }
   }
-  @media screen and(max-width:850px){
+  @media screen and(max-width:850px) {
     right: 0;
-  }
-}
-#initial {  
-  #title-1 {
-    #los-1 {
-      display: none;
-      @media screen and (max-width: 450px) {
-        display: initial;
-      }
-    }
-    @media screen and(max-width:450px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 25px;
-    }
-  }
-  #title-2 {
-    #los-2 {
-      padding-right: 0.4rem;
-      font-size: 25px;
-      @media screen and (max-width: 450px) {
-        display: none;
-      }
-    }
-    #gifos-title {
-      padding-left: 0.4rem;
-      color: #50e3c2;
-    }
-  }
-  img {
-    margin-top: 24px;
-    @media screen and (max-width: 450px) {
-      width: 70%;
-    }
-  }  
-  #search-div{
-    width: 551px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    position: absolute;
-    top: 269px;
-    background-color: white;
-    z-index: 1;    
-    transition: .3s ease all;
-    #input-close{
-      width: 100%;
-      display: flex;
-      flex-direction: row-reverse;
-      transition: .3s ease all;
-      #btn-close-search{
-        width: 14px;
-        height: 14px;
-      }
-      #search-input{
-        width: 80%;
-        outline: none;
-      }  
-    } 
-    .search-field {
-      border-radius: 50px;
-      border: 1px solid $color-principal;
-      width: 30%;
-      padding: 12px 50px;
-      background-image: url("/assets/icon-search.svg");
-      background-repeat: no-repeat;
-      background-position: 90% center;
-      @media screen and(max-width:850px) {
-        width: 50%;
-      }
-      @media screen and(max-width:450px) {
-      }
-    }
-    .search-field:focus {
-      border: 2px solid $color-principal;
-      outline-width: 0;
-    }
-    ul{
-      li{
-        color: $color-secundario-dark;
-        background: url(/assets/icon-search-mod-noc.svg)  no-repeat left top;        
-        list-style: none;
-        padding: 1px 0 1px 30px;
-        cursor: pointer;
-      }
-    }
-  }
-  .paragraphs {
-    position: relative;
-    margin-top: 40px;
-    top: 76px;    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: bold;
-    #subtitle {
-      font-family: "Montserrat-Medium";
-      font-size: 16px;
-      font-weight: normal;
-      @media screen and (max-width: 450px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  }
-  body.dark &{    
-    #search-div {
-      background-color: $color-principal-dark;      
-      transition: .3s ease all;
-      #input-close{        
-        #search-input{
-          transition: .3s ease all;
-          background-color: $color-principal-dark;
-          border: 1px solid #FFFFFF;
-          color: #FFFFFF;
-          background: url("/assets/icon-search-modo-noct.svg") no-repeat;
-          background-position: 90% center;
-          &.search-after-input{            
-            border: 0;
-            border-bottom: 1px solid $color-secundario-dark;            
-            background-position: 0% center;     
-          }
-        }
-      }    
-    }
-  }
-}
-#favoritos{
-  position: relative;
-  top: 50px;
-  .favs-header{
-    display: grid;
-    justify-items: center;
-    margin-top: 25px;
-  }
-  #no-favorites{    
-    img{
-      width: 150px;
-      height: 150px;
-    }
-    h2{
-      width: 50%;
-      text-align: center;
-      font-size: 22px;
-      color: $color-secundario;
-    }
-  }
-  #div-mas-favs{
-    position: relative;
-    top: 78px;
-  }
-}
-#section-mis-gifos{  
-  position: relative;
-  top: 50px;
-  .mis-gifos-header{
-    display: grid;
-    justify-items: center;
-    row-gap: 8px;
-  }
-  #no-gifos{
-    img{
-      width: 150px;
-      height: 150px;
-    }
-    h1{
-      width: 50%;
-      text-align: center;
-      font-size: 22px;
-      color: $color-secundario;
-    }
-  }
-  #mis-gifos{
-    @include medium-gifs-container()
-  }
-}
-#central{
-  position: relative;
-  top: 181px;   
-  margin-bottom: 78px;  
-  #separator{    
-    width: 338px;
-    height: 0.1px;
-    border: 1px solid #9CAFC3;
-    margin: 55px 0 82px 0;
-    opacity: 0.5;    
-  }
-  #no-results{
-    img{
-      width: 150px;
-      height: 150px;
-    }
-    h2{
-      font-size: 22px;
-      font-family: $font-principal;
-      color: $color-secundario;
-      text-align: center;
-    }
-  }
-  #search-results{    
-    width: 90%;
-    position: relative;
-    top: 44px;     
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap: 29px;
-    justify-items: center;
-    height: auto;    
-    @media screen and (max-width: 950px){
-      column-gap: 10px;
-      row-gap: 29px;
-    }
-    @media screen and (max-width: 605px){
-      width: 95%;
-      gap: 21px;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      
-      .container-search-and-favs{        
-        width: 160px;
-        height: 120px;
-        .gifos{
-          width: 160px;
-          height: 120px;
-          min-width: 160px;
-          min-height: 120px;                           
-        }
-      }
-    }
-  }
-  #div-mas{    
-    margin-top: 112px;    
-  }  
-}
-.trending {
-  position: relative;
-  top: 170px;  
-  margin-top: 95px;
-  .container {
-    width: 100%;
-    height: 640px;
-    background-color: #f3f5f8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    .info {
-      text-align: center;
-      h1 {
-        font-size: 25px;
-      }
-      #trending-p {
-        display: flex;
-        gap: 5px;
-        position: relative;
-        color: #000000;
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        top: 7px;
-        @media screen and (max-width: 500px) {
-          display: block;
-        }
-      }
-    }
-    #slider {
-      display: flex;
-      align-items: center;
-      width: 90%;            
-      #gifs {
-        margin: 0 25px;
-        display: flex;
-        gap: 29px;
-        flex-wrap: nowrap;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        div img:hover {
-          opacity: 0.4;
-        }
-        .square {
-          @include gifsSquare(357px,275px);                    
-          .gifos {
-            @include gifsGifos(357px,275px ,32px);            
-          } 
-          @media screen and (max-width: 1400px) {
-            width: 320px; 
-            .gifos{
-              min-width: 320px;
-            }
-          }
-          @media screen and (max-width: 500px) {
-            width: 300px;             
-            .gifos{
-              min-width: 300px;              
-            }
-          }         
-          @media screen and (max-width: 400px) {
-            width: 243px;             
-            height: 187px;
-            .gifos{
-              min-width: 243px;              
-              min-height: 187px;
-            }
-          }         
-        }
-        .square:hover {
-          .gifos {
-            @include gifHover(0,0.4)
-          }
-          @media screen and (max-width: 550px) {            
-            @include removeGifHover()
-          }
-        }
-        @media screen and (max-width: 550px) {
-          gap: 19px;
-          overflow-x: scroll;
-        }
-      }        
-      @media screen and (max-width:550px) {
-          width: 100%;
-          #slideLeft{
-            display: none;
-          }
-          #slideRight{
-            display: none;
-          }       
-      }
-    }
-  }
-  body.dark &{
-    .container{
-      background-color: $color-terciario-dark;
-      .info{
-        #trending-p{
-          color: #FFFFFF;
-        }
-      }
-    }
-  }
-}
-footer {
-  position: relative;
-  margin-top: 96px;
-  top: 76px;
-  display: flex;
-  height: 116px;
-  justify-content: space-around;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
-  color: #000000;
-  font-size: 13px;
-  border-bottom: 5px solid $color-principal;
-  .icons {
-    display: flex;
-    gap: 19px;
-    .a-icons {
-      display: inherit;
-      gap: inherit;
-    }
-  }
-  @media screen and(max-width:500px) {
-    flex-direction: column;
-    .icons {
-      flex-direction: inherit;
-    }
-  }
-  body.dark &{
-    color: #FFFFFF;
-    border-bottom-color: #000000;
   }
 }

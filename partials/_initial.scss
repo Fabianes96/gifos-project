@@ -1,0 +1,129 @@
+#initial {
+  #title-1 {
+    #los-1 {
+      display: none;
+      @media screen and (max-width: 450px) {
+        display: initial;
+      }
+    }
+    @media screen and(max-width:450px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 25px;
+    }
+  }
+  #title-2 {
+    #los-2 {
+      padding-right: 0.4rem;
+      font-size: 25px;
+      @media screen and (max-width: 450px) {
+        display: none;
+      }
+    }
+    #gifos-title {
+      padding-left: 0.4rem;
+      color: #50e3c2;
+    }
+  }
+  img {
+    margin-top: 24px;
+    @media screen and (max-width: 450px) {
+      width: 70%;
+    }
+  }
+  #search-div {
+    width: 551px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 269px;
+    background-color: white;
+    z-index: 1;
+    transition: 0.3s ease all;
+    #input-close {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      transition: 0.3s ease all;
+      #btn-close-search {
+        width: 14px;
+        height: 14px;
+      }
+      #search-input {
+        width: 80%;
+        outline: none;
+      }
+    }
+    .search-field {
+      border-radius: 50px;
+      border: 1px solid $color-principal;
+      width: 30%;
+      padding: 12px 50px;
+      background-image: url("/assets/icon-search.svg");
+      background-repeat: no-repeat;
+      background-position: 90% center;
+      @media screen and(max-width:850px) {
+        width: 50%;
+      }
+      @media screen and(max-width:450px) {
+      }
+    }
+    .search-field:focus {
+      border: 2px solid $color-principal;
+      outline-width: 0;
+    }
+    ul {
+      li {
+        color: $color-secundario-dark;
+        background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
+        list-style: none;
+        padding: 1px 0 1px 30px;
+        cursor: pointer;
+      }
+    }
+  }
+  .paragraphs {
+    position: relative;
+    margin-top: 40px;
+    top: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    #subtitle {
+      font-family: "Montserrat-Medium";
+      font-size: 16px;
+      font-weight: normal;
+      @media screen and (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  body.dark & {
+    #search-div {
+      background-color: $color-principal-dark;
+      transition: 0.3s ease all;
+      #input-close {
+        #search-input {
+          transition: 0.3s ease all;
+          background-color: $color-principal-dark;
+          border: 1px solid #ffffff;
+          color: #ffffff;
+          background: url("/assets/icon-search-modo-noct.svg") no-repeat;
+          background-position: 90% center;
+          &.search-after-input {
+            border: 0;
+            border-bottom: 1px solid $color-secundario-dark;
+            background-position: 0% center;
+          }
+        }
+      }
+    }
+  }
+}

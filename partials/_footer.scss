@@ -1,0 +1,31 @@
+footer {
+  position: relative;
+  margin-top: 96px;
+  top: 76px;
+  display: flex;
+  height: 116px;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+  font-size: 13px;
+  border-bottom: 5px solid $color-principal;
+  .icons {
+    display: flex;
+    gap: 19px;
+    .a-icons {
+      display: inherit;
+      gap: inherit;
+    }
+  }
+  @media screen and(max-width:500px) {
+    flex-direction: column;
+    .icons {
+      flex-direction: inherit;
+    }
+  }
+  body.dark & {
+    color: #ffffff;
+    border-bottom-color: #000000;
+  }
+}

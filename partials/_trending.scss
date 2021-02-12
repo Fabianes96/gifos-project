@@ -1,0 +1,105 @@
+.trending {
+  position: relative;
+  top: 170px;
+  margin-top: 95px;
+  .container {
+    width: 100%;
+    height: 640px;
+    background-color: #f3f5f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .info {
+      text-align: center;
+      h1 {
+        font-size: 25px;
+      }
+      #trending-p {
+        display: flex;
+        gap: 5px;
+        position: relative;
+        color: #000000;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        top: 7px;
+        @media screen and (max-width: 500px) {
+          display: block;
+        }
+      }
+    }
+    #slider {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      #gifs {
+        margin: 0 25px;
+        display: flex;
+        gap: 29px;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        div img:hover {
+          opacity: 0.4;
+        }
+        .square {
+          @include gifsSquare(357px, 275px);
+          .gifos {
+            @include gifsGifos(357px, 275px, 32px);
+          }
+          @media screen and (max-width: 1400px) {
+            width: 320px;
+            .gifos {
+              min-width: 320px;
+            }
+          }
+          @media screen and (max-width: 500px) {
+            width: 300px;
+            .gifos {
+              min-width: 300px;
+            }
+          }
+          @media screen and (max-width: 400px) {
+            width: 243px;
+            height: 187px;
+            .gifos {
+              min-width: 243px;
+              min-height: 187px;
+            }
+          }
+        }
+        .square:hover {
+          .gifos {
+            @include gifHover(0, 0.4);
+          }
+          @media screen and (max-width: 550px) {
+            @include removeGifHover();
+          }
+        }
+        @media screen and (max-width: 550px) {
+          gap: 19px;
+          overflow-x: scroll;
+        }
+      }
+      @media screen and (max-width: 550px) {
+        width: 100%;
+        #slideLeft {
+          display: none;
+        }
+        #slideRight {
+          display: none;
+        }
+      }
+    }
+  }
+  body.dark & {
+    .container {
+      background-color: $color-terciario-dark;
+      .info {
+        #trending-p {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
