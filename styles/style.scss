@@ -1,6 +1,4 @@
-$font-principal: "Montserrat-Bold", sans-serif;
-$color-principal: #572ee5;
-$color-secundario: #50E3C2;
+@import '../partials/variables';
 * {
   margin: 0;
   padding: 0;
@@ -8,44 +6,11 @@ $color-secundario: #50E3C2;
 body {
   font-family: $font-principal;
   color: $color-principal;
-}
-@mixin gifsSquare ($width,$height){
-  width: $width;
-  height: $height;
-  background-color: $color-principal;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  
-}
-@mixin gifsGifos($minWidth,$minHeight,$bottom) {
-  position: relative;
-  min-width: $minWidth;
-  min-height: $minHeight;
-  bottom: $bottom;
-  z-index: 10;  
-}
-@mixin removeGifHover(){
-  .gifos{
-    z-index: 10;
-    opacity: 1;
+  transition: .3s ease all;
+  &.dark{
+    background-color: $color-principal-dark;
+    color: #FFFFFF;
   }
-}  
-@mixin gifHover($z,$opacity) {
-  z-index: $z;
-  opacity: $opacity;
-}
-@mixin medium-gifs-container {
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  justify-items: center;
-  gap: 29px  
-} 
-@mixin sections-favs-gifos{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;  
 }
 .initial{
   position: relative;
@@ -81,13 +46,13 @@ body {
 }
 .search-after-input{
     border-right: 0;
-    border-bottom: 1px solid #9CAFC3;
+    border-bottom: 1px solid $color-secundario-dark;
     border-top: 0;
     border-left: 0;        
     padding: 12px 38px;
     background-image: url(/assets/icon-search-mod-noc.svg);
     background-repeat: no-repeat;
-    background-position: 0% center;
+    background-position: 0% center;    
 }
 .search-after-ul{
     align-self: flex-start;
@@ -196,7 +161,7 @@ body {
   top: 90px;
 }
 .active{
-  color: #9CAFC3;
+  color: $color-secundario-dark;
 }
 .step-active{
   background-color: $color-principal;
@@ -297,6 +262,17 @@ header {
     }
     @media screen and (max-width: 850px) {
       right: 14px;
+    }
+  }
+  body.dark &{
+    border-top: 5px solid #000000;
+    nav ul li{
+      .no-selected{
+        color: #FFFFFF;
+      }
+      .active{
+        color: #FFFFFF;
+      }
     }
   }
 }
@@ -565,7 +541,7 @@ header {
     @media screen and (max-width: 450px) {
       width: 70%;
     }
-  }
+  }  
   #search-div{
     width: 551px;
     display: flex;
@@ -575,10 +551,12 @@ header {
     top: 269px;
     background-color: white;
     z-index: 1;    
+    transition: .3s ease all;
     #input-close{
       width: 100%;
       display: flex;
       flex-direction: row-reverse;
+      transition: .3s ease all;
       #btn-close-search{
         width: 14px;
         height: 14px;
@@ -608,7 +586,7 @@ header {
     }
     ul{
       li{
-        color: #9CAFC3 ;
+        color: $color-secundario-dark;
         background: url(/assets/icon-search-mod-noc.svg)  no-repeat left top;        
         list-style: none;
         padding: 1px 0 1px 30px;
@@ -635,6 +613,27 @@ header {
         flex-direction: column;
         align-items: center;
       }
+    }
+  }
+  body.dark &{    
+    #search-div {
+      background-color: $color-principal-dark;      
+      transition: .3s ease all;
+      #input-close{        
+        #search-input{
+          transition: .3s ease all;
+          background-color: $color-principal-dark;
+          border: 1px solid #FFFFFF;
+          color: #FFFFFF;
+          background: url("/assets/icon-search-modo-noct.svg") no-repeat;
+          background-position: 90% center;
+          &.search-after-input{            
+            border: 0;
+            border-bottom: 1px solid $color-secundario-dark;            
+            background-position: 0% center;     
+          }
+        }
+      }    
     }
   }
 }
@@ -825,8 +824,7 @@ header {
           gap: 19px;
           overflow-x: scroll;
         }
-      }     
-   
+      }        
       @media screen and (max-width:550px) {
           width: 100%;
           #slideLeft{
@@ -835,6 +833,16 @@ header {
           #slideRight{
             display: none;
           }       
+      }
+    }
+  }
+  body.dark &{
+    .container{
+      background-color: $color-terciario-dark;
+      .info{
+        #trending-p{
+          color: #FFFFFF;
+        }
       }
     }
   }
@@ -864,5 +872,9 @@ footer {
     .icons {
       flex-direction: inherit;
     }
+  }
+  body.dark &{
+    color: #FFFFFF;
+    border-bottom-color: #000000;
   }
 }

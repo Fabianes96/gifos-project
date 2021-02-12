@@ -37,6 +37,20 @@ window.onclick = async function (event) {
     console.log(error);
   }
 };
+global.nocturno.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  if(document.body.classList.contains("dark")){
+    global.logo.setAttribute("src", "assets/Logo-modo-noc.svg");
+    global.crearGifo.setAttribute("src","assets/CTA-crar-gifo-modo-noc.svg");    
+    global.btnCloseSearch.setAttribute("src","assets/close-modo-noct.svg");    
+    global.nocturno.textContent = "MODO DIURNO"
+  }else{
+    global.logo.setAttribute("src", "assets/logo-desktop.svg");
+    global.crearGifo.setAttribute("src","assets/button-crear-gifo.svg");    
+    global.btnCloseSearch.setAttribute("src","assets/close.svg");    
+    global.nocturno.textContent = "MODO NOCTURNO"
+  }
+})
 
 global.btnMasFavs.addEventListener("click", () => {
   let inicio = offsetFavs;

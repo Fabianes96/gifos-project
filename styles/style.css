@@ -6,6 +6,13 @@
 body {
   font-family: "Montserrat-Bold", sans-serif;
   color: #572ee5;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #37383C;
+  color: #FFFFFF;
 }
 
 .initial {
@@ -415,6 +422,18 @@ header .menu #burger {
   header .menu {
     right: 14px;
   }
+}
+
+body.dark header {
+  border-top: 5px solid #000000;
+}
+
+body.dark header nav ul li .no-selected {
+  color: #FFFFFF;
+}
+
+body.dark header nav ul li .active {
+  color: #FFFFFF;
 }
 
 .modal-section {
@@ -874,6 +893,8 @@ header .menu #burger {
   top: 269px;
   background-color: white;
   z-index: 1;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
 }
 
 #initial #search-div #input-close {
@@ -885,6 +906,8 @@ header .menu #burger {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
 }
 
 #initial #search-div #input-close #btn-close-search {
@@ -964,6 +987,28 @@ header .menu #burger {
         -ms-flex-align: center;
             align-items: center;
   }
+}
+
+body.dark #initial #search-div {
+  background-color: #37383C;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark #initial #search-div #input-close #search-input {
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  background-color: #37383C;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  background: url("/assets/icon-search-modo-noct.svg") no-repeat;
+  background-position: 90% center;
+}
+
+body.dark #initial #search-div #input-close #search-input.search-after-input {
+  border: 0;
+  border-bottom: 1px solid #9CAFC3;
+  background-position: 0% center;
 }
 
 #favoritos {
@@ -1260,6 +1305,14 @@ header .menu #burger {
   }
 }
 
+body.dark .trending .container {
+  background-color: #222326;
+}
+
+body.dark .trending .container .info #trending-p {
+  color: #FFFFFF;
+}
+
 footer {
   position: relative;
   margin-top: 96px;
@@ -1304,5 +1357,10 @@ footer .icons .a-icons {
         -ms-flex-direction: inherit;
             flex-direction: inherit;
   }
+}
+
+body.dark footer {
+  color: #FFFFFF;
+  border-bottom-color: #000000;
 }
 /*# sourceMappingURL=style.css.map */
