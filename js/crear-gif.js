@@ -151,3 +151,4 @@ function stopTime(){
     clearInterval(timeStarted);    
 }
 
+global.checkDarkMode();

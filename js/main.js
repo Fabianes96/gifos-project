@@ -9,10 +9,11 @@ let activeModalArray = [];
 let gifsSearchAux = [];
 let auxMasGifs = 0;
 let favs = localStorage.getItem("favoritos")
-  ? JSON.parse(localStorage.getItem("favoritos"))
-  : [];
+? JSON.parse(localStorage.getItem("favoritos"))
+: [];
 let offsetFavs = 12;
 let offsetMisGifs = 12;
+
 window.onclick = async function (event) {
   try {
     if (event.target == global.modal) {
@@ -44,11 +45,13 @@ global.nocturno.addEventListener("click",()=>{
     global.crearGifo.setAttribute("src","assets/CTA-crar-gifo-modo-noc.svg");    
     global.btnCloseSearch.setAttribute("src","assets/close-modo-noct.svg");    
     global.nocturno.textContent = "MODO DIURNO"
+    localStorage.setItem("modo-nocturno", "on");
   }else{
     global.logo.setAttribute("src", "assets/logo-desktop.svg");
     global.crearGifo.setAttribute("src","assets/button-crear-gifo.svg");    
     global.btnCloseSearch.setAttribute("src","assets/close.svg");    
     global.nocturno.textContent = "MODO NOCTURNO"
+    localStorage.setItem("modo-nocturno", "off");
   }
 })
 
@@ -551,4 +554,5 @@ async function downloadGif(url,titulo){
 callGifs().then(() => {
   addGifs(gifs, "square", global.container, true);  
 });
-activeLink()
+activeLink();
+global.checkDarkMode();

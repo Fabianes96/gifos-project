@@ -44,4 +44,15 @@ let nocturno = document.getElementById("nocturno");
 let logo = document.getElementById("logo");
 let crearGifo = document.getElementById("crear-gifo");
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,logo, crearGifo}
+function checkDarkMode(){
+    if(localStorage.getItem("modo-nocturno")){
+        let modoNocturno = localStorage.getItem("modo-nocturno");
+        if(modoNocturno === "on"){
+            if(!document.body.classList.contains("dark")){
+                document.body.classList.add("dark");
+            }
+        }
+    }
+}
+
+export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,logo, crearGifo, checkDarkMode}
