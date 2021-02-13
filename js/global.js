@@ -8,6 +8,7 @@ let noFavorites = document.getElementById("no-favorites");
 let containerFavorites = document.getElementById("favorites");
 let containerGIFOS = document.getElementById("mis-gifos");
 let noMisGIFOS = document.getElementById("no-gifos");
+let headerInfo = document.getElementsByClassName("header-info");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
 const API_KEY = "CqzSXTpzWmjiVKu03lbXhZidGMWveE78";
 const LIMIT = "&limit=25";
@@ -47,6 +48,7 @@ let nocturnoCG = document.getElementById("nocturno-crear-gifo");
 let logo = document.getElementById("logo");
 let crearGifo = document.getElementById("crear-gifo");
 let burger = document.getElementById("burger");
+let comodin = document.getElementById("comodin");
 
 function checkDarkMode(link){
     if(localStorage.getItem("modo-nocturno")){
@@ -70,5 +72,11 @@ function checkMobile(){
         }
     }
 }
+function showHideMenu(){
+    burger.classList.toggle("burger-close");
+    menu.classList.toggle("open-hamburger-menu");
+    headerInfo[0].classList.toggle("fixed");    
+    comodin.classList.toggle("none")
+}
 
-export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger}
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, showHideMenu}

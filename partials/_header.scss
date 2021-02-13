@@ -2,8 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   border-top: 5px solid $color-principal;
-  padding-top: 18px;
-  
+  padding-top: 18px;  
   .header-info{    
     .logo {
       position: relative;
@@ -29,6 +28,8 @@ header {
       display: none;
       @media screen and (max-width: $media850) {
         display: block;
+        position: relative;
+        right: 14px;
       }
     }
     .burger-close{
@@ -37,13 +38,23 @@ header {
     @media screen and (max-width: $media850) {
       width: 100%;
       display: flex;
+      background-color: $blanco;
       justify-content: space-between;
+      border-top: 5px solid $color-principal;
+      padding-top: 18px;  
+      z-index: 100;       
+      body.dark &{
+        border-top: 5px solid $negro;        
+      }     
     }
   }
   .menu {
     display: flex;
     position: relative;
     right: 153px;        
+    .open-hamburger-menu{      
+      height: 100%;
+    }
     nav {      
       align-items: center;
       ul {
@@ -113,12 +124,14 @@ header {
         left: 0;
         top: 80px;
         width: 100%;
-        height: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 500ms ease;    
         background: rgba(87,46,229,0.90);
-        z-index: 100;
+        z-index: 100;          
         body.dark &{
           background-color: $negro;
-        }
+        } 
         > :last-child{
           display: none;
         }
@@ -126,14 +139,9 @@ header {
       @media screen and (min-width:851px){
         display: flex;        
       }
-    }    
-    @media screen and (max-width: $media850) {
-      position: static;
-      margin-right: 14px;      
-    }    
+    }        
   }
-  body.dark & {
-    border-top: 5px solid #000000;
+  body.dark & {    
     .header-info{
       background-color: $color-principal-dark;
       #logo{
@@ -174,4 +182,14 @@ header {
       }
     }   
   }  
+  @media screen and (max-width:$media850){
+    #comodin{
+      position: relative;
+      width: 100%;
+      padding-top: 23px;
+      height: 53px;
+    }    
+    border-top: 0;
+    padding-top: 0;    
+  }
 }

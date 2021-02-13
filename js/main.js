@@ -39,7 +39,7 @@ window.onclick = async function (event) {
   }
 };
 global.burger.addEventListener("click",()=>{
-  showHideMenu();
+  global.showHideMenu();
 });
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
@@ -308,11 +308,6 @@ function activeLink(){
     })
   }
 }
-function showHideMenu(){
-  global.burger.classList.toggle("burger-close");
-  global.menu.classList.toggle("none");
-  global.menu.classList.toggle("flex");
-}
 function searchClousure() {
   let ulSuggestions = document.getElementById("suggestions");
   ulSuggestions.classList.add("none");
@@ -567,4 +562,4 @@ callGifs().then(() => {
 });
 activeLink();
 global.checkDarkMode(global.nocturno);
-global.checkMobile();
+//global.checkMobile();

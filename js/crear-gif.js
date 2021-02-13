@@ -107,6 +107,9 @@ global.btnSubirGifo.addEventListener("click",async()=>{
         console.log("Algo salió mal ", error);
     }
 })
+global.burger.addEventListener("click",()=>{
+    global.showHideMenu();
+});
 async function activeCamera(){
     try {                
         global.video.classList.remove('none');

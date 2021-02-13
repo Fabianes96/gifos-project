@@ -8,6 +8,11 @@ $blanco: #FFFFFF;
 $negro: #000000;
 $media850: 850px;
 
+.fixed{
+  position: fixed;
+  transition: position 700ms ease;
+}
+
 @mixin gifsSquare ($width,$height){
     width: $width;
     height: $height;
