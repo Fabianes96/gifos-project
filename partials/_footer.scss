@@ -1,3 +1,22 @@
+%icon-facebook-hover{
+  content: url("/assets/icon_facebook_hover.svg");
+  body.dark &{
+    content: url("/assets/icon_facebook_noc.svg");
+  }
+}
+%icon-twitter-hover{
+  content: url("/assets/icon-twitter-hover.svg");
+  body.dark &{
+    content: url("/assets/icon_twitter_noc.svg");
+  }
+}
+%icon-instagram-hover{
+  content: url("/assets/icon_instagram-hover.svg");
+  body.dark &{
+    content: url("/assets/icon_instagram_noc.svg");
+  }
+}
+
 footer {
   position: relative;
   margin-top: 96px;
@@ -16,6 +35,24 @@ footer {
     .a-icons {
       display: inherit;
       gap: inherit;
+    }
+    #icon-facebook:hover{
+      @extend %icon-facebook-hover;
+    }
+    #icon-facebook-cg:hover{
+      @extend %icon-facebook-hover;
+    }
+    #icon-twitter:hover{
+      @extend %icon-twitter-hover;
+    }
+    #icon-twitter-cg:hover{
+      @extend %icon-twitter-hover;
+    }
+    #icon-instagram:hover{
+      @extend %icon-instagram-hover;
+    }
+    #icon-instagram-cg:hover{
+      @extend %icon-instagram-hover;
     }
   }
   @media screen and(max-width:500px) {

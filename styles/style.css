@@ -914,6 +914,30 @@ body.dark .trending .container #slider #slide-right img:hover {
           filter: grayscale(1) invert(1) brightness(2);
 }
 
+footer .icons #icon-facebook:hover, footer .icons #icon-facebook-cg:hover {
+  content: url("/assets/icon_facebook_hover.svg");
+}
+
+body.dark footer .icons #icon-facebook:hover, footer .icons body.dark #icon-facebook:hover, body.dark footer .icons #icon-facebook-cg:hover, footer .icons body.dark #icon-facebook-cg:hover {
+  content: url("/assets/icon_facebook_noc.svg");
+}
+
+footer .icons #icon-twitter:hover, footer .icons #icon-twitter-cg:hover {
+  content: url("/assets/icon-twitter-hover.svg");
+}
+
+body.dark footer .icons #icon-twitter:hover, footer .icons body.dark #icon-twitter:hover, body.dark footer .icons #icon-twitter-cg:hover, footer .icons body.dark #icon-twitter-cg:hover {
+  content: url("/assets/icon_twitter_noc.svg");
+}
+
+footer .icons #icon-instagram:hover, footer .icons #icon-instagram-cg:hover {
+  content: url("/assets/icon_instagram-hover.svg");
+}
+
+body.dark footer .icons #icon-instagram:hover, footer .icons body.dark #icon-instagram:hover, body.dark footer .icons #icon-instagram-cg:hover, footer .icons body.dark #icon-instagram-cg:hover {
+  content: url("/assets/icon_instagram_noc.svg");
+}
+
 footer {
   position: relative;
   margin-top: 96px;
