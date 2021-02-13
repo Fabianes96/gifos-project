@@ -1,92 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Gifo</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
     <header>
+      <div class="header-info">
         <!-- Logo -->
-        <a href="index.html" class="logo"><img src="assets/logo-desktop.svg" alt="logo" id="logo-CG"/></a>    
-        <img src="assets/logo-mobile.svg" alt="logo" id="logo-mobile-CG" class="logo-mobile"/>
-        <!-- Menú -->
-        <div class="menu">
-            <nav id="menu">
-                <!-- Items de navegación -->
-                <ul>
-                    <li>
-                        <a id="nocturno-crear-gifo" class="links no-selected" href="#">MODO NOCTURNO</a>
-                    </li>
-                    <li>
-                        <a class="links no-selected" href="#favoritos">FAVORITOS</a>
-                    </li>
-                    <li>
-                        <a class="links no-selected" href="#">MIS GIFOS</a>
-                    </li>
-                </ul>
-                <img src="assets/CTA-crear-gifo-active.svg" alt="crear-gifo" id="crear-gifo-cg" class="crear-gifo"/>
-            </nav>
-            <img src="assets/burger.svg" alt="menu" id="burger" />
-        </div>
-    </header>    
+        <a href="index.html" class="logo"
+          ><img src="assets/logo-desktop.svg" alt="logo" id="logo-CG"
+        /></a>
+        <img
+          src="assets/logo-mobile.svg"
+          alt="logo"
+          id="logo-mobile-CG"
+          class="logo-mobile"
+        />
+      </div>
+
+      <!-- Menú -->
+      <div class="menu">
+        <nav id="menu" class="flex">
+          <!-- Items de navegación -->
+          <ul>
+            <li>
+              <a id="nocturno-crear-gifo" class="links no-selected" href="#"
+                >MODO NOCTURNO</a
+              >
+            </li>
+            <li>
+              <a class="links no-selected" href="#favoritos">FAVORITOS</a>
+            </li>
+            <li>
+              <a class="links no-selected" href="#">MIS GIFOS</a>
+            </li>
+          </ul>
+          <img
+            src="assets/CTA-crear-gifo-active.svg"
+            alt="crear-gifo"
+            id="crear-gifo-cg"
+            class="crear-gifo"
+          />
+        </nav>
+        <img src="assets/burger.svg" alt="menu" id="burger" />
+      </div>
+    </header>
     <section class="crear-gifs">
-        <div id="camera-div">
-            <img src="assets/camara.svg" alt="Camara">
-            <img src="assets/element-luz-camara.svg" alt="">
-        </div>            
-        <div id="principal-gifs">
-            <div id="camera-central">
-                <video autoplay class="none"></video>   
-                <div id="subiendo-gifo" class="none">
-                    <img src="assets/loader.svg" alt="Cargando....">
-                    <p>Estamos subiendo tu GIFO</p>                   
-                </div>             
-                <div id="camera-window" class="camera-window-content">
-                    <h1>Aquí podrás <span>crear tus propios <span>GIFOS</span></span></h1>
-                    <p>¡Crea tu GIFO en sólo 3 pasos!<span>(sólo necesitas una cámara para grabar un video)</span>
-                    </p>
-                </div>
-                <div id="camera-window-2" class="none">
-                    <h1>¿Nos das acceso <span>a tu cámara?</span></h1>
-                    <p>El acceso a tu camara será válido sólo<span>por el tiempo en el que estés creando el GIFO</span>
-                    </p>
-                </div>
-            </div>
-            <div id="camera-elements">
-                <div id="pasos">
-                    <p id="step1" class="steps">1</p>
-                    <p id="step2" class="steps">2</p>
-                    <p id="step3" class="steps">3</p>
-                </div>                
-                <div id="cronometro">
-                    <span id="time">00:00:00</span>
-                </div>                
-                <div id="separator-misgifos"></div>                
-                <button id="btn-comenzar" class="btn-mas">COMENZAR</button>
-                <button id="btn-grabar" class="none">GRABAR</button>
-                <button id="btn-finalizar" class="none">FINALIZAR</button>
-                <button id="btn-subir-gifo" class="none">SUBIR GIFO</button>
-                <img src="assets/pelicula.svg" alt="Pelicula">
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="icons">
-          <p>Compartir en:</p>
-          <div class="a-icons">
-            <a href="https://facebook.com" target="_blank"><img src="assets/icon_facebook.svg" alt="facebook"></a>
-            <a href="https://twitter.com" target="_blank"><img src="assets/icon-twitter.svg" alt="twitter"></a>
-            <a href="https://instagram.com" target="_blank"><img src="assets/icon_instagram.svg" alt="instagram"></a>
+      <div id="camera-div">
+        <img src="assets/camara.svg" alt="Camara" />
+        <img src="assets/element-luz-camara.svg" alt="" />
+      </div>
+      <div id="principal-gifs">
+        <div id="camera-central">
+          <video autoplay class="none"></video>
+          <div id="subiendo-gifo" class="none">
+            <img src="assets/loader.svg" alt="Cargando...." />
+            <p>Estamos subiendo tu GIFO</p>
+          </div>
+          <div id="camera-window" class="camera-window-content">
+            <h1>
+              Aquí podrás <span>crear tus propios <span>GIFOS</span></span>
+            </h1>
+            <p>
+              ¡Crea tu GIFO en sólo 3 pasos!<span
+                >(sólo necesitas una cámara para grabar un video)</span
+              >
+            </p>
+          </div>
+          <div id="camera-window-2" class="none">
+            <h1>¿Nos das acceso <span>a tu cámara?</span></h1>
+            <p>
+              El acceso a tu camara será válido sólo<span
+                >por el tiempo en el que estés creando el GIFO</span
+              >
+            </p>
           </div>
         </div>
-        <div class="copyright">
-          <p>&#169; GIFOS 2020 All Rights Reserved.</p>
+        <div id="camera-elements">
+          <div id="pasos">
+            <p id="step1" class="steps">1</p>
+            <p id="step2" class="steps">2</p>
+            <p id="step3" class="steps">3</p>
+          </div>
+          <div id="cronometro">
+            <span id="time">00:00:00</span>
+          </div>
+          <div id="separator-misgifos"></div>
+          <button id="btn-comenzar" class="btn-mas">COMENZAR</button>
+          <button id="btn-grabar" class="none">GRABAR</button>
+          <button id="btn-finalizar" class="none">FINALIZAR</button>
+          <button id="btn-subir-gifo" class="none">SUBIR GIFO</button>
+          <img src="assets/pelicula.svg" alt="Pelicula" />
         </div>
-      </footer>
-      <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-      <script src="js/crear-gif.js" type="module"></script>
-      <script src="js/global.js" type="module"></script>
-</body>
+      </div>
+    </section>
+    <footer>
+      <div class="icons">
+        <p>Compartir en:</p>
+        <div class="a-icons">
+          <a href="https://facebook.com" target="_blank"
+            ><img src="assets/icon_facebook.svg" alt="facebook"
+          /></a>
+          <a href="https://twitter.com" target="_blank"
+            ><img src="assets/icon-twitter.svg" alt="twitter"
+          /></a>
+          <a href="https://instagram.com" target="_blank"
+            ><img src="assets/icon_instagram.svg" alt="instagram"
+          /></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&#169; GIFOS 2020 All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="js/crear-gif.js" type="module"></script>
+    <script src="js/global.js" type="module"></script>
+  </body>
 </html>

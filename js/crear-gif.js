@@ -163,3 +163,4 @@ function stopTime(){
 }
 
 global.checkDarkMode(global.nocturnoCG);
+//global.checkMobile();

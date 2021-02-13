@@ -38,12 +38,14 @@ window.onclick = async function (event) {
     console.log(error);
   }
 };
+global.burger.addEventListener("click",()=>{
+  global.burger.classList.toggle("burger-close");
+  global.menu.classList.toggle("none");
+  global.menu.classList.toggle("flex");
+});
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
-  if(document.body.classList.contains("dark")){
-    //global.logo.setAttribute("src", "assets/Logo-modo-noc.svg");
-    //global.crearGifo.setAttribute("src","assets/CTA-crar-gifo-modo-noc.svg");    
-    //global.btnCloseSearch.setAttribute("src","assets/close-modo-noct.svg");    
+  if(document.body.classList.contains("dark")){   
     global.nocturno.textContent = "MODO DIURNO";    
     localStorage.setItem("modo-nocturno", "on");
   }else{
@@ -556,3 +558,4 @@ callGifs().then(() => {
 });
 activeLink();
 global.checkDarkMode(global.nocturno);
+global.checkMobile();

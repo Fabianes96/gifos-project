@@ -1,4 +1,5 @@
 let initial = document.getElementById("initial");
+let menu = document.getElementById("menu");
 let favoritos = document.getElementById("favoritos");
 let misGIFOS = document.getElementById("section-mis-gifos")
 let container = document.getElementById("gifs");
@@ -45,6 +46,7 @@ let nocturno = document.getElementById("nocturno");
 let nocturnoCG = document.getElementById("nocturno-crear-gifo");
 let logo = document.getElementById("logo");
 let crearGifo = document.getElementById("crear-gifo");
+let burger = document.getElementById("burger");
 
 function checkDarkMode(link){
     if(localStorage.getItem("modo-nocturno")){
@@ -60,5 +62,13 @@ function checkDarkMode(link){
         }
     }
 }
+function checkMobile(){
+    if(initial.clientWidth <= 850){
+        if(!burger.classList.contains("burger-close")){        
+            menu.classList.add("none");
+            menu.classList.remove("flex");        
+        }
+    }
+}
 
-export {initial,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode}
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger}
