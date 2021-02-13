@@ -818,10 +818,6 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
   scroll-behavior: smooth;
 }
 
-.trending .container #slider #gifs div img:hover {
-  opacity: 0.4;
-}
-
 .trending .container #slider #gifs .square {
   width: 357px;
   height: 275px;
@@ -1460,6 +1456,35 @@ body.dark .btn-mas:hover {
   top: 7px;
   position: relative;
   right: 7px;
+}
+
+.card-icons img {
+  opacity: 0.7;
+}
+
+.card-icons > :first-child:hover {
+  content: url("/assets/icon-fav-hover.svg");
+}
+
+.card-icons > :nth-child(2):hover {
+  content: url("/assets/icon-download-hover.svg");
+}
+
+.card-icons > :last-child:hover {
+  content: url("/assets/icon-max-hover.svg");
+}
+
+.favorite-added > :first-child {
+  background: url(/assets/icon-fav-active.svg) no-repeat white center;
+}
+
+.favorite-added > :first-child img {
+  display: none;
+}
+
+.favorite-added > :first-child:hover {
+  background: url(/assets/icon-fav-active.svg) no-repeat white center;
+  content: none;
 }
 
 .no-results {

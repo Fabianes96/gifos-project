@@ -62,14 +62,14 @@ global.btnMasFavs.addEventListener("click", () => {
   if (cant > offsetFavs) {
     addGifs(
       favs.slice(inicio, offsetFavs),
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav-active.svg",
       global.containerFavorites,
       false
     );
   } else {
     addGifs(
       favs.slice(inicio, favs.length),
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav-active.svg",
       global.containerFavorites,
       false
     );
@@ -84,14 +84,14 @@ global.btnMasMisGifs.addEventListener("click",()=>{
   if(cant > offsetMisGifs){
     addGifs(
       misGifs.slice(inicio, offsetMisGifs),
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav.svg",
       global.containerGIFOS,
       false
     );
   }else{
     addGifs(
       misGifs.slice(inicio, misGifs.length),
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav.svg",
       global.containerGIFOS,
       false
     );
@@ -100,14 +100,14 @@ global.btnMasMisGifs.addEventListener("click",()=>{
 })
 
 global.linkFavoritos.addEventListener("click", () => {  
-  if(!global.menu.classList.contains("none")){
-    showHideMenu();
+  if(global.menu.classList.contains("open-hamburger-menu")){
+    global.showHideMenu();
   }
   addFavorite();
 });
 global.linkGIFOS.addEventListener("click",()=>{
-  if(!global.menu.classList.contains("none")){
-    showHideMenu();
+  if(global.menu.classList.contains("open-hamburger-menu")){
+    global.showHideMenu();
   }
   addGIFOS();
 })
@@ -132,7 +132,7 @@ global.btnMas.addEventListener("click", async () => {
     gifsSearchAux = gifsSearchAux.concat(masGifs);
     addGifs(
       masGifs,
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav.svg",
       global.containerSearchResults,
       false
     );
@@ -243,13 +243,13 @@ async function addGIFOS(){
     if(misGifs.length > 12){
       addGifs(
         misGifs.slice(0, 12),
-        "container-search-and-favs",
+        "container-search-and-favs","assets/icon-fav.svg",
         global.containerGIFOS,
         false
         );
       global.btnMasMisGifs.classList.remove("none");
     }else{
-      addGifs(misGifs,"container-search-and-favs",global.containerGIFOS,false);
+      addGifs(misGifs,"container-search-and-favs","assets/icon-fav.svg",global.containerGIFOS,false);
     }
   } 
 }
@@ -274,9 +274,10 @@ function addFavorite() {
     global.noFavorites.classList.add("none");
     global.favoritos.classList.add("favs");
     if (favs.length > 12) {
+      /////////////////////////////////////////////////////////
       addGifs(
         favs.slice(0, 12),
-        "container-search-and-favs",
+        "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
         false
       );
@@ -284,7 +285,7 @@ function addFavorite() {
     } else {
       addGifs(
         favs,
-        "container-search-and-favs",
+        "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
         false
       );
@@ -354,7 +355,7 @@ async function showGifsSearch() {
     global.btnMas.classList.remove("none");
     addGifs(
       gifsSearch,
-      "container-search-and-favs",
+      "container-search-and-favs","assets/icon-fav.svg",
       global.containerSearchResults,
       false
     );
@@ -374,23 +375,28 @@ async function callGifs() {
   }
 }
 
-function addGifs(array, attribute, container, modal) {
+function addGifs(array, attribute,iconoFav, container, modal) {
   for (let i = 0; i < array.length; i++) {
     let square = document.createElement("div");
     square.setAttribute("class", attribute);
 
     let card = document.createElement("div");
     card.setAttribute("class", "card-icons");
-
+    
     let divIconFav = document.createElement("div");
     divIconFav.setAttribute("class", "div-icons");
     let image1 = document.createElement("img");
-    image1.setAttribute("src", "assets/icon-fav-hover.svg");
+    image1.setAttribute("src", iconoFav);
     image1.setAttribute("class", "icono");
     divIconFav.appendChild(image1);
-    divIconFav.addEventListener("click", () => {
-      addFavToLocalstorage(array, i);
-    });
+    if(iconoFav === "assets/icon-fav.svg"){
+      divIconFav.addEventListener("click", () => {
+        addFavToLocalstorage(array, i);
+        card.classList.add("favorite-added");
+      });
+    }else{
+      card.classList.add("favorite-added");
+    }
     card.appendChild(divIconFav);
 
     let divIconDownload = document.createElement("div");    
@@ -444,7 +450,7 @@ function addGifs(array, attribute, container, modal) {
       });
     }
     container.appendChild(square);
-  }
+  }  
 }
 function addFavToLocalstorage(array, i) {
   offsetFavs = 12;
@@ -558,7 +564,7 @@ async function downloadGif(url,titulo){
 }
 
 callGifs().then(() => {
-  addGifs(gifs, "square", global.container, true);  
+  addGifs(gifs, "square","assets/icon-fav.svg", global.container, true);  
 });
 activeLink();
 global.checkDarkMode(global.nocturno);

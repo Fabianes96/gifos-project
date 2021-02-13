@@ -134,6 +134,30 @@ body {
   top: 7px;
   position: relative;
   right: 7px;
+  img{
+    opacity: 0.7;
+  }
+  > :first-child:hover{
+    content: url("/assets/icon-fav-hover.svg");
+  }
+  > :nth-child(2):hover{
+    content: url("/assets/icon-download-hover.svg");
+  }
+  > :last-child:hover{
+    content: url("/assets/icon-max-hover.svg");
+  }
+}
+.favorite-added{
+  > :first-child{
+    img{
+      display: none;
+    }
+    background: url(/assets/icon-fav-active.svg) no-repeat white center;  
+  }
+  > :first-child:hover{
+    background: url(/assets/icon-fav-active.svg) no-repeat white center;
+    content: none;
+  }
 }
 .no-results {
   display: grid;
