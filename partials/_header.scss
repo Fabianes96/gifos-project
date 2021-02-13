@@ -8,13 +8,13 @@ header {
     .logo {
       position: relative;
       left: 168px;
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         display: none;
       }
     }
     .logo-mobile {
       display: none;
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         display: block;
         position: relative;
         left: 22px;
@@ -27,14 +27,14 @@ header {
     }
     #burger {
       display: none;
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         display: block;
       }
     }
     .burger-close{
       content: url("/assets/close.svg");            
     }    
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: $media850) {
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -53,13 +53,13 @@ header {
           list-style: none;          
           .no-selected {
             color: $color-principal;
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: $media850) {
               color: $blanco;
             }
           }
           .active{
             color: $color-secundario-dark;           
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: $media850) {
               color: $blanco;
             }
           }                          
@@ -68,7 +68,7 @@ header {
             letter-spacing: 0;
             text-align: center;
             text-decoration: none;            
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: $media850) {
               font-size: 15px;
               font-weight: bold;
             }
@@ -76,19 +76,19 @@ header {
           a:hover{
             border-bottom: 2px solid $color-secundario;
           }
-          @media screen and (max-width:850px){
+          @media screen and (max-width:$media850){
             margin-left: 0px;
           }
         }
         li:first-child{
           .active{
             color: $color-principal;
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: $media850) {
               color: $blanco;
             }
           }
         }
-        @media screen and (max-width:850px){
+        @media screen and (max-width:$media850){
           flex-direction: column;
           align-items: center;
           height: 127px;
@@ -108,7 +108,7 @@ header {
         height: 54px;
         cursor: pointer;
       }      
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         position: fixed;
         left: 0;
         top: 80px;
@@ -127,7 +127,7 @@ header {
         display: flex;        
       }
     }    
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: $media850) {
       position: static;
       margin-right: 14px;      
     }    

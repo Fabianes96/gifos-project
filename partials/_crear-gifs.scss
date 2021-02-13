@@ -19,7 +19,7 @@
         width: 30%;
       }
     }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: $media850) {
       display: none;
     }    
   }
@@ -80,7 +80,7 @@
       @media screen and (max-width: 1100px) {
         width: 530px;
       }
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         width: 450px;
       }
     }
@@ -126,12 +126,12 @@
       @media screen and (max-width: 1200px) {
         width: 100px;
       }
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: $media850) {
         display: none;
       }
     }
   }
-  @media screen and(max-width:850px) {
+  @media screen and(max-width:$media850) {
     right: 0;
   }
   body.dark & {

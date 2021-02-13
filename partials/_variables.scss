@@ -6,6 +6,7 @@ $color-secundario-dark: #9CAFC3;
 $color-terciario-dark: #222326;
 $blanco: #FFFFFF;
 $negro: #000000;
+$media850: 850px;
 
 @mixin gifsSquare ($width,$height){
     width: $width;

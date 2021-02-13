@@ -64,7 +64,7 @@
       background-image: url("/assets/icon-search.svg");
       background-repeat: no-repeat;
       background-position: 90% center;
-      @media screen and(max-width:850px) {
+      @media screen and(max-width:$media850) {
         width: 50%;
       }
       @media screen and(max-width:450px) {
