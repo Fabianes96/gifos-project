@@ -39,9 +39,7 @@ window.onclick = async function (event) {
   }
 };
 global.burger.addEventListener("click",()=>{
-  global.burger.classList.toggle("burger-close");
-  global.menu.classList.toggle("none");
-  global.menu.classList.toggle("flex");
+  showHideMenu();
 });
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
@@ -102,9 +100,15 @@ global.btnMasMisGifs.addEventListener("click",()=>{
 })
 
 global.linkFavoritos.addEventListener("click", () => {  
+  if(!global.menu.classList.contains("none")){
+    showHideMenu();
+  }
   addFavorite();
 });
 global.linkGIFOS.addEventListener("click",()=>{
+  if(!global.menu.classList.contains("none")){
+    showHideMenu();
+  }
   addGIFOS();
 })
 global.span.onclick = function () {
@@ -303,6 +307,11 @@ function activeLink(){
       a[i].classList.add("active")
     })
   }
+}
+function showHideMenu(){
+  global.burger.classList.toggle("burger-close");
+  global.menu.classList.toggle("none");
+  global.menu.classList.toggle("flex");
 }
 function searchClousure() {
   let ulSuggestions = document.getElementById("suggestions");

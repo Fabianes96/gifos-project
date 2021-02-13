@@ -18,16 +18,32 @@ header {
         display: block;
         position: relative;
         left: 22px;
+        body.dark &{
+          img{
+            content: url("/assets/logo-mobile-modo-noct.svg");
+          }
+        }
       }
+    }
+    #burger {
+      display: none;
+      @media screen and (max-width: 850px) {
+        display: block;
+      }
+    }
+    .burger-close{
+      content: url("/assets/close.svg");            
+    }    
+    @media screen and (max-width: 850px) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
   }
   .menu {
     display: flex;
     position: relative;
-    right: 153px;    
-    .burger-close{
-      content: url("/assets/close.svg");      
-    }    
+    right: 153px;        
     nav {      
       align-items: center;
       ul {
@@ -95,59 +111,67 @@ header {
       @media screen and (max-width: 850px) {
         position: fixed;
         left: 0;
-        top: 100px;
+        top: 80px;
         width: 100%;
         height: 100%;
         background: rgba(87,46,229,0.90);
         z-index: 100;
+        body.dark &{
+          background-color: $negro;
+        }
         > :last-child{
           display: none;
         }
       }
       @media screen and (min-width:851px){
-        display: flex;
+        display: flex;        
       }
-    }
-    #burger {
-      display: none;
-      @media screen and (max-width: 850px) {
-        display: block;
-      }
-    }
+    }    
     @media screen and (max-width: 850px) {
       position: static;
-      margin-right: 14px;
+      margin-right: 14px;      
     }    
   }
   body.dark & {
     border-top: 5px solid #000000;
-    #logo{
-      content: url("/assets/Logo-modo-noc.svg");
+    .header-info{
+      background-color: $color-principal-dark;
+      #logo{
+        content: url("/assets/Logo-modo-noc.svg");
+      }
+      #logo-CG{
+        content: url("/assets/Logo-modo-noc.svg");
+      } 
+      > :last-child{
+        content: url("/assets/burger-modo-noct.svg");
+      }
+      .burger-close{        
+        content: url("/assets/close-modo-noct.svg");                 
+      }
     }
-    #logo-CG{
-      content: url("/assets/Logo-modo-noc.svg");
-    }    
-    nav {
-      #crear-gifo{
-        content: url("/assets/CTA-crear-gifo-modo-noc.svg");        
-      }
-      #crear-gifo:hover{
-        content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
-      }
-      #crear-gifo-cg{
-        cursor: default;
-      }
-      ul li {
-        .no-selected {
-          color: $blanco;
-        }        
-      }
-      li:first-child{
-        .active{
-          color: $blanco;
+    .menu{    
+      nav {        
+        #crear-gifo{
+          content: url("/assets/CTA-crear-gifo-modo-noc.svg");        
         }
+        #crear-gifo:hover{
+          content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
+        }
+        #crear-gifo-cg{
+          cursor: default;
+        }
+        ul li {
+          .no-selected {
+            color: $blanco;
+          }        
+        }
+        li:first-child{
+          .active{
+            color: $blanco;
+          }
+        }
+        
       }
-      
-    }
+    }   
   }  
 }

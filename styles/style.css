@@ -30,6 +30,35 @@ header .header-info .logo-mobile {
     position: relative;
     left: 22px;
   }
+  body.dark header .header-info .logo-mobile img {
+    content: url("/assets/logo-mobile-modo-noct.svg");
+  }
+}
+
+header .header-info #burger {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  header .header-info #burger {
+    display: block;
+  }
+}
+
+header .header-info .burger-close {
+  content: url("/assets/close.svg");
+}
+
+@media screen and (max-width: 850px) {
+  header .header-info {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 header .menu {
@@ -38,10 +67,6 @@ header .menu {
   display: flex;
   position: relative;
   right: 153px;
-}
-
-header .menu .burger-close {
-  content: url("/assets/close.svg");
 }
 
 header .menu nav {
@@ -149,11 +174,14 @@ header .menu nav .crear-gifo {
   header .menu nav {
     position: fixed;
     left: 0;
-    top: 100px;
+    top: 80px;
     width: 100%;
     height: 100%;
     background: rgba(87, 46, 229, 0.9);
     z-index: 100;
+  }
+  body.dark header .menu nav {
+    background-color: #000000;
   }
   header .menu nav > :last-child {
     display: none;
@@ -168,16 +196,6 @@ header .menu nav .crear-gifo {
   }
 }
 
-header .menu #burger {
-  display: none;
-}
-
-@media screen and (max-width: 850px) {
-  header .menu #burger {
-    display: block;
-  }
-}
-
 @media screen and (max-width: 850px) {
   header .menu {
     position: static;
@@ -189,31 +207,43 @@ body.dark header {
   border-top: 5px solid #000000;
 }
 
-body.dark header #logo {
+body.dark header .header-info {
+  background-color: #37383C;
+}
+
+body.dark header .header-info #logo {
   content: url("/assets/Logo-modo-noc.svg");
 }
 
-body.dark header #logo-CG {
+body.dark header .header-info #logo-CG {
   content: url("/assets/Logo-modo-noc.svg");
 }
 
-body.dark header nav #crear-gifo {
+body.dark header .header-info > :last-child {
+  content: url("/assets/burger-modo-noct.svg");
+}
+
+body.dark header .header-info .burger-close {
+  content: url("/assets/close-modo-noct.svg");
+}
+
+body.dark header .menu nav #crear-gifo {
   content: url("/assets/CTA-crear-gifo-modo-noc.svg");
 }
 
-body.dark header nav #crear-gifo:hover {
+body.dark header .menu nav #crear-gifo:hover {
   content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
 }
 
-body.dark header nav #crear-gifo-cg {
+body.dark header .menu nav #crear-gifo-cg {
   cursor: default;
 }
 
-body.dark header nav ul li .no-selected {
+body.dark header .menu nav ul li .no-selected {
   color: #FFFFFF;
 }
 
-body.dark header nav li:first-child .active {
+body.dark header .menu nav li:first-child .active {
   color: #FFFFFF;
 }
 
