@@ -31,14 +31,9 @@
     #slider {
       display: flex;
       align-items: center;
-      width: 90%;      
-      .arrow-container {
-        cursor: pointer;
-      }      
+      width: 90%;                 
       #slide-left{
-        img:hover{
-          content: url("/assets/button-slider-left-hover.svg");
-        }
+        @extend %slide-left-hover;
       }      
       #gifs {
         margin: 0 25px;
@@ -87,9 +82,7 @@
         }
       }
       #slide-right{
-        img:hover{
-          content: url("/assets/Button-Slider-right-hover.svg");
-        }
+        @extend %slide-right-hover;
       }
       @media screen and (max-width: 550px) {
         width: 100%;
@@ -112,22 +105,10 @@
       }
       #slider{
         #slide-left{
-          img{
-            content: url("/assets/button-slider-left-md-noct.svg");
-          }
-          img:hover{
-            content: url("/assets/button-slider-left-hover.svg");
-            filter: grayscale(1) invert(1) brightness(2);
-          }
+          @extend %slide-left-dm;
         }        
         #slide-right{
-          img{
-            content: url("/assets/button-slider-right-md-noct.svg");
-          }
-          img:hover{
-            content: url("/assets/Button-Slider-right-hover.svg");
-            filter: grayscale(1) invert(1) brightness(2);
-          }
+          @extend %slide-right-dm;
         }
       }
     }

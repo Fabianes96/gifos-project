@@ -181,6 +181,9 @@ header {
         
       }
     }   
+    @media screen and (min-width:851px) {
+      border-top: 5px solid #000000;
+    }
   }  
   @media screen and (max-width:$media850){
     #comodin{
@@ -191,5 +194,5 @@ header {
     }    
     border-top: 0;
     padding-top: 0;    
-  }
+  }  
 }

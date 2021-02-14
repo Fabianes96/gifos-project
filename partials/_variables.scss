@@ -1,53 +1,84 @@
 $font-principal: "Montserrat-Bold", sans-serif;
 $color-principal: #572ee5;
-$color-secundario: #50E3C2;
-$color-principal-dark: #37383C;
-$color-secundario-dark: #9CAFC3;
+$color-secundario: #50e3c2;
+$color-principal-dark: #37383c;
+$color-secundario-dark: #9cafc3;
 $color-terciario-dark: #222326;
-$blanco: #FFFFFF;
+$blanco: #ffffff;
 $negro: #000000;
 $media850: 850px;
 
-.fixed{
+%slide-left-hover {
+  img:hover {
+    content: url("/assets/button-slider-left-hover.svg");
+  }
+}
+%slide-left-dm {
+  img {
+    content: url("/assets/button-slider-left-md-noct.svg");
+  }
+  img:hover {
+    content: url("/assets/button-slider-left-hover.svg");
+    filter: grayscale(1) invert(1) brightness(2);
+  }
+}
+%slide-right-hover {
+  img:hover {
+    content: url("/assets/Button-Slider-right-hover.svg");
+  }
+}
+%slide-right-dm {
+  img {
+    content: url("/assets/button-slider-right-md-noct.svg");
+  }
+  img:hover {
+    content: url("/assets/Button-Slider-right-hover.svg");
+    filter: grayscale(1) invert(1) brightness(2);
+  }
+}
+.arrow-container {
+  cursor: pointer;
+}
+.fixed {
   position: fixed;
   transition: position 700ms ease;
 }
 
-@mixin gifsSquare ($width,$height){
-    width: $width;
-    height: $height;
-    background-color: $color-principal;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;  
+@mixin gifsSquare($width, $height) {
+  width: $width;
+  height: $height;
+  background-color: $color-principal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@mixin gifsGifos($minWidth, $minHeight, $bottom) {
+  position: relative;
+  min-width: $minWidth;
+  min-height: $minHeight;
+  bottom: $bottom;
+  z-index: 10;
+}
+@mixin removeGifHover() {
+  .gifos {
+    z-index: 10;
+    opacity: 1;
   }
-  @mixin gifsGifos($minWidth,$minHeight,$bottom) {
-    position: relative;
-    min-width: $minWidth;
-    min-height: $minHeight;
-    bottom: $bottom;
-    z-index: 10;  
-  }
-  @mixin removeGifHover(){
-    .gifos{
-      z-index: 10;
-      opacity: 1;
-    }
-  }  
-  @mixin gifHover($z,$opacity) {
-    z-index: $z;
-    opacity: $opacity;
-  }
-  @mixin medium-gifs-container {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    justify-items: center;
-    gap: 29px  
-  } 
-  @mixin sections-favs-gifos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;  
-  }
+}
+@mixin gifHover($z, $opacity) {
+  z-index: $z;
+  opacity: $opacity;
+}
+@mixin medium-gifs-container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-items: center;
+  gap: 29px;
+}
+@mixin sections-favs-gifos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
