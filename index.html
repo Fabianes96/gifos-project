@@ -15,10 +15,16 @@
     <div id="comodin" class="none"></div> 
     <div class="header-info">
       <!-- Logo -->
-      <a href="index.html" class="logo"><img src="assets/logo-desktop.svg" alt="logo" id="logo"/></a>  
-      <a href="index.html" class="logo-mobile"><img src="assets/logo-mobile.svg" alt="logo" id="logo-mobile"/>
+      <a href="index.html" id="logo" class="logo"><img src="assets/logo-desktop.svg" alt="logo"/></a>
+      <a href="index.html" id="logo-dm" class="logo none"><img src="assets/Logo-modo-noc.svg" alt="logo"/></a>        
+      <a href="index.html" id="logo-mobile" class="logo-mobile"><img src="assets/logo-mobile.svg" alt="logo" />        
       </a>  
-      <img src="assets/burger.svg" alt="menu" id="burger" />
+      <a href="index.html" id="logo-mobile-dm" class="logo-mobile"><img src="assets/logo-mobile-modo-noct.svg" alt="logo" />        
+      </a>  
+      <img src="assets/burger.svg" alt="menu" id="burger" class="burger"/>
+      <img src="assets/burger-modo-noct.svg" alt="menu" id="burger-dm" class="burger"/>
+      <img src="assets/close.svg" alt="menu" id="burger-close" class="none burger"/> 
+      <img src="assets/close-modo-noct.svg" alt="menu" id="burger-close-dm" class="none burger"/>           
     </div>
     <!-- Menú -->
     <div class="menu">
@@ -35,8 +41,13 @@
             <a class="links no-selected" href="#">MIS GIFOS</a>
           </li>
         </ul>
-        <a href="crear-gifo.html" class="crear-gifo">
+        <a id="cg-diurno" href="crear-gifo.html" class="crear-gifo">
           <img src="assets/button-crear-gifo.svg" alt="crear-gifo" id="crear-gifo"/>
+          <img src="assets/CTA-crear-gifo-hover.svg" alt="crear-gifo" id="crear-gifo-h" class="none"/>          
+        </a>
+        <a id="cg-nocturno" href="crear-gifo.html" class="crear-gifo none">
+          <img src="assets/CTA-crear-gifo-modo-noc.svg" alt="crear-gifo" id="crear-gifo-dm" class="none"/>
+          <img src="assets/CTA-crear-gifo-hover-modo-noc.svg" alt="crear-gifo" id="crear-gifo-dmh" class="none"/>          
         </a>
       </nav>      
     </div>
@@ -47,12 +58,16 @@
         <span class="close">&times;</span>
         <div class="modal-content">              
           <div id="slide-left-modal" class="arrow-container">
-            <img src="assets/button-slider-left.svg" alt="Ver más"/>            
+            <img src="assets/button-slider-left.svg" alt="Ver más"/>     
+            <img src="assets/button-slider-left-hover.svg" alt="Ver más" class="none"/>          
+            <img src="assets/button-slider-left-md-noct.svg" alt="Ver más" class="none"/>                 
           </div>
           <div id="modalContent">
           </div>
           <div id="slide-right-modal" class="arrow-container">
-            <img src="assets/Button-Slider-right.svg" alt="Ver más"/></div>            
+            <img src="assets/Button-Slider-right.svg" alt="Ver más"/>          
+            <img src="assets/Button-Slider-right-hover.svg" alt="Ver más" class="none"/>   
+            <img src="assets/button-slider-right-md-noct.svg" alt="Ver más" class="none"/>   
           </div>
         </div>
     </div>          
@@ -137,10 +152,14 @@
       <div id="slider">
         <div id="slide-left" class="arrow-container">
           <img src="assets/button-slider-left.svg" alt="Ver más"/>          
+          <img src="assets/button-slider-left-hover.svg" alt="Ver más" class="none"/>          
+          <img src="assets/button-slider-left-md-noct.svg" alt="Ver más" class="none"/>          
         </div>
         <div id="gifs"></div>        
         <div id="slide-right" class="arrow-container">
           <img src="assets/Button-Slider-right.svg" alt="Ver más"/>          
+          <img src="assets/Button-Slider-right-hover.svg" alt="Ver más" class="none"/>   
+          <img src="assets/button-slider-right-md-noct.svg" alt="Ver más" class="none"/>   
         </div>
       </div>
     </div>

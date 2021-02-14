@@ -2,8 +2,8 @@ header {
   display: flex;
   justify-content: space-between;
   border-top: 5px solid $color-principal;
-  padding-top: 18px;  
-  .header-info{    
+  padding-top: 18px;
+  .header-info {        
     .logo {
       position: relative;
       left: 168px;
@@ -11,95 +11,112 @@ header {
         display: none;
       }
     }
-    .logo-mobile {
+    .logo-mobile{
       display: none;
       @media screen and (max-width: $media850) {
         display: block;
         position: relative;
         left: 22px;
-        body.dark &{
-          img{
-            content: url("/assets/logo-mobile-modo-noct.svg");
-          }
+        body.dark & {
+          display: none;          
         }
       }
     }
+    #logo-mobile-dm{
+      display: none;
+      @media screen and(max-width: $media850){
+        body.dark &{
+          display: block;
+        }
+      }
+    }        
     #burger {
       display: none;
       @media screen and (max-width: $media850) {
-        display: block;
-        position: relative;
-        right: 14px;
+        display: block;  
+        body.dark &{
+          display: none;
+        }    
       }
     }
-    .burger-close{
-      content: url("/assets/close.svg");            
-    }    
+    #burger-dm{
+      display: none;
+    }
+    .burger{
+      width: 15px;
+      height: 15px;      
+      position: relative;
+      top: 10px;
+      right: 14px;
+    }
+    .burger-close {
+      content: url("/assets/close.svg");
+    }
     @media screen and (max-width: $media850) {
       width: 100%;
       display: flex;
       background-color: $blanco;
       justify-content: space-between;
       border-top: 5px solid $color-principal;
-      padding-top: 18px;  
-      z-index: 100;       
-      body.dark &{
-        border-top: 5px solid $negro;        
-      }     
+      padding-top: 18px;
+      z-index: 100;
+      body.dark & {
+        border-top: 5px solid $negro;
+      }
     }
   }
   .menu {
     display: flex;
     position: relative;
-    right: 153px;        
-    .open-hamburger-menu{      
+    right: 153px;
+    .open-hamburger-menu {
       height: 100%;
     }
-    nav {      
+    nav {
       align-items: center;
       ul {
         display: flex;
         li {
           margin-left: 16px;
-          list-style: none;          
+          list-style: none;
           .no-selected {
             color: $color-principal;
             @media screen and (max-width: $media850) {
               color: $blanco;
             }
           }
-          .active{
-            color: $color-secundario-dark;           
+          .active {
+            color: $color-secundario-dark;
             @media screen and (max-width: $media850) {
               color: $blanco;
             }
-          }                          
+          }
           a {
             font-size: 13px;
             letter-spacing: 0;
             text-align: center;
-            text-decoration: none;            
+            text-decoration: none;
             @media screen and (max-width: $media850) {
               font-size: 15px;
               font-weight: bold;
             }
           }
-          a:hover{
+          a:hover {
             border-bottom: 2px solid $color-secundario;
           }
-          @media screen and (max-width:$media850){
+          @media screen and (max-width: $media850) {
             margin-left: 0px;
           }
         }
-        li:first-child{
-          .active{
+        li:first-child {
+          .active {
             color: $color-principal;
             @media screen and (max-width: $media850) {
               color: $blanco;
             }
           }
         }
-        @media screen and (max-width:$media850){
+        @media screen and (max-width: $media850) {
           flex-direction: column;
           align-items: center;
           height: 127px;
@@ -108,17 +125,22 @@ header {
           justify-content: space-around;
           width: 100%;
         }
-      }      
-      #crear-gifo:hover{
-        content: url("/assets/CTA-crear-gifo-hover.svg");
       }
+      #cg-diurno:hover{
+        #crear-gifo{
+          display: none;
+        }
+        #crear-gifo-h{
+          display: block;
+        }
+      }      
       .crear-gifo {
         position: relative;
         left: 53px;
         width: 54px;
         height: 54px;
         cursor: pointer;
-      }      
+      }
       @media screen and (max-width: $media850) {
         position: fixed;
         left: 0;
@@ -126,73 +148,107 @@ header {
         width: 100%;
         height: 0;
         overflow: hidden;
-        transition: all 500ms ease;    
-        background: rgba(87,46,229,0.90);
-        z-index: 100;          
-        body.dark &{
+        transition: all 500ms ease;
+        background: rgba(87, 46, 229, 0.9);
+        z-index: 100;
+        body.dark & {
           background-color: $negro;
-        } 
-        > :last-child{
+        }
+        #cg-diurno{
           display: none;
         }
       }
-      @media screen and (min-width:851px){
-        display: flex;        
-      }
-    }        
-  }
-  body.dark & {    
-    .header-info{
-      background-color: $color-principal-dark;
-      #logo{
-        content: url("/assets/Logo-modo-noc.svg");
-      }
-      #logo-CG{
-        content: url("/assets/Logo-modo-noc.svg");
-      } 
-      > :last-child{
-        content: url("/assets/burger-modo-noct.svg");
-      }
-      .burger-close{        
-        content: url("/assets/close-modo-noct.svg");                 
+      @media screen and (min-width: 851px) {
+        display: flex;
       }
     }
-    .menu{    
-      nav {        
-        #crear-gifo{
-          content: url("/assets/CTA-crear-gifo-modo-noc.svg");        
+  }
+  body.dark & {
+    .header-info {
+      background-color: $color-principal-dark;
+      #logo {
+        display: none;
+      }
+      #logo-dm{
+        display: block;
+        @media screen and (max-width: $media850){
+          display: none;
         }
-        #crear-gifo:hover{
-          content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
+      }
+      #logo-mobile{
+        display: none;
+      }
+      
+      #logo-CG {
+        content: url("/assets/Logo-modo-noc.svg");
+      }
+      #burger-dm{
+        display: block;
+      }
+      // > :last-child {
+      //   content: url("/assets/burger-modo-noct.svg");
+      // }
+      .burger-close {
+        content: url("/assets/close-modo-noct.svg");
+      }
+    }
+    .menu {
+      nav {
+        #cg-diurno{          
+          display: none;          
         }
-        #crear-gifo-cg{
+        #cg-nocturno{
+          display: block;
+          #crear-gifo-dm{
+            display: block;
+          }
+          @media screen and (max-width:$media850){
+            display: none;
+          }
+        }
+        #cg-nocturno:hover{
+          #crear-gifo-dm{
+            display: none;
+          }
+          #crear-gifo-dmh{
+            display: block;
+          }
+        }
+        > :last-child:hover {
+          #crear-gifo-dm:hover{
+            display: none;          
+          }
+          #crear-gifo-h {
+            display: none;
+          }
+        }              
+        #crear-gifo-cg {
           cursor: default;
         }
         ul li {
           .no-selected {
             color: $blanco;
-          }        
-        }
-        li:first-child{
-          .active{
-            color: $blanco;
           }
         }
-        
-      }
-    }   
-    @media screen and (min-width:851px) {
+        li:first-child {
+          .active {
+            color: $blanco;
+          }
+        }        
+      }      
+    }
+    @media screen and (min-width: 851px) {
       border-top: 5px solid #000000;
     }
-  }  
-  @media screen and (max-width:$media850){
-    #comodin{
+  }
+  @media screen and (max-width: $media850) {
+    #comodin {
       position: relative;
       width: 100%;
       padding-top: 23px;
       height: 53px;
-    }    
+    }
     border-top: 0;
-    padding-top: 0;    
-  }  
+    padding-top: 0;
+  }
 }

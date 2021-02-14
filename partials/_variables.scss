@@ -8,29 +8,34 @@ $blanco: #ffffff;
 $negro: #000000;
 $media850: 850px;
 
-%slide-left-hover {
-  img:hover {
-    content: url("/assets/button-slider-left-hover.svg");
+%slide-hover:hover{
+    :first-child{
+      display: none;
+    }
+    :nth-child(2){
+      display: block;
+    }  
+}
+%slide-dm-base{
+  :first-child{
+    display: none;
+  }
+  :nth-child(2){
+    display: none;
+  }
+  :last-child{
+    display: block;
   }
 }
 %slide-left-dm {
-  img {
-    content: url("/assets/button-slider-left-md-noct.svg");
-  }
+  @extend %slide-dm-base;
   img:hover {
     content: url("/assets/button-slider-left-hover.svg");
     filter: grayscale(1) invert(1) brightness(2);
-  }
-}
-%slide-right-hover {
-  img:hover {
-    content: url("/assets/Button-Slider-right-hover.svg");
-  }
+  }  
 }
 %slide-right-dm {
-  img {
-    content: url("/assets/button-slider-right-md-noct.svg");
-  }
+  @extend %slide-dm-base;  
   img:hover {
     content: url("/assets/Button-Slider-right-hover.svg");
     filter: grayscale(1) invert(1) brightness(2);

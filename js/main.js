@@ -39,18 +39,37 @@ window.onclick = async function (event) {
   }
 };
 global.burger.addEventListener("click",()=>{
-  global.showHideMenu();
+  global.showHideMenu(global.burger,global.burgerClose);
 });
+global.burgerClose.addEventListener("click",()=>{
+  global.showHideMenu(global.burger,global.burgerClose);
+})
+global.burgerDM.addEventListener("click",()=>{
+  global.showHideMenu(global.burgerDM,global.burgerCloseDM);
+})
+global.burgerCloseDM.addEventListener("click",()=>{
+  global.showHideMenu(global.burgerDM,global.burgerCloseDM);
+})
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
   if(document.body.classList.contains("dark")){   
-    global.nocturno.textContent = "MODO DIURNO";    
+    global.nocturno.textContent = "MODO DIURNO";        
+    global.burger.style.display = "none";
+    global.burgerDM.style.display = "none";
+    global.burgerDM.classList.add("none");
+    global.burgerClose.classList.add("none");
+    global.burgerCloseDM.classList.remove("none");
     localStorage.setItem("modo-nocturno", "on");
   }else{
     global.logo.setAttribute("src", "assets/logo-desktop.svg");
     global.crearGifo.setAttribute("src","assets/button-crear-gifo.svg");    
     global.btnCloseSearch.setAttribute("src","assets/close.svg");    
-    global.nocturno.textContent = "MODO NOCTURNO"
+    global.nocturno.textContent = "MODO NOCTURNO";
+    global.burger.style.display = "none";
+    global.burger.classList.add("none");
+    global.burgerDM.style.display = "none";
+    global.burgerCloseDM.classList.add("none");
+    global.burgerClose.classList.remove("none");
     localStorage.setItem("modo-nocturno", "off");
   }
 })
@@ -205,19 +224,23 @@ global.buttonLeftModal.addEventListener("click", () => {
   switch (activeModalArray) {
     case gifs:
       loadGifModal(gifs, false);
+      break;
     case gifsSearchAux:
       loadGifModal(gifsSearchAux, false);
+      break;
     default:
       loadGifModal(favs, false);
   }
 });
-global.buttonRightModal.addEventListener("click", () => {
+global.buttonRightModal.addEventListener("click", () => {  
   switch (activeModalArray) {
-    case gifs:
+    case gifs:      
       loadGifModal(gifs, true);
+      break;
     case gifsSearchAux:
       loadGifModal(gifsSearchAux, true);
-    default:
+      break;
+    default:      
       loadGifModal(favs, true);
   }
 });
@@ -433,7 +456,7 @@ function addGifs(array, attribute,iconoFav, container, modal) {
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
     square.appendChild(divParagraphs);
-    divIconMax.addEventListener("click", () => {
+    divIconMax.addEventListener("click", () => {      
       showModal(array, i);
     });
     if (modal) {
@@ -477,7 +500,7 @@ function addFavToLocalstorage(array, i) {
 }
 
 function showModal(array, i) {
-  activeModalArray = array;
+  activeModalArray = array;  
   index = i;
   let gif = document.createElement("img");
   gif.setAttribute("src", `${array[i].images.original.url}`);
@@ -528,7 +551,7 @@ function loadGifModal(array, derecha) {
   let firstChild = document.querySelector("#modalContent div");
   let divDesc = firstChild.firstElementChild;
   let user = divDesc.firstElementChild;
-  let title = divDesc.lastElementChild;
+  let title = divDesc.lastElementChild;  
   if (derecha) {
     if (index + 1 < array.length) {
       modal.setAttribute("src", `${array[index + 1].images.original.url}`);

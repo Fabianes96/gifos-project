@@ -33,7 +33,7 @@
       align-items: center;
       width: 90%;                 
       #slide-left{
-        @extend %slide-left-hover;
+        @extend %slide-hover;
       }      
       #gifs {
         margin: 0 25px;
@@ -82,7 +82,7 @@
         }
       }
       #slide-right{
-        @extend %slide-right-hover;
+        @extend %slide-hover;
       }
       @media screen and (max-width: 550px) {
         width: 100%;

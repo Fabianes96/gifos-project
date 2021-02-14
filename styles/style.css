@@ -1,23 +1,27 @@
-.modal-section .modal .modal-container .modal-content #slide-left-modal:hover img:hover, .trending .container #slider #slide-left img:hover {
-  content: url("/assets/button-slider-left-hover.svg");
+.modal-section .modal .modal-container .modal-content #slide-left-modal:hover :first-child, .modal-section .modal .modal-container .modal-content #slide-right-modal:hover :first-child, .trending .container #slider #slide-left:hover :first-child, .trending .container #slider #slide-right:hover :first-child {
+  display: none;
 }
 
-body.dark .modal-section .modal-container .modal-content #slide-left-modal img, body.dark .trending .container #slider #slide-left img {
-  content: url("/assets/button-slider-left-md-noct.svg");
+.modal-section .modal .modal-container .modal-content #slide-left-modal:hover :nth-child(2), .modal-section .modal .modal-container .modal-content #slide-right-modal:hover :nth-child(2), .trending .container #slider #slide-left:hover :nth-child(2), .trending .container #slider #slide-right:hover :nth-child(2) {
+  display: block;
+}
+
+body.dark .modal-section .modal-container .modal-content #slide-left-modal :first-child, body.dark .trending .container #slider #slide-left :first-child, body.dark .modal-section .modal-container .modal-content #slide-right-modal :first-child, body.dark .trending .container #slider #slide-right :first-child {
+  display: none;
+}
+
+body.dark .modal-section .modal-container .modal-content #slide-left-modal :nth-child(2), body.dark .trending .container #slider #slide-left :nth-child(2), body.dark .modal-section .modal-container .modal-content #slide-right-modal :nth-child(2), body.dark .trending .container #slider #slide-right :nth-child(2) {
+  display: none;
+}
+
+body.dark .modal-section .modal-container .modal-content #slide-left-modal :last-child, body.dark .trending .container #slider #slide-left :last-child, body.dark .modal-section .modal-container .modal-content #slide-right-modal :last-child, body.dark .trending .container #slider #slide-right :last-child {
+  display: block;
 }
 
 body.dark .modal-section .modal-container .modal-content #slide-left-modal img:hover, body.dark .trending .container #slider #slide-left img:hover {
   content: url("/assets/button-slider-left-hover.svg");
   -webkit-filter: grayscale(1) invert(1) brightness(2);
           filter: grayscale(1) invert(1) brightness(2);
-}
-
-.modal-section .modal .modal-container .modal-content #slide-right-modal:hover img:hover, .trending .container #slider #slide-right img:hover {
-  content: url("/assets/Button-Slider-right-hover.svg");
-}
-
-body.dark .modal-section .modal-container .modal-content #slide-right-modal img, body.dark .trending .container #slider #slide-right img {
-  content: url("/assets/button-slider-right-md-noct.svg");
 }
 
 body.dark .modal-section .modal-container .modal-content #slide-right-modal img:hover, body.dark .trending .container #slider #slide-right img:hover {
@@ -68,8 +72,18 @@ header .header-info .logo-mobile {
     position: relative;
     left: 22px;
   }
-  body.dark header .header-info .logo-mobile img {
-    content: url("/assets/logo-mobile-modo-noct.svg");
+  body.dark header .header-info .logo-mobile {
+    display: none;
+  }
+}
+
+header .header-info #logo-mobile-dm {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  body.dark header .header-info #logo-mobile-dm {
+    display: block;
   }
 }
 
@@ -80,9 +94,22 @@ header .header-info #burger {
 @media screen and (max-width: 850px) {
   header .header-info #burger {
     display: block;
-    position: relative;
-    right: 14px;
   }
+  body.dark header .header-info #burger {
+    display: none;
+  }
+}
+
+header .header-info #burger-dm {
+  display: none;
+}
+
+header .header-info .burger {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 10px;
+  right: 14px;
 }
 
 header .header-info .burger-close {
@@ -209,8 +236,12 @@ header .menu nav ul li:first-child .active {
   }
 }
 
-header .menu nav #crear-gifo:hover {
-  content: url("/assets/CTA-crear-gifo-hover.svg");
+header .menu nav #cg-diurno:hover #crear-gifo {
+  display: none;
+}
+
+header .menu nav #cg-diurno:hover #crear-gifo-h {
+  display: block;
 }
 
 header .menu nav .crear-gifo {
@@ -237,7 +268,7 @@ header .menu nav .crear-gifo {
   body.dark header .menu nav {
     background-color: #000000;
   }
-  header .menu nav > :last-child {
+  header .menu nav #cg-diurno {
     display: none;
   }
 }
@@ -255,27 +286,67 @@ body.dark header .header-info {
 }
 
 body.dark header .header-info #logo {
-  content: url("/assets/Logo-modo-noc.svg");
+  display: none;
+}
+
+body.dark header .header-info #logo-dm {
+  display: block;
+}
+
+@media screen and (max-width: 850px) {
+  body.dark header .header-info #logo-dm {
+    display: none;
+  }
+}
+
+body.dark header .header-info #logo-mobile {
+  display: none;
 }
 
 body.dark header .header-info #logo-CG {
   content: url("/assets/Logo-modo-noc.svg");
 }
 
-body.dark header .header-info > :last-child {
-  content: url("/assets/burger-modo-noct.svg");
+body.dark header .header-info #burger-dm {
+  display: block;
 }
 
 body.dark header .header-info .burger-close {
   content: url("/assets/close-modo-noct.svg");
 }
 
-body.dark header .menu nav #crear-gifo {
-  content: url("/assets/CTA-crear-gifo-modo-noc.svg");
+body.dark header .menu nav #cg-diurno {
+  display: none;
 }
 
-body.dark header .menu nav #crear-gifo:hover {
-  content: url("/assets/CTA-crear-gifo-hover-modo-noc.svg");
+body.dark header .menu nav #cg-nocturno {
+  display: block;
+}
+
+body.dark header .menu nav #cg-nocturno #crear-gifo-dm {
+  display: block;
+}
+
+@media screen and (max-width: 850px) {
+  body.dark header .menu nav #cg-nocturno {
+    display: none;
+  }
+}
+
+body.dark header .menu nav #cg-nocturno:hover #crear-gifo-dm {
+  display: none;
+}
+
+body.dark header .menu nav #cg-nocturno:hover #crear-gifo-dmh {
+  display: block;
+}
+
+body.dark header .menu nav > :last-child:hover #crear-gifo-dm:hover {
+  display: none;
+}
+
+body.dark header .menu nav > :last-child:hover #crear-gifo-h {
+  display: none;
 }
 
 body.dark header .menu nav #crear-gifo-cg {

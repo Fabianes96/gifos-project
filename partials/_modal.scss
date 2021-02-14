@@ -69,7 +69,7 @@
           }
         }
         #slide-left-modal:hover{
-          @extend %slide-left-hover;
+          @extend %slide-hover;
         }
 
         #slide-right-modal {
@@ -80,7 +80,7 @@
           }
         }
         #slide-right-modal:hover{
-          @extend %slide-right-hover;
+          @extend %slide-hover;
         }
       }
     }
