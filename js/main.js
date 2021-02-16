@@ -13,6 +13,7 @@ let favs = localStorage.getItem("favoritos")
 : [];
 let offsetFavs = 12;
 let offsetMisGifs = 12;
+let media = window.matchMedia("screen and (max-width: 850px)");
 
 window.onclick = async function (event) {
   try {
@@ -38,38 +39,48 @@ window.onclick = async function (event) {
     console.log(error);
   }
 };
+media.addEventListener("change", ()=>{  
+  global.checkMediaQuery(media);
+})
 global.burger.addEventListener("click",()=>{
-  global.showHideMenu(global.burger,global.burgerClose);
+  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);  
 });
 global.burgerClose.addEventListener("click",()=>{
-  global.showHideMenu(global.burger,global.burgerClose);
+  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
 })
 global.burgerDM.addEventListener("click",()=>{
-  global.showHideMenu(global.burgerDM,global.burgerCloseDM);
+  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
 })
 global.burgerCloseDM.addEventListener("click",()=>{
-  global.showHideMenu(global.burgerDM,global.burgerCloseDM);
+  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
 })
 global.nocturno.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
   if(document.body.classList.contains("dark")){   
     global.nocturno.textContent = "MODO DIURNO";        
-    global.burger.style.display = "none";
-    global.burgerDM.style.display = "none";
-    global.burgerDM.classList.add("none");
-    global.burgerClose.classList.add("none");
-    global.burgerCloseDM.classList.remove("none");
+    if(media.matches){
+      global.burger.classList.remove("burger-normal");
+      global.burger.classList.add("none");      
+      global.burgerDM.classList.remove("burger-dm");
+      global.burgerDM.classList.add("none");      
+      global.burgerClose.classList.add("none");
+      global.burgerCloseDM.classList.remove("none");
+    }else{
+      global.initialState();
+    }
     localStorage.setItem("modo-nocturno", "on");
-  }else{
-    global.logo.setAttribute("src", "assets/logo-desktop.svg");
-    global.crearGifo.setAttribute("src","assets/button-crear-gifo.svg");    
-    global.btnCloseSearch.setAttribute("src","assets/close.svg");    
+  }else{    
     global.nocturno.textContent = "MODO NOCTURNO";
-    global.burger.style.display = "none";
-    global.burger.classList.add("none");
-    global.burgerDM.style.display = "none";
-    global.burgerCloseDM.classList.add("none");
-    global.burgerClose.classList.remove("none");
+    if(media.matches){
+      global.burger.classList.remove("burger-normal");
+      global.burger.classList.add("none");        
+      global.burgerDM.classList.remove("burger-dm");
+      global.burgerDM.classList.add("none");                
+      global.burgerCloseDM.classList.add("none");
+      global.burgerClose.classList.remove("none");
+    }else{
+      global.initialState();
+    }
     localStorage.setItem("modo-nocturno", "off");
   }
 })
@@ -120,13 +131,21 @@ global.btnMasMisGifs.addEventListener("click",()=>{
 
 global.linkFavoritos.addEventListener("click", () => {  
   if(global.menu.classList.contains("open-hamburger-menu")){
-    global.showHideMenu();
+    if(document.body.classList.contains("dark")){
+      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+    }else{
+      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
+    }
   }
   addFavorite();
 });
 global.linkGIFOS.addEventListener("click",()=>{
   if(global.menu.classList.contains("open-hamburger-menu")){
-    global.showHideMenu();
+    if(document.body.classList.contains("dark")){
+      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+    }else{
+      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
+    }
   }
   addGIFOS();
 })
@@ -591,4 +610,3 @@ callGifs().then(() => {
 });
 activeLink();
 global.checkDarkMode(global.nocturno);
-//global.checkMobile();

@@ -75,17 +75,32 @@ function checkMobile(){
         }
     }
 }
-function showHideMenu(paramBurger, paramBurgerClose){
+
+function showHideMenu(paramBurger, classname, paramBurgerClose){
     paramBurger.classList.toggle("none");
-    if(paramBurger.classList.contains("none")){
-        paramBurger.style.display = "none";
-    }else{
-        paramBurger.style.display = "block";
-    }
-    paramBurgerClose.classList.toggle("none")
+    paramBurger.classList.toggle(classname);
+    paramBurgerClose.classList.toggle("none");
     menu.classList.toggle("open-hamburger-menu");
     headerInfo[0].classList.toggle("fixed");    
     comodin.classList.toggle("none")
 }
+function initialState(){
+    menu.classList.remove("open-hamburger-menu");
+    burger.classList.remove("none");
+    burger.classList.add("burger-normal");
+    burgerDM.classList.remove("none");
+    burgerDM.classList.add("burger-dm");
+    burgerClose.classList.add("none");
+    burgerCloseDM.classList.add("none");      
+    headerInfo[0].classList.remove("fixed");    
+    comodin.classList.add("none")
+}
+function checkMediaQuery(media) {    
+    if(menu.classList.contains("open-hamburger-menu") && !media.matches){
+        initialState()
+    }
+    
+}
 
-export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu}
+
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState}

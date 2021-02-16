@@ -30,8 +30,8 @@ header {
         }
       }
     }        
-    #burger {
-      display: none;
+    .burger-normal {      
+      display: none;              
       @media screen and (max-width: $media850) {
         display: block;  
         body.dark &{
@@ -39,8 +39,13 @@ header {
         }    
       }
     }
-    #burger-dm{
+    .burger-dm{
       display: none;
+      body.dark &{        
+        @media screen and (max-width: $media850){     
+            display: block;                   
+        }
+      }      
     }
     .burger{
       width: 15px;
@@ -48,10 +53,7 @@ header {
       position: relative;
       top: 10px;
       right: 14px;
-    }
-    .burger-close {
-      content: url("/assets/close.svg");
-    }
+    }    
     @media screen and (max-width: $media850) {
       width: 100%;
       display: flex;
@@ -181,16 +183,7 @@ header {
       
       #logo-CG {
         content: url("/assets/Logo-modo-noc.svg");
-      }
-      #burger-dm{
-        display: block;
-      }
-      // > :last-child {
-      //   content: url("/assets/burger-modo-noct.svg");
-      // }
-      .burger-close {
-        content: url("/assets/close-modo-noct.svg");
-      }
+      }      
     }
     .menu {
       nav {

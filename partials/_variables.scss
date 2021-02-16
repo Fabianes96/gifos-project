@@ -48,7 +48,9 @@ $media850: 850px;
   position: fixed;
   transition: position 700ms ease;
 }
-
+.block{
+  display: block;
+}
 @mixin gifsSquare($width, $height) {
   width: $width;
   height: $height;
