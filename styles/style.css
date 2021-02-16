@@ -537,13 +537,13 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   display: none;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   #initial #title-1 #los-1 {
     display: initial;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   #initial #title-1 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -564,7 +564,7 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   font-size: 25px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   #initial #title-2 #los-2 {
     display: none;
   }
@@ -579,9 +579,17 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   margin-top: 24px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   #initial img {
-    width: 70%;
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  #initial img {
+    width: 273px;
+    height: 187px;
   }
 }
 
@@ -628,6 +636,19 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   outline: none;
 }
 
+@media screen and (max-width: 580px) {
+  #initial #search-div #input-close #search-input {
+    margin: 0 auto;
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  #initial #search-div #input-close #search-input {
+    width: 50%;
+  }
+}
+
 #initial #search-div .search-field {
   border-radius: 50px;
   border: 1px solid #572ee5;
@@ -657,6 +678,12 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   cursor: pointer;
 }
 
+@media screen and (max-width: 580px) {
+  #initial #search-div {
+    width: 80%;
+  }
+}
+
 #initial .paragraphs {
   position: relative;
   margin-top: 40px;
@@ -682,7 +709,7 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
   font-weight: normal;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
   #initial .paragraphs #subtitle {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -794,6 +821,12 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
   border: 1px solid #9cafc3;
   margin: 55px 0 82px 0;
   opacity: 0.5;
+}
+
+@media screen and (max-width: 580px) {
+  #central #separator {
+    width: 157px;
+  }
 }
 
 #central #no-results img {
