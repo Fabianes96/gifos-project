@@ -89,7 +89,7 @@
     ul {
       li {
         color: $color-secundario-dark;
-        background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
+        background: url(/assets/icon-search.svg) no-repeat left top;
         list-style: none;
         padding: 1px 0 1px 30px;
         cursor: pointer;
@@ -137,6 +137,11 @@
             border-bottom: 1px solid $color-secundario-dark;
             background-position: 0% center;
           }
+        }
+      }
+      ul{
+        li{
+          background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
         }
       }
     }

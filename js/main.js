@@ -201,8 +201,13 @@ global.searchField.addEventListener("click", () => {
   global.searchContainer.classList.add("search-after-div");
   global.searchField.classList.remove("search-field");
   global.searchField.classList.add("search-after-input");
-  global.btnCloseSearch.classList.remove("none");
-  global.btnCloseSearch.classList.add("btn-close-search");
+  if(document.body.classList.contains("dark")){
+    global.btnCloseSearchDM.classList.remove("none");
+    global.btnCloseSearchDM.classList.add("btn-close-search");
+  }else{
+    global.btnCloseSearch.classList.remove("none");
+    global.btnCloseSearch.classList.add("btn-close-search");
+  }
   let ulSuggestions = document.getElementById("suggestions");
   ulSuggestions.classList.remove("none");
   searchClousureFlag = true;
@@ -222,23 +227,26 @@ global.searchField.addEventListener("keyup", async (e) => {
         `https://api.giphy.com/v1/gifs/search/tags?api_key=${global.API_KEY}&q=${global.searchField.value}&limit=4`
       );
       let json = await response.json();
-      let ul = document.createElement("ul");
-      ul.setAttribute("id", "suggestions");
-      ul.setAttribute("class", "search-after-ul");
       let ulSuggestions = document.getElementById("suggestions");
-      if (ulSuggestions) {
-        ulSuggestions.remove();
+      if(!ulSuggestions.classList.contains("none")){
+        let ul = document.createElement("ul");
+        ul.setAttribute("id", "suggestions");
+        ul.setAttribute("class", "search-after-ul");
+        if (ulSuggestions) {
+          ulSuggestions.remove();
+        }
+        json.data.forEach((suggestion) => {
+          let li = document.createElement("li");
+          li.textContent = suggestion.name;
+          ul.appendChild(li);
+        });
+        global.searchContainer.appendChild(ul);
       }
-      json.data.forEach((suggestion) => {
-        let li = document.createElement("li");
-        li.textContent = suggestion.name;
-        ul.appendChild(li);
-      });
-      global.searchContainer.appendChild(ul);
-    }
-    if (e.code == "Enter") {
-      await showGifsSearch();
-    }
+      if (e.code == "Enter") {
+        await showGifsSearch();
+      }
+
+      }
   } catch (error) {
     console.log("No se cargaron los resultados", error);
   }
@@ -389,8 +397,13 @@ function searchClousure() {
     global.searchContainer.classList.remove("search-after-div");
     global.searchField.classList.add("search-field");
     global.searchField.classList.remove("search-after-input");
-    global.btnCloseSearch.classList.add("none");
-    global.btnCloseSearch.classList.remove("btn-close-search");
+    if(document.body.classList.contains("dark")){
+      global.btnCloseSearchDM.classList.add("none");
+      global.btnCloseSearchDM.classList.remove("btn-close-search");
+    }else{
+      global.btnCloseSearch.classList.add("none");
+      global.btnCloseSearch.classList.remove("btn-close-search");
+    }
     searchClousureFlag = false;
   }
 }

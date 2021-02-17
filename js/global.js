@@ -20,6 +20,7 @@ let divGifs = document.getElementById("gifs");
 let searchContainer = document.getElementById("search-div");
 let searchField = document.getElementById("search-input");
 let btnCloseSearch = document.getElementById("btn-close-search");
+let btnCloseSearchDM = document.getElementById("btn-close-search-dm");
 let central = document.getElementById("central");
 let btnMas = document.getElementById("btn-mas");
 let noResults = document.getElementById("no-results");
@@ -103,4 +104,4 @@ function checkMediaQuery(media) {
 }
 
 
-export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState}
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState}

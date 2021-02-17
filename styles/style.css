@@ -721,7 +721,7 @@ body.dark .modal-section .modal-container .modal-content #modalContent p {
 
 #initial #search-div ul li {
   color: #9cafc3;
-  background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
+  background: url(/assets/icon-search.svg) no-repeat left top;
   list-style: none;
   padding: 1px 0 1px 30px;
   cursor: pointer;
@@ -793,6 +793,10 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
   border: 0;
   border-bottom: 1px solid #9cafc3;
   background-position: 0% center;
+}
+
+body.dark #initial #search-div ul li {
+  background: url(/assets/icon-search-mod-noc.svg) no-repeat left top;
 }
 
 #favoritos {
@@ -1519,7 +1523,7 @@ body.dark .btn-mas:hover {
   border-top: 0;
   border-left: 0;
   padding: 12px 38px;
-  background-image: url(/assets/icon-search-mod-noc.svg);
+  background-image: url(/assets/icon-search.svg);
   background-repeat: no-repeat;
   background-position: 0% center;
 }
