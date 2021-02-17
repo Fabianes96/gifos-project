@@ -578,8 +578,16 @@ body.dark .modal-section .modal-container {
   background-color: #222326;
 }
 
+body.dark .modal-section .modal-container .modal-content #slide-left-modal:hover :nth-child(2) {
+  display: none;
+}
+
 body.dark .modal-section .modal-container .modal-content #modalContent p {
   color: #ffffff;
+}
+
+body.dark .modal-section .modal-container .modal-content #slide-right-modal:hover :nth-child(2) {
+  display: none;
 }
 
 #initial #title-1 #los-1 {

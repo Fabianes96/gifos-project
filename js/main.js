@@ -217,7 +217,7 @@ global.searchField.addEventListener("blur", () => {
   blur = true;
 });
 global.searchField.addEventListener("keyup", async (e) => {
-  try {
+  try {    
     if (
       e.code.startsWith("Key") ||
       e.code.startsWith("Digit") ||
@@ -228,6 +228,7 @@ global.searchField.addEventListener("keyup", async (e) => {
       );
       let json = await response.json();
       let ulSuggestions = document.getElementById("suggestions");
+      console.log(!ulSuggestions.classList.contains("none"));
       if(!ulSuggestions.classList.contains("none")){
         let ul = document.createElement("ul");
         ul.setAttribute("id", "suggestions");
@@ -240,13 +241,12 @@ global.searchField.addEventListener("keyup", async (e) => {
           li.textContent = suggestion.name;
           ul.appendChild(li);
         });
-        global.searchContainer.appendChild(ul);
-      }
-      if (e.code == "Enter") {
-        await showGifsSearch();
-      }
-
-      }
+        global.searchContainer.appendChild(ul);        
+      }      
+    }
+    if (e.code == "Enter") {      
+      await showGifsSearch();
+    }
   } catch (error) {
     console.log("No se cargaron los resultados", error);
   }

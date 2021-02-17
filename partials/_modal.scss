@@ -131,6 +131,11 @@
         #slide-left-modal{
           @extend %slide-left-dm;
         }
+        #slide-left-modal:hover{
+          :nth-child(2){
+            display: none;
+          }
+        }
         #modalContent{
           p{
             color: $blanco;
@@ -138,6 +143,11 @@
         }
         #slide-right-modal{
           @extend %slide-right-dm;
+        }
+        #slide-right-modal:hover{
+          :nth-child(2){
+            display: none;
+          }
         }
       }
     }
