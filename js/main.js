@@ -7,9 +7,13 @@ var index;
 let blur = false;
 let activeModalArray = [];
 let gifsSearchAux = [];
+let tagName = "";
 let auxMasGifs = 0;
 let favs = localStorage.getItem("favoritos")
 ? JSON.parse(localStorage.getItem("favoritos"))
+: [];
+let misGifs = localStorage.getItem("mis-gifos") 
+? JSON.parse(localStorage.getItem("mis-gifos"))
 : [];
 let offsetFavs = 12;
 let offsetMisGifs = 12;
@@ -94,14 +98,14 @@ global.btnMasFavs.addEventListener("click", () => {
       favs.slice(inicio, offsetFavs),
       "container-search-and-favs","assets/icon-fav-active.svg",
       global.containerFavorites,
-      false
+      false, "favs"
     );
   } else {
     addGifs(
       favs.slice(inicio, favs.length),
       "container-search-and-favs","assets/icon-fav-active.svg",
       global.containerFavorites,
-      false
+      false, "favs"
     );
     global.btnMasFavs.classList.add("none");
   }
@@ -116,14 +120,14 @@ global.btnMasMisGifs.addEventListener("click",()=>{
       misGifs.slice(inicio, offsetMisGifs),
       "container-search-and-favs","assets/icon-fav.svg",
       global.containerGIFOS,
-      false
+      false, "misGifs"
     );
   }else{
     addGifs(
       misGifs.slice(inicio, misGifs.length),
       "container-search-and-favs","assets/icon-fav.svg",
       global.containerGIFOS,
-      false
+      false, "misGifs"
     );
     global.btnMasMisGifs.classList.add("none");
   }
@@ -167,12 +171,12 @@ global.btnMas.addEventListener("click", async () => {
     );
     response = await response.json();
     masGifs = response.data;
-    gifsSearchAux = gifsSearchAux.concat(masGifs);
+    gifsSearchAux = gifsSearchAux.concat(masGifs);      
     addGifs(
       masGifs,
       "container-search-and-favs","assets/icon-fav.svg",
       global.containerSearchResults,
-      false
+      false, "search"
     );
   } catch (error) {
     console.log(error);
@@ -239,28 +243,53 @@ global.searchField.addEventListener("keyup", async (e) => {
     console.log("No se cargaron los resultados", error);
   }
 });
-global.buttonLeftModal.addEventListener("click", () => {
-  switch (activeModalArray) {
-    case gifs:
+global.buttonLeftModal.addEventListener("click", () => {    
+  switch (tagName) {
+    case "gifs":
       loadGifModal(gifs, false);
       break;
-    case gifsSearchAux:
+    case "search":      
+      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
+        index = gifsSearchAux.indexOf(activeModalArray[index])        
+      }
       loadGifModal(gifsSearchAux, false);
       break;
-    default:
+    case "favs":
+      console.log(index);
+      if(favs.length >12 && favs.includes(activeModalArray[index])){
+        index = favs.indexOf(activeModalArray[index])        
+      }
       loadGifModal(favs, false);
-  }
-});
-global.buttonRightModal.addEventListener("click", () => {  
-  switch (activeModalArray) {
-    case gifs:      
-      loadGifModal(gifs, true);
-      break;
-    case gifsSearchAux:
-      loadGifModal(gifsSearchAux, true);
       break;
     default:      
+    if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
+      index = misGifs.indexOf(activeModalArray[index])        
+    }
+      loadGifModal(misGifs, false);
+  }
+});
+global.buttonRightModal.addEventListener("click", () => {      
+  switch (tagName) {
+    case "gifs":
+      loadGifModal(gifs, true);
+      break;
+    case "search":
+      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
+        index = gifsSearchAux.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(gifsSearchAux, true);
+      break;
+    case "favs":
+      if(favs.length >12 && favs.includes(activeModalArray[index])){
+        index = favs.indexOf(activeModalArray[index])        
+      }
       loadGifModal(favs, true);
+      break;
+    default:
+      if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
+        index = misGifs.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(misGifs, true);
   }
 });
 async function addGIFOS(){
@@ -287,11 +316,11 @@ async function addGIFOS(){
         misGifs.slice(0, 12),
         "container-search-and-favs","assets/icon-fav.svg",
         global.containerGIFOS,
-        false
+        false, "misGifs"
         );
       global.btnMasMisGifs.classList.remove("none");
     }else{
-      addGifs(misGifs,"container-search-and-favs","assets/icon-fav.svg",global.containerGIFOS,false);
+      addGifs(misGifs,"container-search-and-favs","assets/icon-fav.svg",global.containerGIFOS,false, "misGifs");
     }
   } 
 }
@@ -315,13 +344,12 @@ function addFavorite() {
     global.noFavorites.classList.remove("no-favorites");
     global.noFavorites.classList.add("none");
     global.favoritos.classList.add("favs");
-    if (favs.length > 12) {
-      /////////////////////////////////////////////////////////
+    if (favs.length > 12) {      
       addGifs(
         favs.slice(0, 12),
         "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
-        false
+        false, "favs"
       );
       global.btnMasFavs.classList.remove("none");
     } else {
@@ -329,7 +357,7 @@ function addFavorite() {
         favs,
         "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
-        false
+        false, "favs"
       );
     }
   } else {
@@ -399,7 +427,7 @@ async function showGifsSearch() {
       gifsSearch,
       "container-search-and-favs","assets/icon-fav.svg",
       global.containerSearchResults,
-      false
+      false, "search"
     );
   } else {
     global.btnMas.classList.add("none");
@@ -417,7 +445,7 @@ async function callGifs() {
   }
 }
 
-function addGifs(array, attribute,iconoFav, container, modal) {
+function addGifs(array, attribute,iconoFav, container, modal, tag) {
   for (let i = 0; i < array.length; i++) {
     let square = document.createElement("div");
     square.setAttribute("class", attribute);
@@ -476,18 +504,19 @@ function addGifs(array, attribute,iconoFav, container, modal) {
     divParagraphs.appendChild(p2);
     square.appendChild(divParagraphs);
     divIconMax.addEventListener("click", () => {      
-      showModal(array, i);
+      showModal(array,tag,i);
     });
     if (modal) {
-      square.addEventListener("click", () => {
-        if (square.offsetWidth < 320) {
-          showModal(array, i);
+      square.addEventListener("click", () => {        
+        let media = window.matchMedia("screen and (max-width: 550px)");
+        if(media.matches){
+          showModal(array,tag, i);
         }
       });
     } else {
-      square.addEventListener("click", () => {
-        if (square.offsetWidth < 200) {
-          showModal(array, i);
+      square.addEventListener("click", () => {                       
+        if (square.offsetWidth < 200) {          
+          showModal(array,tag ,i);
         }
       });
     }
@@ -518,8 +547,9 @@ function addFavToLocalstorage(array, i) {
   }
 }
 
-function showModal(array, i) {
-  activeModalArray = array;  
+function showModal(array, tag, i) {
+  activeModalArray = array; 
+  tagName = tag;   
   index = i;
   let gif = document.createElement("img");
   gif.setAttribute("src", `${array[i].images.original.url}`);
@@ -562,7 +592,7 @@ function showModal(array, i) {
   divContainer.appendChild(div);
   global.modalContent.appendChild(gif);
   global.modalContent.appendChild(divContainer);
-  global.modal.style.display = "block";
+  global.modal.style.display = "flex";
 }
 
 function loadGifModal(array, derecha) {
@@ -606,7 +636,7 @@ async function downloadGif(url,titulo){
 }
 
 callGifs().then(() => {
-  addGifs(gifs, "square","assets/icon-fav.svg", global.container, true);  
+  addGifs(gifs, "square","assets/icon-fav.svg", global.container, true, "gifs");  
 });
 activeLink();
 global.checkDarkMode(global.nocturno);

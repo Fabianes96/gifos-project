@@ -391,6 +391,9 @@ body.dark header .menu nav li:first-child .active {
   /* Sit on top */
   left: 0;
   top: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   /* Full width */
   height: 100%;
@@ -445,7 +448,7 @@ body.dark header .menu nav li:first-child .active {
   height: 385px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   .modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
     width: 500px;
   }
@@ -455,6 +458,13 @@ body.dark header .menu nav li:first-child .active {
   .modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
     width: 318px;
     height: 245px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .modal-section .modal .modal-container .modal-content #modalContent .modal-gif {
+    width: 225px;
+    height: 225px;
   }
 }
 
@@ -478,15 +488,48 @@ body.dark header .menu nav li:first-child .active {
   font-size: 15px;
 }
 
-.modal-section .modal .modal-container .modal-content #modalContent .card-icons-max {
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .div-description:first-child {
+    font-size: 12px;
+  }
+}
+
+.modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .card-icons-max {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 25px;
 }
 
-.modal-section .modal .modal-container .modal-content #modalContent .card-icons-max .div-icons {
+.modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .card-icons-max .div-icons {
   border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription .card-icons-max .div-icons {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription {
+    width: 318px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .modal-section .modal .modal-container .modal-content #modalContent #modalGifDescription {
+    width: 225px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container .modal-content #modalContent {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .modal-section .modal .modal-container .modal-content #slide-left-modal {
@@ -508,6 +551,12 @@ body.dark header .menu nav li:first-child .active {
 @media screen and (max-width: 520px) {
   .modal-section .modal .modal-container .modal-content #slide-right-modal {
     display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal-section .modal .modal-container {
+    height: 400px;
   }
 }
 
