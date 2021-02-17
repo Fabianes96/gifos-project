@@ -19,6 +19,19 @@ let offsetFavs = 12;
 let offsetMisGifs = 12;
 let media = window.matchMedia("screen and (max-width: 850px)");
 
+window.onload = function () {
+  let location = window.location;    
+  if(location.pathname === "/index.html" && location.hash ==="#favoritos"){
+    loadFavoritos();
+    global.linkFavoritos.classList.remove("no-selected");
+    global.linkFavoritos.classList.add("active");
+  }
+  if(location.pathname === "/index.html" && location.hash ==="#section-mis-gifos"){
+    loadMisGifos();
+    global.linkGIFOS.classList.remove("no-selected");
+    global.linkGIFOS.classList.add("active");
+  }
+}
 window.onclick = async function (event) {
   try {
     if (event.target == global.modal) {
@@ -134,24 +147,10 @@ global.btnMasMisGifs.addEventListener("click",()=>{
 })
 
 global.linkFavoritos.addEventListener("click", () => {  
-  if(global.menu.classList.contains("open-hamburger-menu")){
-    if(document.body.classList.contains("dark")){
-      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
-    }else{
-      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
-    }
-  }
-  addFavorite();
+  loadFavoritos()
 });
 global.linkGIFOS.addEventListener("click",()=>{
-  if(global.menu.classList.contains("open-hamburger-menu")){
-    if(document.body.classList.contains("dark")){
-      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
-    }else{
-      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
-    }
-  }
-  addGIFOS();
+  loadMisGifos();
 })
 global.span.onclick = function () {
   global.modal.style.display = "none";
@@ -331,6 +330,26 @@ async function addGIFOS(){
       addGifs(misGifs,"container-search-and-favs","assets/icon-fav.svg",global.containerGIFOS,false, "misGifs");
     }
   } 
+}
+function loadFavoritos() {
+  if(global.menu.classList.contains("open-hamburger-menu")){
+    if(document.body.classList.contains("dark")){
+      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+    }else{
+      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
+    }
+  }
+  addFavorite();
+}
+function loadMisGifos(){
+  if(global.menu.classList.contains("open-hamburger-menu")){
+    if(document.body.classList.contains("dark")){
+      global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+    }else{
+      global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
+    }
+  }
+  addGIFOS();
 }
 function addFavorite() {
   if (global.containerFavorites.firstElementChild) {

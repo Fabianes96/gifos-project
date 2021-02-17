@@ -9,8 +9,11 @@ let form = new FormData();
 let misGifs = localStorage.getItem("mis-gifos")
   ? JSON.parse(localStorage.getItem("mis-gifos"))
   : [];
-let offsetGifs = 12;
 
+let favs = document.getElementById("a-favoritos");
+favs.addEventListener("click",()=>{
+    console.log(window.location);
+})
 global.nocturnoCG.addEventListener("click",()=>{
     document.body.classList.toggle("dark");
     if(document.body.classList.contains("dark")){        
