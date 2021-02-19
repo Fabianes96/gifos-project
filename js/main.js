@@ -613,12 +613,17 @@ function showModal(array, tag, i) {
   gif.setAttribute("class", "modal-gif");
   let div = document.createElement("div");
   div.setAttribute("class", "card-icons-max");
+  div.classList.add("favorite-added")
 
   let divIconFav = document.createElement("div");
   divIconFav.setAttribute("class", "div-icons");
+  
 
   let divIconDownload = document.createElement("div");
   divIconDownload.setAttribute("class", "div-icons");
+  divIconDownload.addEventListener("click",()=>{
+    downloadGif(array[i].images.original.url,array[i].title);
+  });
 
   let image1 = document.createElement("img");
   image1.setAttribute("src", "assets/icon-fav-active.svg");
