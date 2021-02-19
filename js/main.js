@@ -33,7 +33,7 @@ window.onload = function () {
   }
 }
 window.onclick = async function (event) {
-  try {
+  try {      
     if (event.target == global.modal) {
       global.modal.style.display = "none";
       while (global.modalContent.firstChild) {
@@ -51,7 +51,7 @@ window.onclick = async function (event) {
         }
       }
       blur = false;
-    }
+    }     
   } catch (error) {
     console.log(error);
   }
@@ -131,14 +131,14 @@ global.btnMasMisGifs.addEventListener("click",()=>{
   if(cant > offsetMisGifs){
     addGifs(
       misGifs.slice(inicio, offsetMisGifs),
-      "container-search-and-favs","assets/icon-fav.svg",
+      "container-search-and-favs","assets/icon-trash-normal.svg",
       global.containerGIFOS,
       false, "misGifs"
     );
   }else{
     addGifs(
       misGifs.slice(inicio, misGifs.length),
-      "container-search-and-favs","assets/icon-fav.svg",
+      "container-search-and-favs","assets/icon-trash-normal.svg",
       global.containerGIFOS,
       false, "misGifs"
     );
@@ -321,13 +321,13 @@ async function addGIFOS(){
     if(misGifs.length > 12){
       addGifs(
         misGifs.slice(0, 12),
-        "container-search-and-favs","assets/icon-fav.svg",
+        "container-search-and-favs","assets/icon-trash-normal.svg",
         global.containerGIFOS,
         false, "misGifs"
         );
       global.btnMasMisGifs.classList.remove("none");
     }else{
-      addGifs(misGifs,"container-search-and-favs","assets/icon-fav.svg",global.containerGIFOS,false, "misGifs");
+      addGifs(misGifs,"container-search-and-favs","assets/icon-trash-normal.svg",global.containerGIFOS,false, "misGifs");
     }
   } 
 }
@@ -490,15 +490,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
     let image1 = document.createElement("img");
     image1.setAttribute("src", iconoFav);
     image1.setAttribute("class", "icono");
-    divIconFav.appendChild(image1);
-    if(iconoFav === "assets/icon-fav.svg"){
-      divIconFav.addEventListener("click", () => {
-        addFavToLocalstorage(array, i);
-        card.classList.add("favorite-added");
-      });
-    }else{
-      card.classList.add("favorite-added");
-    }
+    divIconFav.appendChild(image1);    
     card.appendChild(divIconFav);
 
     let divIconDownload = document.createElement("div");    
@@ -535,6 +527,22 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
     divParagraphs.appendChild(p1);
     divParagraphs.appendChild(p2);
     square.appendChild(divParagraphs);
+    if(iconoFav === "assets/icon-fav.svg"){
+      divIconFav.addEventListener("click", () => {
+        addFavToLocalstorage(array, i);
+        card.classList.add("favorite-added");
+      });
+    }else{
+      if(iconoFav === "assets/icon-trash-normal.svg"){
+        card.classList.add("delete-gif");
+        square.setAttribute("id", `${array[i].id}`)
+        divIconFav.addEventListener("click", ()=>{
+          deleteGif(square,array[i].id);
+        })
+      }else{
+        card.classList.add("favorite-added");
+      }
+    }
     divIconMax.addEventListener("click", () => {      
       showModal(array,tag,i);
     });
@@ -545,15 +553,32 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
           showModal(array,tag, i);
         }
       });
-    } else {
-      square.addEventListener("click", () => {                       
-        if (square.offsetWidth < 200) {          
+    } else {      
+      square.addEventListener("click", () => {                               
+        if (square.offsetWidth < 200 && square.offsetWidth !=0) {          
           showModal(array,tag ,i);
         }
       });
     }
     container.appendChild(square);
   }  
+}
+function deleteGif(square,id) {    
+  misGifs = JSON.parse(localStorage.getItem("mis-gifos"));  
+  misGifs.forEach(gif => {    
+    if(gif.id === id){
+      misGifs.splice(misGifs.indexOf(gif), 1);
+    }
+  });        
+  if(misGifs.length <=12 && !global.btnMasMisGifs.classList.contains("none")){
+    window.location.reload();
+  }
+  localStorage.setItem("mis-gifos", JSON.stringify(misGifs));
+  square.remove();
+  if(misGifs.length == 0){
+    localStorage.removeItem("mis-gifos");
+    window.location.reload();
+  }
 }
 function addFavToLocalstorage(array, i) {
   offsetFavs = 12;

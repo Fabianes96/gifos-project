@@ -1664,6 +1664,11 @@ body.dark .btn-mas:hover {
   content: none;
 }
 
+.delete-gif > :first-child:hover {
+  background: url(/assets/icon-trash-hover.svg);
+  content: none;
+}
+
 .no-results {
   display: -ms-grid;
   display: grid;
