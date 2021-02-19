@@ -259,6 +259,12 @@ header .menu nav .crear-gifo {
 }
 
 @media screen and (max-width: 850px) {
+  header .menu nav #crear-gifo-cg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
   header .menu nav {
     position: fixed;
     left: 0;
@@ -1262,6 +1268,12 @@ body.dark footer {
   position: absolute;
 }
 
+@media screen and (max-width: 500px) {
+  .crear-gifs #principal-gifs #camera-central video {
+    width: 300px;
+  }
+}
+
 .crear-gifs #principal-gifs #camera-central #subiendo-gifo {
   width: 429px;
   height: 320px;
@@ -1296,6 +1308,13 @@ body.dark footer {
 
 .crear-gifs #principal-gifs #camera-central #subiendo-gifo > div {
   position: absolute;
+}
+
+@media screen and (max-width: 500px) {
+  .crear-gifs #principal-gifs #camera-central #subiendo-gifo {
+    width: 300px;
+    height: 225px;
+  }
 }
 
 .crear-gifs #principal-gifs #camera-central div h1 {
@@ -1333,6 +1352,12 @@ body.dark footer {
   line-height: 29px;
 }
 
+@media screen and (max-width: 500px) {
+  .crear-gifs #principal-gifs #camera-central div p {
+    font-size: 13px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .crear-gifs #principal-gifs #camera-central {
     width: 530px;
@@ -1342,6 +1367,13 @@ body.dark footer {
 @media screen and (max-width: 850px) {
   .crear-gifs #principal-gifs #camera-central {
     width: 450px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .crear-gifs #principal-gifs #camera-central {
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -1391,6 +1423,14 @@ body.dark footer {
   top: 5px;
 }
 
+@media screen and (max-width: 650px) {
+  .crear-gifs #principal-gifs #camera-elements #cronometro {
+    bottom: 120px;
+    right: unset;
+    top: unset;
+  }
+}
+
 .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
   width: 795px;
   height: 7px;
@@ -1401,6 +1441,12 @@ body.dark footer {
 @media screen and (max-width: 1100px) {
   .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
     width: 600px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
+    width: 225px;
   }
 }
 
@@ -1446,6 +1492,10 @@ body.dark .crear-gifs #principal-gifs #camera-elements #pasos .steps {
 
 body.dark .crear-gifs #principal-gifs #camera-elements > :last-child {
   content: url("/assets/pelicula-modo-noc.svg");
+}
+
+body.dark .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
+  background-color: #ffffff;
 }
 
 * {

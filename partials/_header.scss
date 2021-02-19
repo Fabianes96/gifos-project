@@ -143,6 +143,11 @@ header {
         height: 54px;
         cursor: pointer;
       }
+      #crear-gifo-cg{
+        @media screen and(max-width:$media850){
+          display: none;
+        }
+      }
       @media screen and (max-width: $media850) {
         position: fixed;
         left: 0;
