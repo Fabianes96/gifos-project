@@ -81,6 +81,7 @@ global.btnComenzar.addEventListener("click", async () => {
     global.cameraWindow2.classList.remove("none");
     global.cameraWindow2.classList.add("camera-window.content");
     global.pasos.firstElementChild.classList.add("step-active");
+    time.style.cursor = "none";
     await activeCamera();
     global.pasos.firstElementChild.classList.remove("step-active");
     global.pasos.children[1].classList.add("step-active");
@@ -99,6 +100,13 @@ global.btnGrabar.addEventListener("click", () => {
 global.btnFinalizar.addEventListener("click", () => {
   stopTime();
   time.textContent = "REPETIR CAPTURA";
+  time.style.cursor = "pointer";
+  time.addEventListener("click",()=>{
+    time.textContent = "00:00:00";
+    global.btnSubirGifo.classList.remove("btn-mas");
+    global.btnSubirGifo.classList.add("none");
+    global.btnComenzar.click();
+  })
   time.classList.add("repeat-capture");
   global.btnFinalizar.classList.remove("btn-mas");
   global.btnFinalizar.classList.add("none");
