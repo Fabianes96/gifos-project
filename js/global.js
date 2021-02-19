@@ -76,7 +76,6 @@ function checkMobile(){
         }
     }
 }
-
 function showHideMenu(paramBurger, classname, paramBurgerClose){
     paramBurger.classList.toggle("none");
     paramBurger.classList.toggle(classname);
@@ -99,9 +98,25 @@ function initialState(){
 function checkMediaQuery(media) {    
     if(menu.classList.contains("open-hamburger-menu") && !media.matches){
         initialState()
+    }    
+}
+async function downloadGif(url,titulo){
+    try {
+      let a = document.createElement('a');
+      let response = await fetch(url)
+      let file = await response.blob();
+      if(titulo){
+        a.download = titulo;
+      } else{
+        a.download = "myGif"
+      }
+      a.href = window.URL.createObjectURL(file);
+      a.dataset.downloadurl = ['application/octet-stream', a.download,a.href].join(":");
+      a.click()
+    } catch (error) {
+      console.log(error);
     }
-    
 }
 
 
-export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState}
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState, downloadGif}

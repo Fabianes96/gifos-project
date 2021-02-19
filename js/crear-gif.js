@@ -117,7 +117,7 @@ global.btnSubirGifo.addEventListener("click", async () => {
   global.cronometro.classList.add("none");
 
   let card = document.createElement("div");
-  card.setAttribute("class", "card-icons");
+  card.setAttribute("class", "card-icons-cg");
 
   let divIconDownload = document.createElement("div");
   divIconDownload.setAttribute("class", "div-icons");
@@ -125,12 +125,15 @@ global.btnSubirGifo.addEventListener("click", async () => {
   image1.setAttribute("src", "assets/icon-download.svg");
   image1.setAttribute("class", "icono");
   divIconDownload.appendChild(image1);
-  let divIconMax = document.createElement("div");
-  divIconMax.setAttribute("class", "div-icons");
+  let divIconLink = document.createElement("div");
+  divIconLink.setAttribute("class", "div-icons");
   let image3 = document.createElement("img");
-  image3.setAttribute("src", "assets/icon-max-normal.svg");
-  image3.setAttribute("class", "icono");
-  divIconMax.appendChild(image3);
+  image3.setAttribute("src", "assets/icon-link-normal.svg");
+  image3.setAttribute("class", "icono");    
+  divIconLink.appendChild(image3);  
+  divIconLink.addEventListener("click",()=>{
+    window.location.assign("/index.html#section-mis-gifos");
+  })
   global.cardSubiendoGifo.appendChild(card);
   global.cardSubiendoGifo.classList.remove("none");
   global.cardSubiendoGifo.style.display = "flex";
@@ -144,19 +147,21 @@ global.btnSubirGifo.addEventListener("click", async () => {
       }
     );
     let res = await response.json();
-    let resData = res.data;
+    let resData = res.data;    
     card.appendChild(divIconDownload);
-    card.appendChild(divIconMax);
+    card.appendChild(divIconLink);
     global.cardSubiendoGifo.appendChild(card);
     let check = global.cardSubiendoGifo.firstElementChild;
     check.setAttribute("src", "assets/check.svg");
-    global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";
-    console.log(resData); // {id: "LQ90hdO1ePVZtgZ6Oo"}
+    global.cardSubiendoGifo.children[1].textContent = "GIFO subido con éxito";    
     let resGif = await fetch(
       `https://api.giphy.com/v1/gifs/${resData.id}?api_key=${global.API_KEY}`
     );
     let myGifData = await resGif.json();
-    misGifs.push(myGifData.data);
+    misGifs.push(myGifData.data);    
+    divIconDownload.addEventListener("click",()=>{
+      global.downloadGif(myGifData.data.images.original.url);
+    })
     localStorage.setItem("mis-gifos", JSON.stringify(misGifs));
   } catch (error) {
     global.cardSubiendoGifo.children[1].textContent = "Algo salió mal";
@@ -188,12 +193,6 @@ async function activeCamera() {
     console.log(error);
   }
 }
-function vidOff() {
-  global.video.pause();
-  global.video.src = "";
-  global.video.srcObject.getTracks()[0].stop();
-  console.log("vid off");
-}
 function startTime() {
   setChronometer();
   timeStarted = setInterval(setChronometer, 10);
@@ -219,4 +218,4 @@ function stopTime() {
 }
 
 global.checkDarkMode(global.nocturnoCG);
-//global.checkMobile();
+

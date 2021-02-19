@@ -41,6 +41,17 @@ $media850: 850px;
     filter: grayscale(1) invert(1) brightness(2);
   }
 }
+%card-icons-general{
+  align-self: flex-end;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
+  img{
+    opacity: 0.7;
+  }  
+}
 .arrow-container {
   cursor: pointer;
 }

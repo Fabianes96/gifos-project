@@ -500,7 +500,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
     image2.setAttribute("class", "icono");
     divIconDownload.appendChild(image2);    
     divIconDownload.addEventListener("click",()=>{
-      downloadGif(array[i].images.original.url,array[i].title);
+      global.downloadGif(array[i].images.original.url,array[i].title);
     });
     card.appendChild(divIconDownload);
 
@@ -679,23 +679,7 @@ function loadGifModal(array, derecha) {
     }
   }
 }
-async function downloadGif(url,titulo){
-  try {
-    let a = document.createElement('a');
-    let response = await fetch(url)
-    let file = await response.blob();
-    if(titulo){
-      a.download = titulo;
-    } else{
-      a.download = "myGif"
-    }
-    a.href = window.URL.createObjectURL(file);
-    a.dataset.downloadurl = ['application/octet-stream', a.download,a.href].join(":");
-    a.click()
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 
 callGifs().then(() => {
   addGifs(gifs, "square","assets/icon-fav.svg", global.container, true, "gifs");  

@@ -128,15 +128,7 @@ body {
   }
 }
 .card-icons {
-  align-self: flex-end;
-  display: flex;
-  gap: 7px;
-  top: 7px;
-  position: relative;
-  right: 7px;
-  img{
-    opacity: 0.7;
-  }
+  @extend %card-icons-general;  
   > :first-child:hover{
     content: url("/assets/icon-fav-hover.svg");
   }
@@ -145,6 +137,15 @@ body {
   }
   > :last-child:hover{
     content: url("/assets/icon-max-hover.svg");
+  }
+}
+.card-icons-cg{
+  @extend %card-icons-general;
+  > :first-child:hover{
+    content: url("/assets/icon-download-hover.svg");
+  }  
+  > :last-child:hover{
+    content: url("/assets/icon-link-hover.svg");
   }
 }
 .favorite-added{

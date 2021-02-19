@@ -30,6 +30,22 @@ body.dark .modal-section .modal-container .modal-content #slide-right-modal img:
           filter: grayscale(1) invert(1) brightness(2);
 }
 
+.card-icons, .card-icons-cg {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
+}
+
+.card-icons img, .card-icons-cg img {
+  opacity: 0.7;
+}
+
 .arrow-container {
   cursor: pointer;
 }
@@ -1673,22 +1689,6 @@ body.dark .btn-mas:hover {
   z-index: 1;
 }
 
-.card-icons {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 7px;
-  top: 7px;
-  position: relative;
-  right: 7px;
-}
-
-.card-icons img {
-  opacity: 0.7;
-}
-
 .card-icons > :first-child:hover {
   content: url("/assets/icon-fav-hover.svg");
 }
@@ -1699,6 +1699,14 @@ body.dark .btn-mas:hover {
 
 .card-icons > :last-child:hover {
   content: url("/assets/icon-max-hover.svg");
+}
+
+.card-icons-cg > :first-child:hover {
+  content: url("/assets/icon-download-hover.svg");
+}
+
+.card-icons-cg > :last-child:hover {
+  content: url("/assets/icon-link-hover.svg");
 }
 
 .favorite-added > :first-child {
