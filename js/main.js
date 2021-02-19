@@ -216,33 +216,33 @@ global.searchField.addEventListener("blur", () => {
   blur = true;
 });
 global.searchField.addEventListener("keyup", async (e) => {
-  try {    
-    if (
-      e.code.startsWith("Key") ||
+  try { 
+    if(e.code){
+      if (e.code.startsWith("Key") ||
       e.code.startsWith("Digit") ||
       e.code === "Backspace"
     ) {
-      let response = await fetch(
-        `https://api.giphy.com/v1/gifs/search/tags?api_key=${global.API_KEY}&q=${global.searchField.value}&limit=4`
-      );
-      let json = await response.json();
-      let ulSuggestions = document.getElementById("suggestions");
-      console.log(!ulSuggestions.classList.contains("none"));
-      if(!ulSuggestions.classList.contains("none")){
-        let ul = document.createElement("ul");
-        ul.setAttribute("id", "suggestions");
-        ul.setAttribute("class", "search-after-ul");
-        if (ulSuggestions) {
-          ulSuggestions.remove();
-        }
-        json.data.forEach((suggestion) => {
-          let li = document.createElement("li");
-          li.textContent = suggestion.name;
-          ul.appendChild(li);
-        });
-        global.searchContainer.appendChild(ul);        
-      }      
-    }
+        let response = await fetch(
+          `https://api.giphy.com/v1/gifs/search/tags?api_key=${global.API_KEY}&q=${global.searchField.value}&limit=4`
+        );
+        let json = await response.json();
+        let ulSuggestions = document.getElementById("suggestions");      
+        if(!ulSuggestions.classList.contains("none")){
+          let ul = document.createElement("ul");
+          ul.setAttribute("id", "suggestions");
+          ul.setAttribute("class", "search-after-ul");
+          if (ulSuggestions) {
+            ulSuggestions.remove();
+          }
+          json.data.forEach((suggestion) => {
+            let li = document.createElement("li");
+            li.textContent = suggestion.name;
+            ul.appendChild(li);
+          });
+          global.searchContainer.appendChild(ul);        
+        }      
+      }
+    }    
     if (e.code == "Enter") {      
       await showGifsSearch();
     }
