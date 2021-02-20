@@ -56,254 +56,6 @@ window.onclick = async function (event) {
     console.log(error);
   }
 };
-media.addEventListener("change", ()=>{  
-  global.checkMediaQuery(media);
-})
-global.burger.addEventListener("click",()=>{
-  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);  
-});
-global.burgerClose.addEventListener("click",()=>{
-  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
-})
-global.burgerDM.addEventListener("click",()=>{
-  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
-})
-global.burgerCloseDM.addEventListener("click",()=>{
-  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
-})
-global.nocturno.addEventListener("click",()=>{
-  document.body.classList.toggle("dark");
-  if(document.body.classList.contains("dark")){   
-    global.nocturno.textContent = "MODO DIURNO";        
-    if(media.matches){
-      global.burger.classList.remove("burger-normal");
-      global.burger.classList.add("none");      
-      global.burgerDM.classList.remove("burger-dm");
-      global.burgerDM.classList.add("none");      
-      global.burgerClose.classList.add("none");
-      global.burgerCloseDM.classList.remove("none");
-    }else{
-      global.initialState();
-    }
-    localStorage.setItem("modo-nocturno", "on");
-  }else{    
-    global.nocturno.textContent = "MODO NOCTURNO";
-    if(media.matches){
-      global.burger.classList.remove("burger-normal");
-      global.burger.classList.add("none");        
-      global.burgerDM.classList.remove("burger-dm");
-      global.burgerDM.classList.add("none");                
-      global.burgerCloseDM.classList.add("none");
-      global.burgerClose.classList.remove("none");
-    }else{
-      global.initialState();
-    }
-    localStorage.setItem("modo-nocturno", "off");
-  }
-})
-
-global.btnMasFavs.addEventListener("click", () => {
-  let inicio = offsetFavs;
-  offsetFavs = offsetFavs + 4;
-  let cant = favs.length;  
-  if (cant > offsetFavs) {
-    addGifs(
-      favs.slice(inicio, offsetFavs),
-      "container-search-and-favs","assets/icon-fav-active.svg",
-      global.containerFavorites,
-      false, "favs"
-    );
-  } else {
-    addGifs(
-      favs.slice(inicio, favs.length),
-      "container-search-and-favs","assets/icon-fav-active.svg",
-      global.containerFavorites,
-      false, "favs"
-    );
-    global.btnMasFavs.classList.add("none");
-  }
-});
-global.btnMasMisGifs.addEventListener("click",()=>{
-  let inicio = offsetMisGifs;
-  offsetMisGifs = offsetMisGifs + 4;
-  let misGifs = JSON.parse(localStorage.getItem("mis-gifos"));
-  let cant = misGifs.length;
-  if(cant > offsetMisGifs){
-    addGifs(
-      misGifs.slice(inicio, offsetMisGifs),
-      "container-search-and-favs","assets/icon-trash-normal.svg",
-      global.containerGIFOS,
-      false, "misGifs"
-    );
-  }else{
-    addGifs(
-      misGifs.slice(inicio, misGifs.length),
-      "container-search-and-favs","assets/icon-trash-normal.svg",
-      global.containerGIFOS,
-      false, "misGifs"
-    );
-    global.btnMasMisGifs.classList.add("none");
-  }
-})
-
-global.linkFavoritos.addEventListener("click", () => {  
-  loadFavoritos()
-});
-global.linkGIFOS.addEventListener("click",()=>{
-  loadMisGifos();
-})
-global.span.onclick = function () {
-  global.modal.style.display = "none";
-  //
-  while (modalContent.firstChild) {
-    global.modalContent.removeChild(global.modalContent.firstChild);
-  }
-};
-global.btnMas.addEventListener("click", async () => {
-  try {
-    let title = document.getElementById("title-btn-mas");
-    title.textContent = "Cargando resultados...";    
-    global.btnMas.classList.add("none");
-    let masGifs = [];
-    auxMasGifs++;
-    let response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=${global.API_KEY}&q=${
-        global.searchField.value
-      }&limit=12&offset=${auxMasGifs * 12}`
-    );
-    response = await response.json();
-    masGifs = response.data;
-    gifsSearchAux = gifsSearchAux.concat(masGifs);      
-    title.textContent = "";
-    global.btnMas.classList.remove("none")
-    addGifs(
-      masGifs,
-      "container-search-and-favs","assets/icon-fav.svg",
-      global.containerSearchResults,
-      false, "search"
-    );
-  } catch (error) {
-    console.log(error);
-  }
-});
-global.btnCloseSearch.addEventListener("click", () => {
-  auxMasGifs = 0;
-  global.searchField.value = "";
-  global.central.classList.remove("show-div-results");
-  global.central.classList.add("central");
-  searchClousure();
-});
-global.buttonLeft.addEventListener("click", function () {
-  let gif = document.getElementById("gifs");
-  gif.scrollLeft -= 500;
-});
-global.buttonRight.addEventListener("click", function () {
-  document.getElementById("gifs").scrollLeft += 500;
-});
-
-global.searchField.addEventListener("click", () => {
-  global.searchContainer.classList.add("search-after-div");
-  global.searchField.classList.remove("search-field");
-  global.searchField.classList.add("search-after-input");
-  if(document.body.classList.contains("dark")){
-    global.btnCloseSearchDM.classList.remove("none");
-    global.btnCloseSearchDM.classList.add("btn-close-search");
-  }else{
-    global.btnCloseSearch.classList.remove("none");
-    global.btnCloseSearch.classList.add("btn-close-search");
-  }
-  let ulSuggestions = document.getElementById("suggestions");
-  ulSuggestions.classList.remove("none");
-  searchClousureFlag = true;
-  blur = false;
-});
-global.searchField.addEventListener("blur", () => {
-  blur = true;
-});
-global.searchField.addEventListener("keyup", async (e) => {
-  try { 
-    if(e.code){
-      if (e.code.startsWith("Key") ||
-      e.code.startsWith("Digit") ||
-      e.code === "Backspace"
-    ) {
-        let response = await fetch(
-          `https://api.giphy.com/v1/gifs/search/tags?api_key=${global.API_KEY}&q=${global.searchField.value}&limit=4`
-        );
-        let json = await response.json();
-        let ulSuggestions = document.getElementById("suggestions");      
-        if(!ulSuggestions.classList.contains("none")){
-          let ul = document.createElement("ul");
-          ul.setAttribute("id", "suggestions");
-          ul.setAttribute("class", "search-after-ul");
-          if (ulSuggestions) {
-            ulSuggestions.remove();
-          }
-          json.data.forEach((suggestion) => {
-            let li = document.createElement("li");
-            li.textContent = suggestion.name;
-            ul.appendChild(li);
-          });
-          global.searchContainer.appendChild(ul);        
-        }      
-      }
-    }    
-    if (e.code == "Enter") {      
-      await showGifsSearch();
-    }
-  } catch (error) {
-    console.log("No se cargaron los resultados", error);
-  }
-});
-global.buttonLeftModal.addEventListener("click", () => {    
-  switch (tagName) {
-    case "gifs":
-      loadGifModal(gifs, false);
-      break;
-    case "search":      
-      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
-        index = gifsSearchAux.indexOf(activeModalArray[index])        
-      }
-      loadGifModal(gifsSearchAux, false);
-      break;
-    case "favs":
-      console.log(index);
-      if(favs.length >12 && favs.includes(activeModalArray[index])){
-        index = favs.indexOf(activeModalArray[index])        
-      }
-      loadGifModal(favs, false);
-      break;
-    default:      
-    if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
-      index = misGifs.indexOf(activeModalArray[index])        
-    }
-      loadGifModal(misGifs, false);
-  }
-});
-global.buttonRightModal.addEventListener("click", () => {      
-  switch (tagName) {
-    case "gifs":
-      loadGifModal(gifs, true);
-      break;
-    case "search":
-      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
-        index = gifsSearchAux.indexOf(activeModalArray[index])        
-      }
-      loadGifModal(gifsSearchAux, true);
-      break;
-    case "favs":
-      if(favs.length >12 && favs.includes(activeModalArray[index])){
-        index = favs.indexOf(activeModalArray[index])        
-      }
-      loadGifModal(favs, true);
-      break;
-    default:
-      if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
-        index = misGifs.indexOf(activeModalArray[index])        
-      }
-      loadGifModal(misGifs, true);
-  }
-});
 async function addGIFOS(){
   if(global.containerGIFOS.firstElementChild){
     while(global.containerGIFOS.firstElementChild){
@@ -692,3 +444,252 @@ callGifs().then(() => {
 });
 activeLink();
 global.checkDarkMode(global.nocturno);
+//AddEventListeners
+media.addEventListener("change", ()=>{  
+  global.checkMediaQuery(media);
+})
+global.burger.addEventListener("click",()=>{
+  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);  
+});
+global.burgerClose.addEventListener("click",()=>{
+  global.showHideMenu(global.burger,"burger-normal",global.burgerClose);
+})
+global.burgerDM.addEventListener("click",()=>{
+  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+})
+global.burgerCloseDM.addEventListener("click",()=>{
+  global.showHideMenu(global.burgerDM,"burger-dm",global.burgerCloseDM);
+})
+global.nocturno.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  if(document.body.classList.contains("dark")){   
+    global.nocturno.textContent = "MODO DIURNO";        
+    if(media.matches){
+      global.burger.classList.remove("burger-normal");
+      global.burger.classList.add("none");      
+      global.burgerDM.classList.remove("burger-dm");
+      global.burgerDM.classList.add("none");      
+      global.burgerClose.classList.add("none");
+      global.burgerCloseDM.classList.remove("none");
+    }else{
+      global.initialState();
+    }
+    localStorage.setItem("modo-nocturno", "on");
+  }else{    
+    global.nocturno.textContent = "MODO NOCTURNO";
+    if(media.matches){
+      global.burger.classList.remove("burger-normal");
+      global.burger.classList.add("none");        
+      global.burgerDM.classList.remove("burger-dm");
+      global.burgerDM.classList.add("none");                
+      global.burgerCloseDM.classList.add("none");
+      global.burgerClose.classList.remove("none");
+    }else{
+      global.initialState();
+    }
+    localStorage.setItem("modo-nocturno", "off");
+  }
+})
+
+global.btnMasFavs.addEventListener("click", () => {
+  let inicio = offsetFavs;
+  offsetFavs = offsetFavs + 4;
+  let cant = favs.length;  
+  if (cant > offsetFavs) {
+    addGifs(
+      favs.slice(inicio, offsetFavs),
+      "container-search-and-favs","assets/icon-fav-active.svg",
+      global.containerFavorites,
+      false, "favs"
+    );
+  } else {
+    addGifs(
+      favs.slice(inicio, favs.length),
+      "container-search-and-favs","assets/icon-fav-active.svg",
+      global.containerFavorites,
+      false, "favs"
+    );
+    global.btnMasFavs.classList.add("none");
+  }
+});
+global.btnMasMisGifs.addEventListener("click",()=>{
+  let inicio = offsetMisGifs;
+  offsetMisGifs = offsetMisGifs + 4;
+  let misGifs = JSON.parse(localStorage.getItem("mis-gifos"));
+  let cant = misGifs.length;
+  if(cant > offsetMisGifs){
+    addGifs(
+      misGifs.slice(inicio, offsetMisGifs),
+      "container-search-and-favs","assets/icon-trash-normal.svg",
+      global.containerGIFOS,
+      false, "misGifs"
+    );
+  }else{
+    addGifs(
+      misGifs.slice(inicio, misGifs.length),
+      "container-search-and-favs","assets/icon-trash-normal.svg",
+      global.containerGIFOS,
+      false, "misGifs"
+    );
+    global.btnMasMisGifs.classList.add("none");
+  }
+})
+
+global.linkFavoritos.addEventListener("click", () => {  
+  loadFavoritos()
+});
+global.linkGIFOS.addEventListener("click",()=>{
+  loadMisGifos();
+})
+global.span.onclick = function () {
+  global.modal.style.display = "none";
+  //
+  while (modalContent.firstChild) {
+    global.modalContent.removeChild(global.modalContent.firstChild);
+  }
+};
+global.btnMas.addEventListener("click", async () => {
+  try {
+    let title = document.getElementById("title-btn-mas");
+    title.textContent = "Cargando resultados...";    
+    global.btnMas.classList.add("none");
+    let masGifs = [];
+    auxMasGifs++;
+    let response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${global.API_KEY}&q=${
+        global.searchField.value
+      }&limit=12&offset=${auxMasGifs * 12}`
+    );
+    response = await response.json();
+    masGifs = response.data;
+    gifsSearchAux = gifsSearchAux.concat(masGifs);      
+    title.textContent = "";
+    global.btnMas.classList.remove("none")
+    addGifs(
+      masGifs,
+      "container-search-and-favs","assets/icon-fav.svg",
+      global.containerSearchResults,
+      false, "search"
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
+global.btnCloseSearch.addEventListener("click", () => {
+  auxMasGifs = 0;
+  global.searchField.value = "";
+  global.central.classList.remove("show-div-results");
+  global.central.classList.add("central");
+  searchClousure();
+});
+global.buttonLeft.addEventListener("click", function () {
+  let gif = document.getElementById("gifs");
+  gif.scrollLeft -= 500;
+});
+global.buttonRight.addEventListener("click", function () {
+  document.getElementById("gifs").scrollLeft += 500;
+});
+
+global.searchField.addEventListener("click", () => {
+  global.searchContainer.classList.add("search-after-div");
+  global.searchField.classList.remove("search-field");
+  global.searchField.classList.add("search-after-input");
+  if(document.body.classList.contains("dark")){
+    global.btnCloseSearchDM.classList.remove("none");
+    global.btnCloseSearchDM.classList.add("btn-close-search");
+  }else{
+    global.btnCloseSearch.classList.remove("none");
+    global.btnCloseSearch.classList.add("btn-close-search");
+  }
+  let ulSuggestions = document.getElementById("suggestions");
+  ulSuggestions.classList.remove("none");
+  searchClousureFlag = true;
+  blur = false;
+});
+global.searchField.addEventListener("blur", () => {
+  blur = true;
+});
+global.searchField.addEventListener("keyup", async (e) => {
+  try { 
+    if(e.code){
+      if (e.code.startsWith("Key") ||
+      e.code.startsWith("Digit") ||
+      e.code === "Backspace"
+    ) {
+        let response = await fetch(
+          `https://api.giphy.com/v1/gifs/search/tags?api_key=${global.API_KEY}&q=${global.searchField.value}&limit=4`
+        );
+        let json = await response.json();
+        let ulSuggestions = document.getElementById("suggestions");      
+        if(!ulSuggestions.classList.contains("none")){
+          let ul = document.createElement("ul");
+          ul.setAttribute("id", "suggestions");
+          ul.setAttribute("class", "search-after-ul");
+          if (ulSuggestions) {
+            ulSuggestions.remove();
+          }
+          json.data.forEach((suggestion) => {
+            let li = document.createElement("li");
+            li.textContent = suggestion.name;
+            ul.appendChild(li);
+          });
+          global.searchContainer.appendChild(ul);        
+        }      
+      }
+    }    
+    if (e.code == "Enter") {      
+      await showGifsSearch();
+    }
+  } catch (error) {
+    console.log("No se cargaron los resultados", error);
+  }
+});
+global.buttonLeftModal.addEventListener("click", () => {    
+  switch (tagName) {
+    case "gifs":
+      loadGifModal(gifs, false);
+      break;
+    case "search":      
+      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
+        index = gifsSearchAux.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(gifsSearchAux, false);
+      break;
+    case "favs":
+      console.log(index);
+      if(favs.length >12 && favs.includes(activeModalArray[index])){
+        index = favs.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(favs, false);
+      break;
+    default:      
+    if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
+      index = misGifs.indexOf(activeModalArray[index])        
+    }
+      loadGifModal(misGifs, false);
+  }
+});
+global.buttonRightModal.addEventListener("click", () => {      
+  switch (tagName) {
+    case "gifs":
+      loadGifModal(gifs, true);
+      break;
+    case "search":
+      if(gifsSearchAux.length >12 && gifsSearchAux.includes(activeModalArray[index])){
+        index = gifsSearchAux.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(gifsSearchAux, true);
+      break;
+    case "favs":
+      if(favs.length >12 && favs.includes(activeModalArray[index])){
+        index = favs.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(favs, true);
+      break;
+    default:
+      if(misGifs.length >12 && misGifs.includes(activeModalArray[index])){
+        index = misGifs.indexOf(activeModalArray[index])        
+      }
+      loadGifModal(misGifs, true);
+  }
+});

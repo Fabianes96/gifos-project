@@ -118,5 +118,4 @@ async function downloadGif(url,titulo){
     }
 }
 
-
 export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState, downloadGif}

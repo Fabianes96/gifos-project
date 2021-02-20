@@ -1,0 +1,331 @@
+$font-principal: "Montserrat-Bold", sans-serif;
+$color-principal: #572ee5;
+$color-secundario: #50e3c2;
+$color-principal-dark: #37383c;
+$color-secundario-dark: #9cafc3;
+$color-terciario-dark: #222326;
+$blanco: #ffffff;
+$negro: #000000;
+$media850: 850px;
+
+%slide-hover:hover{
+    :first-child{
+      display: none;
+    }
+    :nth-child(2){
+      display: block;
+    }  
+}
+%slide-dm-base{
+  :first-child{
+    display: none;
+  }
+  :nth-child(2){
+    display: none;
+  }
+  :last-child{
+    display: block;
+  }
+}
+%slide-left-dm {
+  @extend %slide-dm-base;
+  img:hover {
+    content: url("/assets/button-slider-left-hover.svg");
+    filter: grayscale(1) invert(1) brightness(2);
+  }  
+}
+%slide-right-dm {
+  @extend %slide-dm-base;  
+  img:hover {
+    content: url("/assets/Button-Slider-right-hover.svg");
+    filter: grayscale(1) invert(1) brightness(2);
+  }
+}
+%card-icons-general{
+  align-self: flex-end;
+  display: flex;
+  gap: 7px;
+  top: 7px;
+  position: relative;
+  right: 7px;
+  img{
+    opacity: 0.7;
+  }  
+}
+@mixin gifsSquare($width, $height) {
+  width: $width;
+  height: $height;
+  background-color: $color-principal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@mixin gifsGifos($minWidth, $minHeight, $bottom) {
+  position: relative;
+  min-width: $minWidth;
+  min-height: $minHeight;
+  bottom: $bottom;
+  z-index: 10;
+}
+@mixin removeGifHover() {
+  .gifos {
+    z-index: 10;
+    opacity: 1;
+  }
+}
+@mixin gifHover($z, $opacity) {
+  z-index: $z;
+  opacity: $opacity;
+}
+@mixin medium-gifs-container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-items: center;
+  gap: 29px;
+}
+@mixin sections-favs-gifos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: $font-principal;
+  color: $color-principal;
+  transition: 0.3s ease all;
+  &.dark {
+    background-color: $color-principal-dark;
+    color: #ffffff;
+  }
+}
+.arrow-container {
+  cursor: pointer;
+}
+.fixed {
+  position: fixed;
+  transition: position 700ms ease;
+}
+.block{
+  display: block;
+}
+.initial {
+  position: relative;
+  top: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-mas {
+  width: 127px;
+  height: 50px;
+  border: 1px solid $color-principal;
+  border-radius: 25px;
+  font-family: $font-principal;
+  font-size: 13px;
+  color: $color-principal;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  body.dark &{
+    color: $blanco;
+    border: 1px solid $blanco;    
+  }
+}
+.btn-mas:hover {
+  background-color: $color-principal;
+  color: #ffffff;
+  body.dark &{
+    background-color: $blanco;
+    color: $negro;
+  }
+}
+.search-after-div {
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 31px;
+  height: 185px;
+  padding-top: 5px;
+}
+.search-after-input {
+  border-right: 0;
+  border-bottom: 1px solid $color-secundario-dark;
+  border-top: 0;
+  border-left: 0;
+  padding: 12px 38px;
+  background-image: url(/assets/icon-search.svg);
+  background-repeat: no-repeat;
+  background-position: 0% center;
+}
+.search-after-ul {
+  align-self: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  left: 20px;
+}
+.central {
+  display: none;
+}
+.show-div-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-close-search {
+  display: block;
+  position: relative;
+  right: 50px;
+  bottom: 12px;
+}
+.none {
+  display: none;
+}
+.flex{
+  display: flex;
+}
+.div-description {
+  position: relative;
+  bottom: 8rem;
+  padding-left: 1rem;
+  color: #ffffff;
+  p {
+    margin-bottom: 5px;
+  }
+}
+.div-icons {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+  .icono {
+    width: 85%;
+    background: #ffffff;
+    z-index: 1;
+  }
+}
+.card-icons {
+  @extend %card-icons-general;  
+  > :first-child:hover{
+    content: url("/assets/icon-fav-hover.svg");
+  }
+  > :nth-child(2):hover{
+    content: url("/assets/icon-download-hover.svg");
+  }
+  > :last-child:hover{
+    content: url("/assets/icon-max-hover.svg");
+  }
+}
+.card-icons-cg{
+  @extend %card-icons-general;
+  > :first-child:hover{
+    content: url("/assets/icon-download-hover.svg");
+  }  
+  > :last-child:hover{
+    content: url("/assets/icon-link-hover.svg");
+  }
+}
+.favorite-added{
+  > :first-child{
+    img{
+      display: none;
+    }
+    background: url(/assets/icon-fav-active.svg) no-repeat white center;  
+  }
+  > :first-child:hover{
+    background: url(/assets/icon-fav-active.svg) no-repeat white center;
+    content: none;
+  }
+}
+.delete-gif{
+  > :first-child:hover{    
+    background: url(/assets/icon-trash-hover.svg);
+    content: none;
+  }
+}
+.no-results {
+  display: grid;
+  justify-items: center;
+  position: relative;
+  top: 70px;
+  gap: 29px;
+}
+.no-favorites {
+  display: grid;
+  gap: 20px;
+  position: relative;
+  justify-items: center;
+  top: 90px;
+}
+.favorites {
+  @include medium-gifs-container();
+}
+.favs {
+  @include sections-favs-gifos();
+}
+.section-misgifos {
+  @include sections-favs-gifos();
+}
+.no-gifos {
+  display: grid;
+  gap: 20px;
+  position: relative;
+  justify-items: center;
+  top: 90px;
+}
+.step-active {
+  background-color: $color-principal;
+  color: $blanco;
+  body.dark &{
+    background-color: $blanco;
+    color: $negro;
+  }
+}
+.repeat-capture {
+  font-family: $font-principal;
+  font-size: 13px;
+  border-bottom: 1px solid $color-secundario;
+}
+.container-search-and-favs {
+  @include gifsSquare(260px, 200px);
+  .gifos {
+    width: 260px;
+    height: 200px;
+    @include gifsGifos(260px, 200px, 32px);
+  }
+}
+.container-search-and-favs:hover {
+  .gifos {
+    @include gifHover(0, 0.4);
+  }
+  @media screen and (max-width: 605px) {
+    @include removeGifHover();
+  }
+}
+.camera-window-content {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.camera-hover {
+  @include gifHover(1, 0.4);
+}
+
