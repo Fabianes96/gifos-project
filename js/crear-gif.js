@@ -10,14 +10,11 @@ let misGifs = localStorage.getItem("mis-gifos")
   ? JSON.parse(localStorage.getItem("mis-gifos"))
   : [];
 let media = window.matchMedia("screen and (max-width: 850px)");
-let favs = document.getElementById("a-favoritos");
 let burger = document.getElementById("burgerCG");
 let burgerDM = document.getElementById("burgerCG-dm");
 let burgerClose = document.getElementById("burgerCG-close");
 let burgerCloseDM = document.getElementById("burgerCG-close-dm");
-favs.addEventListener("click", () => {
-  console.log(window.location);
-});
+
 function initial() {
     menu.classList.remove("open-hamburger-menu");
     burger.classList.remove("none");
@@ -140,7 +137,7 @@ global.btnSubirGifo.addEventListener("click", async () => {
   image3.setAttribute("class", "icono");    
   divIconLink.appendChild(image3);  
   divIconLink.addEventListener("click",()=>{
-    window.location.assign("/index.html#section-mis-gifos");
+    window.location.assign("index.html#section-mis-gifos");
   })
   global.cardSubiendoGifo.appendChild(card);
   global.cardSubiendoGifo.classList.remove("none");

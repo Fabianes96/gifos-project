@@ -77,7 +77,7 @@
       border: 1px solid $color-principal;
       width: 30%;
       padding: 12px 50px;
-      background-image: url("../../assets/icon-search.svg");
+      background-image: url("../assets/icon-search.svg");
       background-repeat: no-repeat;
       background-position: 90% center;
       @media screen and(max-width:$media850) {
@@ -93,7 +93,7 @@
     ul {
       li {
         color: $color-secundario-dark;
-        background: url("../../assets/icon-search.svg") no-repeat left top;
+        background: url("../assets/icon-search.svg") no-repeat left top;
         list-style: none;
         padding: 1px 0 1px 30px;
         cursor: pointer;
@@ -134,7 +134,7 @@
           background-color: $color-principal-dark;
           border: 1px solid #ffffff;
           color: #ffffff;
-          background: url("../../assets/icon-search-modo-noct.svg") no-repeat;
+          background: url("../assets/icon-search-modo-noct.svg") no-repeat;
           background-position: 90% center;
           &.search-after-input {
             border: 0;
@@ -145,7 +145,7 @@
       }
       ul{
         li{
-          background: url("../../assets/icon-search-mod-noc.svg") no-repeat left top;
+          background: url("../assets/icon-search-mod-noc.svg") no-repeat left top;
         }
       }
     }

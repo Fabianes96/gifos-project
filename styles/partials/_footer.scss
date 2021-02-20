@@ -1,19 +1,19 @@
 %icon-facebook-hover{
-  content: url("../../assets/icon_facebook_hover.svg");
+  content: url("../assets/icon_facebook_hover.svg");
   body.dark &{
-    content: url("../../assets/icon_facebook_noc.svg");
+    content: url("../assets/icon_facebook_noc.svg");
   }
 }
 %icon-twitter-hover{
-  content: url("../../assets/icon-twitter-hover.svg");
+  content: url("../assets/icon-twitter-hover.svg");
   body.dark &{
-    content: url("../../assets/icon_twitter_noc.svg");
+    content: url("../assets/icon_twitter_noc.svg");
   }
 }
 %icon-instagram-hover{
-  content: url("../../assets/icon_instagram-hover.svg");
+  content: url("../assets/icon_instagram-hover.svg");
   body.dark &{
-    content: url("../../assets/icon_instagram_noc.svg");
+    content: url("../assets/icon_instagram_noc.svg");
   }
 }
 

@@ -19,13 +19,13 @@ body.dark .modal-section .modal-container .modal-content #slide-left-modal :last
 }
 
 body.dark .modal-section .modal-container .modal-content #slide-left-modal img:hover, body.dark .trending .container #slider #slide-left img:hover {
-  content: url("/assets/button-slider-left-hover.svg");
+  content: url("../assets/button-slider-left-hover.svg");
   -webkit-filter: grayscale(1) invert(1) brightness(2);
           filter: grayscale(1) invert(1) brightness(2);
 }
 
 body.dark .modal-section .modal-container .modal-content #slide-right-modal img:hover, body.dark .trending .container #slider #slide-right img:hover {
-  content: url("/assets/Button-Slider-right-hover.svg");
+  content: url("../assets/Button-Slider-right-hover.svg");
   -webkit-filter: grayscale(1) invert(1) brightness(2);
           filter: grayscale(1) invert(1) brightness(2);
 }
@@ -143,7 +143,7 @@ body.dark .btn-mas:hover {
   border-top: 0;
   border-left: 0;
   padding: 12px 38px;
-  background-image: url("../../assets/icon-search.svg");
+  background-image: url("../assets/icon-search.svg");
   background-repeat: no-repeat;
   background-position: 0% center;
 }
@@ -236,27 +236,27 @@ body.dark .btn-mas:hover {
 }
 
 .card-icons > :first-child:hover {
-  content: url("../../assets/icon-fav-hover.svg");
+  content: url("../assets/icon-fav-hover.svg");
 }
 
 .card-icons > :nth-child(2):hover {
-  content: url("../../assets/icon-download-hover.svg");
+  content: url("../assets/icon-download-hover.svg");
 }
 
 .card-icons > :last-child:hover {
-  content: url("/assets/icon-max-hover.svg");
+  content: url("../assets/icon-max-hover.svg");
 }
 
 .card-icons-cg > :first-child:hover {
-  content: url("/assets/icon-download-hover.svg");
+  content: url("../assets/icon-download-hover.svg");
 }
 
 .card-icons-cg > :last-child:hover {
-  content: url("/assets/icon-link-hover.svg");
+  content: url("../assets/icon-link-hover.svg");
 }
 
 .favorite-added > :first-child {
-  background: url("../../assets/icon-fav-active.svg") no-repeat white center;
+  background: url("../assets/icon-fav-active.svg") no-repeat white center;
 }
 
 .favorite-added > :first-child img {
@@ -264,12 +264,12 @@ body.dark .btn-mas:hover {
 }
 
 .favorite-added > :first-child:hover {
-  background: url("../../assets/icon-fav-active.svg") no-repeat white center;
+  background: url("../assets/icon-fav-active.svg") no-repeat white center;
   content: none;
 }
 
 .delete-gif > :first-child:hover {
-  background: url("../../assets/icon-trash-hover.svg");
+  background: url("../assets/icon-trash-hover.svg");
   content: none;
 }
 
@@ -1105,7 +1105,7 @@ body.dark .modal-section .modal-container .modal-content #slide-right-modal:hove
   border: 1px solid #572ee5;
   width: 30%;
   padding: 12px 50px;
-  background-image: url("../../assets/icon-search.svg");
+  background-image: url("../assets/icon-search.svg");
   background-repeat: no-repeat;
   background-position: 90% center;
 }
@@ -1123,7 +1123,7 @@ body.dark .modal-section .modal-container .modal-content #slide-right-modal:hove
 
 #initial #search-div ul li {
   color: #9cafc3;
-  background: url("../../assets/icon-search.svg") no-repeat left top;
+  background: url("../assets/icon-search.svg") no-repeat left top;
   list-style: none;
   padding: 1px 0 1px 30px;
   cursor: pointer;
@@ -1187,7 +1187,7 @@ body.dark #initial #search-div #input-close #search-input {
   background-color: #37383c;
   border: 1px solid #ffffff;
   color: #ffffff;
-  background: url("../../assets/icon-search-modo-noct.svg") no-repeat;
+  background: url("../assets/icon-search-modo-noct.svg") no-repeat;
   background-position: 90% center;
 }
 
@@ -1198,7 +1198,7 @@ body.dark #initial #search-div #input-close #search-input.search-after-input {
 }
 
 body.dark #initial #search-div ul li {
-  background: url("../../assets/icon-search-mod-noc.svg") no-repeat left top;
+  background: url("../assets/icon-search-mod-noc.svg") no-repeat left top;
 }
 
 #favoritos {
@@ -1517,27 +1517,27 @@ body.dark .trending .container .info #trending-p {
 }
 
 footer .icons #icon-facebook:hover, footer .icons #icon-facebook-cg:hover {
-  content: url("../../assets/icon_facebook_hover.svg");
+  content: url("../assets/icon_facebook_hover.svg");
 }
 
 body.dark footer .icons #icon-facebook:hover, footer .icons body.dark #icon-facebook:hover, body.dark footer .icons #icon-facebook-cg:hover, footer .icons body.dark #icon-facebook-cg:hover {
-  content: url("../../assets/icon_facebook_noc.svg");
+  content: url("../assets/icon_facebook_noc.svg");
 }
 
 footer .icons #icon-twitter:hover, footer .icons #icon-twitter-cg:hover {
-  content: url("../../assets/icon-twitter-hover.svg");
+  content: url("../assets/icon-twitter-hover.svg");
 }
 
 body.dark footer .icons #icon-twitter:hover, footer .icons body.dark #icon-twitter:hover, body.dark footer .icons #icon-twitter-cg:hover, footer .icons body.dark #icon-twitter-cg:hover {
-  content: url("../../assets/icon_twitter_noc.svg");
+  content: url("../assets/icon_twitter_noc.svg");
 }
 
 footer .icons #icon-instagram:hover, footer .icons #icon-instagram-cg:hover {
-  content: url("../../assets/icon_instagram-hover.svg");
+  content: url("../assets/icon_instagram-hover.svg");
 }
 
 body.dark footer .icons #icon-instagram:hover, footer .icons body.dark #icon-instagram:hover, body.dark footer .icons #icon-instagram-cg:hover, footer .icons body.dark #icon-instagram-cg:hover {
-  content: url("../../assets/icon_instagram_noc.svg");
+  content: url("../assets/icon_instagram_noc.svg");
 }
 
 footer {
@@ -1670,7 +1670,7 @@ body.dark footer {
 @media screen and (max-width: 500px) {
   .crear-gifs #principal-gifs #camera-central video {
     width: 300px;
-    height: auto;
+    height: 225px;
   }
 }
 
@@ -1881,7 +1881,7 @@ body.dark footer {
 }
 
 body.dark .crear-gifs #camera-div :first-child {
-  content: url("../../assets/camara-modo-noc.svg");
+  content: url("../assets/camara-modo-noc.svg");
 }
 
 body.dark .crear-gifs #principal-gifs #camera-central {
@@ -1897,7 +1897,7 @@ body.dark .crear-gifs #principal-gifs #camera-elements #pasos .steps {
 }
 
 body.dark .crear-gifs #principal-gifs #camera-elements > :last-child {
-  content: url("../../assets/pelicula-modo-noc.svg");
+  content: url("../assets/pelicula-modo-noc.svg");
 }
 
 body.dark .crear-gifs #principal-gifs #camera-elements #separator-misgifos {
