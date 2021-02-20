@@ -3,10 +3,10 @@ header {
   justify-content: space-between;
   border-top: 5px solid $color-principal;
   padding-top: 18px;
-  .header-info {        
+  .header-info {  
     .logo {
       position: relative;
-      left: 168px;
+      left: 168px;    
       @media screen and (max-width: $media850) {
         display: none;
       }
@@ -97,19 +97,40 @@ header {
             font-size: 13px;
             letter-spacing: 0;
             text-align: center;
-            text-decoration: none;
+            text-decoration: none;            
             @media screen and (max-width: $media850) {
               font-size: 15px;
               font-weight: bold;
+              position: relative;
+              display: flex;
+              justify-content: center;              
             }
-          }
+          }                              
+          a::after{
+            @media screen and (max-width:$media850){
+              content : "";
+              position: absolute;              
+              height  : 1px;
+              width   : 41px;
+              top: 28px;
+              border-bottom:1px solid $blanco;
+              opacity: 0.7;                        
+            }
+          }          
           a:hover {
             border-bottom: 2px solid $color-secundario;
-          }
+            @media screen and(max-width:$media850){
+              border-bottom: 0;
+              &::after{
+                border-bottom:2px solid $color-secundario
+              }
+            }
+          }          
           @media screen and (max-width: $media850) {
             margin-left: 0px;
           }
-        }
+        }        
+        
         li:first-child {
           .active {
             color: $color-principal;
@@ -172,7 +193,7 @@ header {
   }
   body.dark & {
     .header-info {
-      background-color: $color-principal-dark;
+      background: transparent;
       #logo {
         display: none;
       }

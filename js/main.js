@@ -105,7 +105,7 @@ global.nocturno.addEventListener("click",()=>{
 global.btnMasFavs.addEventListener("click", () => {
   let inicio = offsetFavs;
   offsetFavs = offsetFavs + 4;
-  let cant = favs.length;
+  let cant = favs.length;  
   if (cant > offsetFavs) {
     addGifs(
       favs.slice(inicio, offsetFavs),
@@ -161,6 +161,9 @@ global.span.onclick = function () {
 };
 global.btnMas.addEventListener("click", async () => {
   try {
+    let title = document.getElementById("title-btn-mas");
+    title.textContent = "Cargando resultados...";    
+    global.btnMas.classList.add("none");
     let masGifs = [];
     auxMasGifs++;
     let response = await fetch(
@@ -171,6 +174,8 @@ global.btnMas.addEventListener("click", async () => {
     response = await response.json();
     masGifs = response.data;
     gifsSearchAux = gifsSearchAux.concat(masGifs);      
+    title.textContent = "";
+    global.btnMas.classList.remove("none")
     addGifs(
       masGifs,
       "container-search-and-favs","assets/icon-fav.svg",
@@ -680,8 +685,9 @@ function loadGifModal(array, derecha) {
   }
 }
 
-
 callGifs().then(() => {
+  global.buttonRight.classList.remove("none");
+  global.buttonLeft.classList.remove("none");
   addGifs(gifs, "square","assets/icon-fav.svg", global.container, true, "gifs");  
 });
 activeLink();
