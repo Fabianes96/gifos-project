@@ -159,7 +159,7 @@ body {
   border-top: 0;
   border-left: 0;
   padding: 12px 38px;
-  background-image: url(/assets/icon-search.svg);
+  background-image: url("../../assets/icon-search.svg");  
   background-repeat: no-repeat;
   background-position: 0% center;
 }
@@ -221,10 +221,10 @@ body {
 .card-icons {
   @extend %card-icons-general;  
   > :first-child:hover{
-    content: url("/assets/icon-fav-hover.svg");
+    content: url("../../assets/icon-fav-hover.svg");
   }
   > :nth-child(2):hover{
-    content: url("/assets/icon-download-hover.svg");
+    content: url("../../assets/icon-download-hover.svg");
   }
   > :last-child:hover{
     content: url("/assets/icon-max-hover.svg");
@@ -244,16 +244,16 @@ body {
     img{
       display: none;
     }
-    background: url(/assets/icon-fav-active.svg) no-repeat white center;  
+    background: url("../../assets/icon-fav-active.svg") no-repeat white center;  
   }
   > :first-child:hover{
-    background: url(/assets/icon-fav-active.svg) no-repeat white center;
+    background: url("../../assets/icon-fav-active.svg") no-repeat white center;
     content: none;
   }
 }
 .delete-gif{
   > :first-child:hover{    
-    background: url(/assets/icon-trash-hover.svg);
+    background: url("../../assets/icon-trash-hover.svg");
     content: none;
   }
 }

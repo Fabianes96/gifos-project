@@ -164,7 +164,7 @@
   body.dark & {
     #camera-div{
         :first-child{
-            content: url("/assets/camara-modo-noc.svg");
+            content: url("../../assets/camara-modo-noc.svg");
         }
     }
     #principal-gifs{
@@ -179,7 +179,7 @@
                 border: 1px solid $blanco;
             }            
             > :last-child{
-                content: url("/assets/pelicula-modo-noc.svg");
+                content: url("../../assets/pelicula-modo-noc.svg");
             }
             #separator-misgifos{
               background-color: $blanco;
