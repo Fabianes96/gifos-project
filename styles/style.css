@@ -1081,6 +1081,11 @@ body.dark .modal-section .modal-container .modal-content #slide-right-modal:hove
   height: 14px;
 }
 
+#initial #search-div #input-close #btn-close-search-dm {
+  width: 14px;
+  height: 14px;
+}
+
 #initial #search-div #input-close #search-input {
   width: 80%;
   outline: none;
@@ -1669,6 +1674,7 @@ body.dark footer {
 @media screen and (max-width: 500px) {
   .crear-gifs #principal-gifs #camera-central video {
     width: 300px;
+    height: auto;
   }
 }
 

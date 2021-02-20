@@ -21,12 +21,12 @@ let media = window.matchMedia("screen and (max-width: 850px)");
 
 window.onload = function () {
   let location = window.location;    
-  if(location.pathname === "/index.html" && location.hash ==="#favoritos"){
+  if(location.pathname.includes("/index.html") && location.hash ==="#favoritos"){
     loadFavoritos();
     global.linkFavoritos.classList.remove("no-selected");
     global.linkFavoritos.classList.add("active");
   }
-  if(location.pathname === "/index.html" && location.hash ==="#section-mis-gifos"){
+  if(location.pathname.includes("/index.html") && location.hash ==="#section-mis-gifos"){
     loadMisGifos();
     global.linkGIFOS.classList.remove("no-selected");
     global.linkGIFOS.classList.add("active");
