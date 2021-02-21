@@ -385,7 +385,7 @@ body.dark .step-active {
   opacity: 0.4;
 }
 
-@media screen and (max-width: 605px) {
+@media screen and (max-width: 550px) {
   .container-search-and-favs:hover .gifos {
     z-index: 10;
     opacity: 1;

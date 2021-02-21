@@ -312,7 +312,7 @@ body {
   .gifos {
     @include gifHover(0, 0.4);
   }
-  @media screen and (max-width: 605px) {
+  @media screen and (max-width: 550px) {
     @include removeGifHover();
   }
 }

@@ -80,11 +80,11 @@ async function addGIFOS(){
         misGifs.slice(0, 12),
         "container-search-and-favs","assets/icon-trash-normal.svg",
         global.containerGIFOS,
-        false, "misGifs"
+        true, "misGifs"
         );
       global.btnMasMisGifs.classList.remove("none");
     }else{
-      addGifs(misGifs,"container-search-and-favs","assets/icon-trash-normal.svg",global.containerGIFOS,false, "misGifs");
+      addGifs(misGifs,"container-search-and-favs","assets/icon-trash-normal.svg",global.containerGIFOS,true, "misGifs");
     }
   } 
 }
@@ -133,7 +133,7 @@ function addFavorite() {
         favs.slice(0, 12),
         "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
-        false, "favs"
+        true, "favs"
       );
       global.btnMasFavs.classList.remove("none");
     } else {
@@ -141,7 +141,7 @@ function addFavorite() {
         favs,
         "container-search-and-favs","assets/icon-fav-active.svg",
         global.containerFavorites,
-        false, "favs"
+        true, "favs"
       );
     }
   } else {
