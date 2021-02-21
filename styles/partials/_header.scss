@@ -205,7 +205,10 @@ header {
       }
       #logo-mobile{
         display: none;
-      }           
+      }     
+      @media screen and (max-width: $media850){
+        background-color: $color-principal-dark;
+      }      
     }
     .menu {
       nav {

@@ -715,6 +715,12 @@ body.dark header .header-info #logo-mobile {
   display: none;
 }
 
+@media screen and (max-width: 850px) {
+  body.dark header .header-info {
+    background-color: #37383c;
+  }
+}
+
 body.dark header .menu nav #cg-diurno {
   display: none;
 }
