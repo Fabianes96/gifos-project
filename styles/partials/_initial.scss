@@ -113,10 +113,27 @@
     font-size: 18px;
     line-height: 25px;
     font-weight: bold;
+    h1{
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
     #subtitle {
       font-family: "Montserrat-Medium";
       font-size: 16px;
       font-weight: normal;
+      display: flex;
+      gap: 3px;
+      span{
+        cursor: pointer;
+      }
+      span::after{
+        content: ", ";
+      }
+      #trending-separator-2{                
+        :last-child::after{
+          content: "";
+        }
+      }
       @media screen and (max-width: 580px) {
         display: flex;
         flex-direction: column;

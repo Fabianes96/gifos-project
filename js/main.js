@@ -33,19 +33,24 @@ window.onload = function () {
   }
 }
 window.onclick = async function (event) {
-  try {      
+  try {          
     if (event.target == global.modal) {
       global.modal.style.display = "none";
       while (global.modalContent.firstChild) {
         global.modalContent.removeChild(global.modalContent.firstChild);
       }
     }
+    if(event.path[1]===global.separador1 || event.path[1]===global.separador2){
+      let span = event.target;
+      global.searchField.value = span.textContent;
+      await showGifsSearch(span.textContent);      
+    }
     if (blur) {
       if (event.target != global.searchField) {
         if (event.target.localName == "li") {
           let li = event.target;
           global.searchField.value = li.textContent;
-          await showGifsSearch();
+          await showGifsSearch(global.searchField.value);
         } else {
           searchClousure();
         }
@@ -183,13 +188,13 @@ function searchClousure() {
     searchClousureFlag = false;
   }
 }
-async function showGifsSearch() {
+async function showGifsSearch(value) {
   global.btnMas.classList.add("none");
   if (global.noResults.className.includes("no-results")) {
     global.noResults.classList.remove("no-results");
     global.noResults.classList.add("none");
   }
-  let search = global.searchField.value;
+  let search = value;
   let title = document.getElementById("title-result");
   title.textContent = "Cargando resultados...";
   global.central.classList.remove("central");
@@ -233,7 +238,24 @@ async function callGifs() {
     console.log(error);
   }
 }
-
+async function  trendings() {
+  try {
+    let call = await fetch("https://api.giphy.com/v1/trending/searches?api_key="+global.API_KEY);
+    let res = await call.json();           
+    for (let i = 0; i < 5; i++) {
+      let span = document.createElement("span");
+      span.textContent = res.data[i];      
+      if(i>2){
+        global.separador2.appendChild(span);
+      }else{
+        global.separador1.appendChild(span);
+      }
+    }    
+  } catch (error) {
+    console.log(error);
+  }
+}
+trendings();
 function addGifs(array, attribute,iconoFav, container, modal, tag) {
   for (let i = 0; i < array.length; i++) {
     let square = document.createElement("div");
@@ -551,13 +573,14 @@ global.span.onclick = function () {
 global.btnMas.addEventListener("click", async () => {
   try {
     let title = document.getElementById("title-btn-mas");
+    let titleResult = document.getElementById("title-result");
     title.textContent = "Cargando resultados...";    
     global.btnMas.classList.add("none");
     let masGifs = [];
     auxMasGifs++;
     let response = await fetch(
       `https://api.giphy.com/v1/gifs/search?api_key=${global.API_KEY}&q=${
-        global.searchField.value
+        titleResult.textContent
       }&limit=12&offset=${auxMasGifs * 12}`
     );
     response = await response.json();
@@ -638,7 +661,7 @@ global.searchField.addEventListener("keyup", async (e) => {
       }
     }    
     if (e.code == "Enter") {      
-      await showGifsSearch();
+      await showGifsSearch(global.searchField.value);
     }
   } catch (error) {
     console.log("No se cargaron los resultados", error);
@@ -655,8 +678,7 @@ global.buttonLeftModal.addEventListener("click", () => {
       }
       loadGifModal(gifsSearchAux, false);
       break;
-    case "favs":
-      console.log(index);
+    case "favs":      
       if(favs.length >12 && favs.includes(activeModalArray[index])){
         index = favs.indexOf(activeModalArray[index])        
       }

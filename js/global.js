@@ -9,6 +9,8 @@ let containerFavorites = document.getElementById("favorites");
 let containerGIFOS = document.getElementById("mis-gifos");
 let noMisGIFOS = document.getElementById("no-gifos");
 let headerInfo = document.getElementsByClassName("header-info");
+let separador1 = document.getElementById("trending-separator-1");
+let separador2 = document.getElementById("trending-separator-2");
 const URL = "https://api.giphy.com/v1/gifs/trending?api_key=";
 const API_KEY = "CqzSXTpzWmjiVKu03lbXhZidGMWveE78";
 const LIMIT = "&limit=25";
@@ -118,4 +120,4 @@ async function downloadGif(url,titulo){
     }
 }
 
-export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState, downloadGif}
+export {initial,menu,misGIFOS,API_KEY,LIMIT,URL,btnCloseSearch, btnCloseSearchDM,btnMas,btnMasFavs,buttonLeft,buttonLeftModal,buttonRight,buttonRightModal,central,container,containerFavorites,containerGIFOS,noMisGIFOS, separador1,separador2,headerInfo,containerSearchResults,divGifs,favoritos,linkFavoritos, linkGIFOS,modal, modalContent,noFavorites,noResults,searchContainer, searchField,span, ulSuggestions, links, btnComenzar,btnGrabar, btnFinalizar, btnSubirGifo, btnMasMisGifs,cameraImg,cameraWindow, cameraWindow2, video, pasos, cardSubiendoGifo, cronometro, nocturno,nocturnoCG,logo, crearGifo, checkDarkMode, checkMobile, burger, burgerDM, burgerClose,burgerCloseDM, showHideMenu, checkMediaQuery, initialState, downloadGif}

@@ -1160,10 +1160,31 @@ body.dark .modal-section .modal-container .modal-content #slide-right-modal:hove
   font-weight: bold;
 }
 
+#initial .paragraphs h1 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
 #initial .paragraphs #subtitle {
   font-family: "Montserrat-Medium";
   font-size: 16px;
   font-weight: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3px;
+}
+
+#initial .paragraphs #subtitle span {
+  cursor: pointer;
+}
+
+#initial .paragraphs #subtitle span::after {
+  content: ", ";
+}
+
+#initial .paragraphs #subtitle #trending-separator-2 :last-child::after {
+  content: "";
 }
 
 @media screen and (max-width: 580px) {
