@@ -307,9 +307,19 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
     divParagraphs.appendChild(p2);
     square.appendChild(divParagraphs);
     if(iconoFav === "assets/icon-fav.svg"){
+      if(localStorage.getItem("favoritos")){
+        let index = favs.findIndex((gif)=> gif.id === array[i].id);
+        if(index !=-1){
+          image1.setAttribute("src", "assets/icon-fav-active.svg");
+          card.classList.add("favorite-added");
+        }
+      }
       divIconFav.addEventListener("click", () => {
         addFavToLocalstorage(array, i);
-        card.classList.add("favorite-added");
+        card.classList.toggle("favorite-added");
+        if(!card.classList.contains("favorite-added")){
+          image1.setAttribute("src", iconoFav);
+        }
       });
     }else{
       if(iconoFav === "assets/icon-trash-normal.svg"){
@@ -359,11 +369,28 @@ function deleteGif(square,id) {
     window.location.reload();
   }
 }
+// console.log("Gif eliminado de favoritos");     
+// console.log(array[i], i);
+// console.log(favs.indexOf(array[i].id))
+// // let location = window.location; 
+// // favs.splice(favs.indexOf(array[i]),1)
+// // localStorage.setItem("favoritos", JSON.stringify(favs));
+// // if(location.hash ==="#favoritos"){
+// //   location.reload();
+// // }
+
 function addFavToLocalstorage(array, i) {
-  offsetFavs = 12;
+  offsetFavs = 12;  
   if (localStorage.getItem("favoritos")) {
-    if (favs.some((gif) => gif.id === array[i].id)) {
-      console.log("El gif ya ha sido añadido");
+    let index = favs.findIndex((gif)=> gif.id === array[i].id);
+    if(index != -1){
+      let location = window.location;            
+      favs.splice(index,1);
+      localStorage.setItem("favoritos",JSON.stringify(favs));
+      if(location.hash ==="#favoritos"){
+        location.reload();
+      }
+      console.log("Gif eliminado de favoritos");
     } else {
       favs.push(array[i]);
       localStorage.setItem("favoritos", JSON.stringify(favs));
