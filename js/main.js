@@ -315,7 +315,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
         }
       }
       divIconFav.addEventListener("click", () => {
-        addFavToLocalstorage(array, i);
+        addAndRemoveFavs(array, i);
         card.classList.toggle("favorite-added");
         if(!card.classList.contains("favorite-added")){
           image1.setAttribute("src", iconoFav);
@@ -330,6 +330,9 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
         })
       }else{
         card.classList.add("favorite-added");
+        divIconFav.addEventListener("click", () => {
+          addAndRemoveFavs(array, i);          
+        });
       }
     }
     divIconMax.addEventListener("click", () => {      
@@ -369,17 +372,7 @@ function deleteGif(square,id) {
     window.location.reload();
   }
 }
-// console.log("Gif eliminado de favoritos");     
-// console.log(array[i], i);
-// console.log(favs.indexOf(array[i].id))
-// // let location = window.location; 
-// // favs.splice(favs.indexOf(array[i]),1)
-// // localStorage.setItem("favoritos", JSON.stringify(favs));
-// // if(location.hash ==="#favoritos"){
-// //   location.reload();
-// // }
-
-function addFavToLocalstorage(array, i) {
+function addAndRemoveFavs(array, i) {
   offsetFavs = 12;  
   if (localStorage.getItem("favoritos")) {
     let index = favs.findIndex((gif)=> gif.id === array[i].id);
@@ -387,7 +380,7 @@ function addFavToLocalstorage(array, i) {
       let location = window.location;            
       favs.splice(index,1);
       localStorage.setItem("favoritos",JSON.stringify(favs));
-      if(location.hash ==="#favoritos"){
+      if(location.hash ==="#favoritos" || !global.favoritos.classList.contains("none")){
         location.reload();
       }
       console.log("Gif eliminado de favoritos");
@@ -436,7 +429,7 @@ function showModal(array, tag, i) {
   image1.setAttribute("class", "icono");
   divIconFav.appendChild(image1);
   divIconFav.addEventListener("click", () => {
-    addFavToLocalstorage(array, i);
+    addAndRemoveFavs(array, i);
   });
 
   let image2 = document.createElement("img");
