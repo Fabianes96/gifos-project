@@ -315,11 +315,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
         }
       }
       divIconFav.addEventListener("click", () => {
-        addAndRemoveFavs(array, i);
-        card.classList.toggle("favorite-added");
-        if(!card.classList.contains("favorite-added")){
-          image1.setAttribute("src", iconoFav);
-        }
+        addAndRemoveFavs(square,card,image1,array, i, array[i].id);
       });
     }else{
       if(iconoFav === "assets/icon-trash-normal.svg"){
@@ -329,9 +325,10 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
           deleteGif(square,array[i].id);
         })
       }else{
-        card.classList.add("favorite-added");
+        card.classList.add("favorite-added");    
+        square.setAttribute("id",`${array[i].id}`);
         divIconFav.addEventListener("click", () => {
-          addAndRemoveFavs(array, i);          
+          addAndRemoveFavs(square,card,image1,array, i, array[i].id);          
         });
       }
     }
@@ -372,21 +369,42 @@ function deleteGif(square,id) {
     window.location.reload();
   }
 }
-function addAndRemoveFavs(array, i) {
-  offsetFavs = 12;  
-  if (localStorage.getItem("favoritos")) {
-    let index = favs.findIndex((gif)=> gif.id === array[i].id);
-    if(index != -1){
-      let location = window.location;            
-      favs.splice(index,1);
-      localStorage.setItem("favoritos",JSON.stringify(favs));
-      if(location.hash ==="#favoritos" || !global.favoritos.classList.contains("none")){
+function addAndRemoveFavs(square,card,image,array, i, id) {  
+  offsetFavs = 12;    
+  if (localStorage.getItem("favoritos")) {    
+    favs = JSON.parse(localStorage.getItem("favoritos"));
+    let flag = false;
+    favs.forEach(gif =>{
+      if(gif.id === id){
+        favs.splice(favs.indexOf(gif),1);
+        flag = true;        
+      }
+    });    
+    if(flag){
+      let location = window.location;                  
+      if(favs.length<=12 && !global.btnMasFavs.classList.contains("none")){
         location.reload();
       }
+      localStorage.setItem("favoritos",JSON.stringify(favs));
+      if(card) card.classList.remove("favorite-added");
+      if(image) image.setAttribute("src","assets/icon-fav.svg");
+      if(square){
+        if(square.id){
+          square.remove();
+        }else{
+          if(!global.favoritos.classList.contains("none")) location.reload();
+        }
+      }         
       console.log("Gif eliminado de favoritos");
+      if(favs.length == 0){
+        localStorage.removeItem("favoritos");
+        location.reload();
+      }      
     } else {
       favs.push(array[i]);
       localStorage.setItem("favoritos", JSON.stringify(favs));
+      if(image) image.setAttribute("src", "assets/icon-fav-active.svg");
+      if(card) card.classList.add("favorite-added");
       console.log("Gif agregado a favoritos");
       if (!global.favoritos.classList.contains("none")) {
         addFavorite();
@@ -396,6 +414,8 @@ function addAndRemoveFavs(array, i) {
     favs = [];
     favs.push(array[i]);
     localStorage.setItem("favoritos", JSON.stringify(favs));
+    if(image) image.setAttribute("src", "assets/icon-fav-active.svg");
+    if(card) card.classList.add("favorite-added");
     console.log("Gif agregado a favoritos");
     if (!global.favoritos.classList.contains("none")) {
       addFavorite();
@@ -429,7 +449,7 @@ function showModal(array, tag, i) {
   image1.setAttribute("class", "icono");
   divIconFav.appendChild(image1);
   divIconFav.addEventListener("click", () => {
-    addAndRemoveFavs(array, i);
+    addAndRemoveFavs(null,null,null,array, i,array[i].id);
   });
 
   let image2 = document.createElement("img");
