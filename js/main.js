@@ -312,8 +312,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
         let index = favs.findIndex((gif)=> gif.id === array[i].id);
         if(index !=-1){
           image1.setAttribute("src", "assets/icon-fav-active.svg");
-          card.classList.add("favorite-added");
-          added = true;
+          card.classList.add("favorite-added");          
         }
       }
       divIconFav.addEventListener("click", () => {
@@ -327,8 +326,7 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
           deleteGif(square,array[i].id);
         })
       }else{
-        card.classList.add("favorite-added");    
-        added = true;
+        card.classList.add("favorite-added");            
         square.setAttribute("id",`${array[i].id}`);
         divIconFav.addEventListener("click", () => {
           addAndRemoveFavs(square,card,image1,array, i, array[i].id);          
@@ -336,19 +334,19 @@ function addGifs(array, attribute,iconoFav, container, modal, tag) {
       }
     }
     divIconMax.addEventListener("click", () => {      
-      showModal(array,tag,i,added);
+      showModal(array,tag,i);
     });
     if (modal) {
       square.addEventListener("click", () => {        
         let media = window.matchMedia("screen and (max-width: 550px)");
         if(media.matches){
-          showModal(array,tag, i,added);
+          showModal(array,tag, i);
         }
       });
     } else {      
       square.addEventListener("click", () => {                               
         if (square.offsetWidth < 200 && square.offsetWidth !=0) {          
-          showModal(array,tag ,i,added);
+          showModal(array,tag ,i);
         }
       });
     }
@@ -397,9 +395,8 @@ function addAndRemoveFavs(square,card,image,array, i, id) {
         }else{
           if(!global.favoritos.classList.contains("none")) location.reload();
         }
-      }else{
-        
-        if(!global.favoritos.classList.contains("none")) location.reload();
+      }else{        
+        location.reload();
       }
       console.log("Gif eliminado de favoritos");
       if(favs.length == 0 && !global.favoritos.classList.contains("none")){
@@ -411,6 +408,7 @@ function addAndRemoveFavs(square,card,image,array, i, id) {
       localStorage.setItem("favoritos", JSON.stringify(favs));
       if(image) image.setAttribute("src", "assets/icon-fav-active.svg");
       if(card) card.classList.add("favorite-added");
+      if(!square) location.reload()
       console.log("Gif agregado a favoritos");
       if (!global.favoritos.classList.contains("none")) {
         addFavorite();
@@ -422,6 +420,7 @@ function addAndRemoveFavs(square,card,image,array, i, id) {
     localStorage.setItem("favoritos", JSON.stringify(favs));
     if(image) image.setAttribute("src", "assets/icon-fav-active.svg");
     if(card) card.classList.add("favorite-added");
+    if(!square) location.reload()
     console.log("Gif agregado a favoritos");
     if (!global.favoritos.classList.contains("none")) {
       addFavorite();
@@ -429,7 +428,7 @@ function addAndRemoveFavs(square,card,image,array, i, id) {
   }
 }
 
-function showModal(array, tag, i, added) {
+function showModal(array, tag, i) {
   activeModalArray = array; 
   tagName = tag;   
   index = i;
@@ -438,6 +437,7 @@ function showModal(array, tag, i, added) {
   gif.setAttribute("class", "modal-gif");
   let div = document.createElement("div");
   div.setAttribute("class", "card-icons-max");
+  div.classList.add("favorite-added")  
   
   let divIconFav = document.createElement("div");
   divIconFav.setAttribute("class", "div-icons");
@@ -447,19 +447,12 @@ function showModal(array, tag, i, added) {
   divIconDownload.setAttribute("class", "div-icons");
   divIconDownload.addEventListener("click",()=>{
     downloadGif(array[i].images.original.url,array[i].title);
-  });
-  
-  let image1 = document.createElement("img");
-  if(added){
-    div.classList.add("favorite-added")  
-  }else{
-    image1.setAttribute("src", "assets/icon-fav.svg");
-  }
+  });  
+  let image1 = document.createElement("img");  
   image1.setAttribute("class", "icono");
   divIconFav.appendChild(image1);
   divIconFav.addEventListener("click", () => {
-    addAndRemoveFavs(null,null,image1,array, i,array[i].id);
-    div.classList.toggle("favorite-added")  
+    addAndRemoveFavs(null,null,null,array, i,array[i].id);    
   });
 
   let image2 = document.createElement("img");
